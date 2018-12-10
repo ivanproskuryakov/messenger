@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #212121;
+
+  #heading {
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-bottom: 1px solid #aaa;
+    background: #fff;
+    width: 100%;
+
+    .logo {
+      img {
+        height: 50px;
+      }
+    }
+  }
+
+  #layout {
+    display: flex;
+
+    #users {
+      border-right: 1px solid #aaa;
+      flex: 350px;
+      height: 100vh;
+
+      .content {
+        padding: 10px;
+        margin-top: 50px;
+      }
+    }
+    #conversation {
+      flex: 100%;
+      height: 100vh;
+
+      .content {
+        padding: 10px;
+        margin-top: 50px;
+      }
+    }
+  }
+}
