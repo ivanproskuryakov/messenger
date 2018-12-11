@@ -3,21 +3,6 @@ body {
   padding: 0;
   color: #212121;
 
-  #heading {
-    top: 0;
-    left: 0;
-    position: absolute;
-    border-bottom: 1px solid #aaa;
-    background: #fff;
-    width: 100%;
-
-    .logo {
-      img {
-        height: 50px;
-      }
-    }
-  }
-
   #layout {
     display: flex;
 

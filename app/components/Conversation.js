@@ -1,13 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Conversation = () => {
-  return (
-    <section id="conversation">
-      <div className="content">
-        conversation
-      </div>
-    </section>
-  );
+class Conversation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
+  render() {
+    const { name } = this.props;
+
+    return (
+
+      <section id="conversation">
+        <div className="content">
+          ... {name}
+        </div>
+      </section>
+    );
+  }
+}
+
+Conversation.propTypes = {
+  name: PropTypes.string.isRequired,
 };
 
 export default Conversation;
