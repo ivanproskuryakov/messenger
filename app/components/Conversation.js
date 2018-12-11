@@ -14,7 +14,7 @@ class Conversation extends React.Component {
 
       <section id="conversation">
         <div className="content">
-          ... {name}
+          conversations {name}
         </div>
       </section>
     );
