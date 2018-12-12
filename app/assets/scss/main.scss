@@ -5,31 +5,47 @@ body {
 
   #layout {
     display: flex;
-
-    #users {
-      border-right: 1px solid #aaa;
-      flex: 350px;
-      height: 100vh;
-      padding: 10px;
-    }
-    #conversation {
-      flex: 100%;
-      height: 100vh;
-      padding: 10px;
-    }
   }
 
   .user {
     margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #aaa;
-    background: #f1f1f1;
-    border-radius: 2px;
-    cursor: pointer;
 
     .name {
       color: #092aaa;
       text-decoration: underline;
+    }
+  }
+
+  #users {
+    border-right: 1px solid #aaa;
+    flex: 350px;
+    height: 100vh;
+    overflow: scroll;
+
+    .content {
+      padding: 10px;
+    }
+  }
+
+  #conversation {
+    flex: 100%;
+    height: 100vh;
+    position: relative;
+
+    .content {
+      padding: 10px;
+    }
+    #write-message {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-top: 1px solid #aaa;
+      padding: 10px;
+
+      #send-message {
+        float: right;
+      }
     }
   }
 }

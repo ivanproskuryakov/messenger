@@ -1,5 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
 
 class Conversation extends React.Component {
   constructor(props) {
@@ -8,13 +19,26 @@ class Conversation extends React.Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { classes } = this.props;
 
     return (
-
       <section id="conversation">
         <div className="content">
-          conversations {name}
+          <div id="write-message">
+            <input
+              accept="image/*"
+              className={classes.input}
+              id="flat-button-file"
+              multiple
+              type="file"
+            />
+            <Button component="span" className={classes.button}>
+              Upload
+            </Button>
+            <Button id="send-message" variant="contained" color="primary" className={classes.button}>
+              Send
+            </Button>
+          </div>
         </div>
       </section>
     );
@@ -22,7 +46,7 @@ class Conversation extends React.Component {
 }
 
 Conversation.propTypes = {
-  name: PropTypes.string.isRequired,
+  classes: PropTypes.func.isRequired,
 };
 
-export default Conversation;
+export default withStyles(styles)(Conversation);

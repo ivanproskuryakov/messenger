@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import User from './User';
+
+const styles = theme => ({
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+});
 
 class Users extends React.Component {
   constructor(props) {
@@ -21,15 +30,22 @@ class Users extends React.Component {
   };
 
   render() {
-    const { name } = this.props;
+    const { name, classes } = this.props;
     const { users } = this.state;
     return (
       <aside id="users">
-        {name}
-        <br />
-        {users.map(user => (
-          <User name={user.name} />
-        ))}
+        <div className="content">
+          <TextField
+            id="outlined-name"
+            label={name}
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+          />
+          {users.map(user => (
+            <User name={user.name} />
+          ))}
+        </div>
       </aside>
     );
   }
@@ -37,7 +53,7 @@ class Users extends React.Component {
 
 Users.propTypes = {
   name: PropTypes.string.isRequired,
+  classes: PropTypes.func.isRequired,
 };
 
-export default Users;
-
+export default withStyles(styles)(Users);

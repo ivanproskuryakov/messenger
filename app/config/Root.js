@@ -9,8 +9,8 @@ class Root extends React.Component {
     return (
       <Router>
         <div id="layout">
-          <Users name="Users" />
-          <Conversation name="Sara" />
+          <Users name="Search" />
+          <Conversation name="Talk" />
         </div>
       </Router>
     );
