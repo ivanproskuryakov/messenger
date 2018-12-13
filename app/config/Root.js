@@ -12,7 +12,7 @@ class Root extends React.Component {
         <Router>
           <div id="layout">
             <Users />
-            <Conversation name="Talk" />
+            <Conversation />s
           </div>
         </Router>
       </React.Fragment>

@@ -1,26 +1,42 @@
 [
   {
-    "name": "User A"
+    "id": 1,
+    "name": "User A",
+    "photo": "https://picsum.photos/200/200/?image=1001"
   },
   {
-    "name": "User B"
+    "id": 2,
+    "name": "User B",
+    "photo": "https://picsum.photos/200/200/?image=1002"
   },
   {
-    "name": "User C"
+    "id": 3,
+    "name": "User C",
+    "photo": "https://picsum.photos/200/200/?image=1003"
   },
   {
-    "name": "User D"
+    "id": 4,
+    "name": "User D",
+    "photo": "https://picsum.photos/200/200/?image=1004"
   },
   {
-    "name": "User E"
+    "id": 5,
+    "name": "User E",
+    "photo": "https://picsum.photos/200/200/?image=1005"
   },
   {
-    "name": "User F"
+    "id": 6,
+    "name": "User F",
+    "photo": "https://picsum.photos/200/200/?image=1006"
   },
   {
-    "name": "User G"
+    "id": 7,
+    "name": "User G",
+    "photo": "https://picsum.photos/200/200/?image=1008"
   },
   {
-    "name": "User H"
+    "id": 8,
+    "name": "User H",
+    "photo": "https://picsum.photos/200/200/?image=1009"
   }
 ]

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Avatar from '@material-ui/core/Avatar';
+import { Link } from 'react-router-dom';
 
 const styles = ({
-  bigAvatar: {
-    margin: 5,
+  avatar: {
+    margin: 0,
     width: 60,
     height: 60,
   },
@@ -16,12 +17,12 @@ class User extends React.Component {
   render() {
     const { user, classes } = this.props;
     return (
-      <ListItem button>
+      <ListItem button className="user" component={Link} to={`/messages/${user.id}`}>
         <Avatar
-          src="/static/images/avatar/1.jpg"
-          className={classes.bigAvatar}
+          src={user.photo}
+          className={classes.avatar}
         />
-        {user.name}
+        <span className="name">{user.name}</span>
       </ListItem>
     );
   }
@@ -29,13 +30,17 @@ class User extends React.Component {
 
 User.defaultProps = {
   user: {
+    id: 0,
     name: '',
+    photo: '',
   },
 };
 
 User.propTypes = {
   user: PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
+    photo: PropTypes.string,
   }),
   classes: PropTypes.func.isRequired,
 };

@@ -3,4 +3,12 @@
   flex: 380px;
   height: 100vh;
   overflow: scroll;
+
+  .user {
+    padding: 10px;
+
+    .name {
+      padding-left: 10px;
+    }
+  }
 }

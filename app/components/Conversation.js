@@ -19,13 +19,14 @@ class Conversation extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     const { classes } = this.props;
 
     return (
       <section id="conversation">
         <div className="heading">
           <div className="name">
-            ...
+            ......
           </div>
         </div>
         <div id="write-message">
