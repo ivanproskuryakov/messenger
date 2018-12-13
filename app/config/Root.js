@@ -1,18 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Users from '../components/Users';
 import Conversation from '../components/Conversation';
 
 class Root extends React.Component {
   render() {
     return (
-      <Router>
-        <div id="layout">
-          <Users name="Search" />
-          <Conversation name="Talk" />
-        </div>
-      </Router>
+      <React.Fragment>
+        <CssBaseline />
+        <Router>
+          <div id="layout">
+            <Users />
+            <Conversation name="Talk" />
+          </div>
+        </Router>
+      </React.Fragment>
     );
   }
 }

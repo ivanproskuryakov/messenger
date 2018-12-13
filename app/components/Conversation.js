@@ -23,22 +23,25 @@ class Conversation extends React.Component {
 
     return (
       <section id="conversation">
-        <div className="content">
-          <div id="write-message">
-            <input
-              accept="image/*"
-              className={classes.input}
-              id="flat-button-file"
-              multiple
-              type="file"
-            />
-            <Button component="span" className={classes.button}>
-              Upload
-            </Button>
-            <Button id="send-message" variant="contained" color="primary" className={classes.button}>
-              Send
-            </Button>
+        <div className="heading">
+          <div className="name">
+            ...
           </div>
+        </div>
+        <div id="write-message">
+          <input
+            accept="image/*"
+            className={classes.input}
+            id="flat-button-file"
+            multiple
+            type="file"
+          />
+          <Button component="span" className={classes.button}>
+            Upload
+          </Button>
+          <Button id="send-message" variant="contained" color="primary" className={classes.button}>
+            Send
+          </Button>
         </div>
       </section>
     );

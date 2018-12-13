@@ -1,52 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import ListItem from '@material-ui/core/ListItem/ListItem';
+import Avatar from '@material-ui/core/Avatar';
 
-const styles = {
-  card: {
-    maxWidth: 345,
+const styles = ({
+  bigAvatar: {
+    margin: 5,
+    width: 60,
+    height: 60,
   },
-  media: {
-    height: 140,
-  },
-};
+});
 
 class User extends React.Component {
   render() {
-    const { name, classes } = this.props;
+    const { user, classes } = this.props;
     return (
-      <div className="user">
-        <Card className={classes.card}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image="/static/images/cards/contemplative-reptile.jpg"
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {name}
-              </Typography>
-              <Typography component="p">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </div>
+      <ListItem button>
+        <Avatar
+          src="/static/images/avatar/1.jpg"
+          className={classes.bigAvatar}
+        />
+        {user.name}
+      </ListItem>
     );
   }
 }
 
+User.defaultProps = {
+  user: {
+    name: '',
+  },
+};
+
 User.propTypes = {
-  name: PropTypes.string.isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   classes: PropTypes.func.isRequired,
 };
 

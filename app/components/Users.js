@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import List from '@material-ui/core/List';
 import User from './User';
 
-const styles = theme => ({
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+const styles = ({
+  root: {
+    padding: 0,
+    margin: 0,
   },
 });
 
@@ -30,29 +30,22 @@ class Users extends React.Component {
   };
 
   render() {
-    const { name, classes } = this.props;
+    const { classes } = this.props;
     const { users } = this.state;
+
     return (
       <aside id="users">
-        <div className="content">
-          <TextField
-            id="outlined-name"
-            label={name}
-            className={classes.textField}
-            margin="normal"
-            variant="outlined"
-          />
+        <List component="nav" className={classes.root}>
           {users.map(user => (
-            <User name={user.name} />
+            <User user={user} key={user.name} />
           ))}
-        </div>
+        </List>
       </aside>
     );
   }
 }
 
 Users.propTypes = {
-  name: PropTypes.string.isRequired,
   classes: PropTypes.func.isRequired,
 };
 
