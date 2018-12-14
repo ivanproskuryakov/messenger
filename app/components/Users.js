@@ -24,7 +24,7 @@ class Users extends React.Component {
   }
 
   fetchUsers = () => {
-    fetch('/api/conversation.json')
+    fetch('/api/users.json')
       .then(response => response.json())
       .then(data => this.setState({ users: data }));
   };
@@ -32,7 +32,6 @@ class Users extends React.Component {
   render() {
     const { classes } = this.props;
     const { users } = this.state;
-
     return (
       <aside id="users">
         <List component="nav" className={classes.root}>
@@ -46,7 +45,7 @@ class Users extends React.Component {
 }
 
 Users.propTypes = {
-  classes: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Users);

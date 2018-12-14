@@ -28,21 +28,13 @@ class User extends React.Component {
   }
 }
 
-User.defaultProps = {
-  user: {
-    id: 0,
-    name: '',
-    photo: '',
-  },
-};
-
 User.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,
-  }),
-  classes: PropTypes.func.isRequired,
+  }).isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(User);

@@ -15,6 +15,7 @@
   },
   "rules": {
     "space-before-function-paren": "off",
+    "react/forbid-prop-types": "off",
     "react/prefer-stateless-function": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
