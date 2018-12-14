@@ -3,11 +3,18 @@
   height: 100vh;
   position: relative;
   background: #fff;
+  overflow: scroll;
 
   .heading {
     padding: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, .10);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+
     .name {
       flex: 1;
       margin-left: 15px;
@@ -18,7 +25,7 @@
   }
 
   #messages {
-    margin-top: 15px;
+    margin-top: 85px;
 
     .message {
       margin: 5px 18px;
@@ -29,45 +36,57 @@
       .user {
       }
       .text {
-        background: #f1f0f0;
-        border-radius: 7px;
+        background: #f1f1f4;
+        border-radius: 10px;
         margin-left: 10px;
-        padding: 6px 12px;
+        padding: 10px 12px;
+        color: #2b2c33;
+        border-top-left-radius: 0;
       }
     }
   }
 
   #messageWrite {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    background: #fff;
 
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-      border: none;
-      border-radius: 3px;
-      resize: none;
-      line-height: 24px;
-      overflow: auto;
-      height: auto;
-      font-size: 16px;
-      padding-left: 45px;
-    }
-    #buttonUpload {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-    }
-    #buttonSend {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 1;
+    .messageContainer {
+      margin: 0 0 10px 52px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 3px;
+        background: #f1f1f1;
+        resize: none;
+        line-height: 24px;
+        overflow: auto;
+        height: auto;
+        font-size: 16px;
+        padding: 20px;
+        padding-left: 60px;
+      }
+      #buttonUpload {
+        position: absolute;
+        bottom: 0;
+        right: 55px;
+        z-index: 1;
+      }
+      #buttonSend {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
     }
   }
 }
