@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import IconButton from '@material-ui/core/IconButton';
+import AttachFile from '@material-ui/icons/AttachFile';
+import Send from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import ResizableTextArea from '../ResizableTextarea';
 
 const styles = theme => ({
@@ -24,16 +26,13 @@ class Write extends React.Component {
 
     return (
       <div id="message-write">
-        <input
-          accept="image/*"
-          className={classes.input}
-          id="flat-button-file"
-          multiple
-          type="file"
-        />
-        <Button id="button-send" variant="contained" color="primary" className={classes.button}>
-          Send
-        </Button>
+        <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+        <IconButton id="button-upload" color="default" className={classes.button} component="span">
+          <AttachFile />
+        </IconButton>
+        <IconButton id="button-send" color="default" className={classes.button} component="span">
+          <Send />
+        </IconButton>
         <ResizableTextArea />
       </div>
     );

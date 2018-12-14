@@ -1,7 +1,7 @@
 import React from 'react';
+import Avatar from '@material-ui/core/Avatar/Avatar';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar/Avatar';
 
 const styles = ({
   avatar: {
@@ -11,28 +11,26 @@ const styles = ({
   },
 });
 
-class Message extends React.Component {
+class Heading extends React.Component {
   render() {
-    const { message, classes } = this.props;
+    const { id, classes } = this.props;
     return (
-      <div className="message">
+      <div className="heading">
         <Avatar
           src=""
           className={`user ${classes.avatar}`}
         />
-        <div className="text">
-          {message.text}
+        <div className="name">
+          {id}
         </div>
       </div>
     );
   }
 }
 
-Message.propTypes = {
-  message: PropTypes.shape({
-    text: PropTypes.string,
-  }).isRequired,
+Heading.propTypes = {
+  id: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Message);
+export default withStyles(styles)(Heading);

@@ -5,20 +5,39 @@
   background: #fff;
 
   .heading {
-    padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, .10);
-  }
-  .message {
     padding: 15px;
-    margin: 15px;
-    background: #434eb3;
-    border-radius: 3px;
-    color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .10);
+    display: flex;
+    .name {
+      flex: 1;
+      margin-left: 15px;
+      margin-top: 11px;
+    }
+  }
+
+  #messages {
+    margin-top: 15px;
+
+    .message {
+      margin: 5px 18px;
+      color: black;
+      font-size: 14px;
+      display: flex;
+
+      .user {
+      }
+      .text {
+        background: #f1f0f0;
+        border-radius: 7px;
+        margin-left: 10px;
+        padding: 6px 12px;
+      }
+    }
   }
 
   #message-write {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 15px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,15 +49,22 @@
       border: none;
       border-radius: 3px;
       resize: none;
-      font-size: 20px;
       line-height: 24px;
       overflow: auto;
       height: auto;
+      font-size: 16px;
+      padding-left: 45px;
+    }
+    #button-upload {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
     }
     #button-send {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      bottom: 0;
+      right: 0;
       z-index: 1;
     }
   }
