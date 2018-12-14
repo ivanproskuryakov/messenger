@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'react-moment';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Avatar from '@material-ui/core/Avatar';
@@ -15,14 +16,26 @@ const styles = ({
 
 class User extends React.Component {
   render() {
+    const date = new Date();
     const { user, classes } = this.props;
+    const calendarStrings = {
+      lastDay: '[Yesterday at] LT',
+      sameDay: 'LT',
+      lastWeek: '[last] dddd [at] LT',
+      nextWeek: 'dddd [at] LT',
+      sameElse: 'L',
+    };
     return (
       <ListItem button className="user" component={Link} to={`/messages/${user.id}`}>
         <Avatar
           src={user.photo}
-          className={classes.avatar}
+          className={`avatar ${classes.avatar}`}
         />
-        <span className="name">{user.name}</span>
+        <Moment calendar={calendarStrings} date={date} />
+        <div className="details">
+          <p className="name">{user.name}</p>
+          <p className="lastMessage">{user.lastMessage}</p>
+        </div>
       </ListItem>
     );
   }
@@ -33,6 +46,7 @@ User.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,
+    lastMessage: PropTypes.string,
   }).isRequired,
   classes: PropTypes.object.isRequired,
 };

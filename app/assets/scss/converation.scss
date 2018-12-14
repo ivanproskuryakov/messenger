@@ -12,6 +12,8 @@
       flex: 1;
       margin-left: 15px;
       margin-top: 11px;
+      font-weight: 600;
+      color: #2b2c33;
     }
   }
 
@@ -35,7 +37,7 @@
     }
   }
 
-  #message-write {
+  #messageWrite {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 15px;
     position: absolute;
@@ -55,13 +57,13 @@
       font-size: 16px;
       padding-left: 45px;
     }
-    #button-upload {
+    #buttonUpload {
       position: absolute;
       bottom: 0;
       left: 0;
       z-index: 1;
     }
-    #button-send {
+    #buttonSend {
       position: absolute;
       bottom: 0;
       right: 0;

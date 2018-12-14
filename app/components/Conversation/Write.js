@@ -25,12 +25,12 @@ class Write extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div id="message-write">
+      <div id="messageWrite">
         <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-        <IconButton id="button-upload" color="default" className={classes.button} component="span">
+        <IconButton id="buttonUpload" color="default" className={classes.button} component="span">
           <AttachFile />
         </IconButton>
-        <IconButton id="button-send" color="default" className={classes.button} component="span">
+        <IconButton id="buttonSend" color="default" className={classes.button} component="span">
           <Send />
         </IconButton>
         <ResizableTextArea />

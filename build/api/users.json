@@ -2,41 +2,49 @@
   {
     "id": 1,
     "name": "User A",
-    "photo": "https://picsum.photos/200/200/?image=1001"
+    "photo": "https://picsum.photos/200/200/?image=1001",
+    "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 2,
     "name": "User B",
-    "photo": "https://picsum.photos/200/200/?image=1002"
+    "photo": "https://picsum.photos/200/200/?image=1002",
+    "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 3,
     "name": "User C",
-    "photo": "https://picsum.photos/200/200/?image=1003"
+    "photo": "https://picsum.photos/200/200/?image=1003",
+    "lastMessage": "ona que se dedica a la imprenta) descon"
   },
   {
     "id": 4,
     "name": "User D",
-    "photo": "https://picsum.photos/200/200/?image=1004"
+    "photo": "https://picsum.photos/200/200/?image=1004",
+    "lastMessage": "an pasajes de Lorem Ipsum, y más r"
   },
   {
     "id": 5,
     "name": "User E",
-    "photo": "https://picsum.photos/200/200/?image=1005"
+    "photo": "https://picsum.photos/200/200/?image=1005",
+    "lastMessage": "a del Latin, que data del año 45 antes de C"
   },
   {
     "id": 6,
     "name": "User F",
-    "photo": "https://picsum.photos/200/200/?image=1006"
+    "photo": "https://picsum.photos/200/200/?image=1006",
+    "lastMessage": "0 palabras provenientes del latín, combinadas c"
   },
   {
     "id": 7,
     "name": "User G",
-    "photo": "https://picsum.photos/200/200/?image=1008"
+    "photo": "https://picsum.photos/200/200/?image=1008",
+    "lastMessage": "stará libre de repeticiones, humor agregado o pa"
   },
   {
     "id": 8,
     "name": "User H",
-    "photo": "https://picsum.photos/200/200/?image=1009"
+    "photo": "https://picsum.photos/200/200/?image=1009",
+    "lastMessage": "a long established fact that a reader"
   }
 ]

@@ -3,13 +3,33 @@
   flex: 380px;
   height: 100vh;
   overflow: scroll;
-  background: #fefefe;
+  background: #f1f1f4;
 
   .user {
     padding: 10px;
-
-    .name {
+    .avatar {
+    }
+    time {
+      position: absolute;
+      color: #8a8d91;
+      right: 10px;
+      top: 10px;
+      font-size: 11px;
+    }
+    .details {
       padding-left: 10px;
+      overflow: hidden;
+
+      .name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #2b2c33;
+      }
+      .lastMessage{
+        font-size: 14px;
+        color: #8a8d91;
+        width: 1000px;
+      }
     }
   }
 }
