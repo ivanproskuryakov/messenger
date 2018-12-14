@@ -1,17 +1,39 @@
 #messages {
   margin-top: 85px;
+  margin-bottom: 120px;
 
   .message {
     margin: 5px 18px;
     color: black;
     font-size: 14px;
     display: flex;
-    .user {
-    }
 
     .details {
       margin-left: 10px;
 
+      .info {
+        display: inline-block;
+        font-size: 12px;
+        color: #8a8d91;
+      }
+      .text {
+        background: #f1f1f4;
+        padding: 10px 12px;
+        color: #2b2c33;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
+  .messageMy {
+    margin: 5px 18px;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .details {
       .info {
         display: inline-block;
         font-size: 12px;

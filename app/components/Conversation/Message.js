@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
+import calendarStrings from '../../helper/App';
 
 const styles = ({
   avatar: {
@@ -15,17 +16,10 @@ const styles = ({
 class Message extends React.Component {
   render() {
     const { message, classes } = this.props;
-    const calendarStrings = {
-      lastDay: '[Yesterday at] LT',
-      sameDay: 'LT',
-      lastWeek: '[last] dddd [at] LT',
-      nextWeek: 'dddd [at] LT',
-      sameElse: 'L',
-    };
     return (
       <div className="message">
         <Avatar
-          src=""
+          src="https://picsum.photos/200/200/?image=1001"
           className={`user ${classes.avatar}`}
         />
         <div className="details">
