@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Users from '../components/Users';
+import Users from '../components/User/Users';
 import Messages from '../components/Conversation/Messages';
 
 class Root extends React.Component {

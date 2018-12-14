@@ -1,6 +1,8 @@
 @import "converation";
 @import "users";
 
+textarea, select, input, button { outline: none; }
+
 body {
   margin: 0;
   padding: 0;

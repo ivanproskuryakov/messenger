@@ -1,8 +1,9 @@
 #users {
-  border-right: 1px solid #aaa;
+  border-right: 1px solid rgba(0, 0, 0, .10);
   flex: 380px;
   height: 100vh;
   overflow: scroll;
+  background: #eee;
 
   .user {
     padding: 10px;

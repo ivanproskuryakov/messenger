@@ -14,6 +14,7 @@
     "es6": true
   },
   "rules": {
+    "no-param-reassign": "off",
     "space-before-function-paren": "off",
     "react/forbid-prop-types": "off",
     "react/prefer-stateless-function": "warn",
