@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
+import Face from '@material-ui/icons/Face';
 import AttachFile from '@material-ui/icons/AttachFile';
 import Send from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/core/styles';
@@ -28,6 +29,9 @@ class Write extends React.Component {
       <div id="messageWrite">
         <div className="messageContainer">
           <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+          <IconButton id="buttonEmoji" color="default" className={classes.button} component="span">
+            <Face />
+          </IconButton>
           <IconButton id="buttonUpload" color="default" className={classes.button} component="span">
             <AttachFile />
           </IconButton>

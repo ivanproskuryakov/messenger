@@ -1,0 +1,49 @@
+#messageWrite {
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  width: calc(100% - 301px);
+
+  .messageContainer {
+    margin: 0 0 10px 52px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 3px;
+      background: #f1f1f1;
+      resize: none;
+      line-height: 24px;
+      overflow: auto;
+      height: auto;
+      font-size: 16px;
+      padding: 20px;
+      padding-left: 60px;
+    }
+    #buttonEmoji {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      z-index: 1;
+    }
+    #buttonUpload {
+      position: absolute;
+      top: 1px;
+      right: 55px;
+      z-index: 1;
+    }
+    #buttonSend {
+      position: absolute;
+      top: 1px;
+      right: 0;
+      z-index: 1;
+    }
+  }
+}
