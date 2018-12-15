@@ -2,7 +2,7 @@
   {
     "id": 1,
     "timestamp": 1544802050823,
-    "text": "a long established fact that a reader",
+    "text": "a long established fact that a reader .",
     "user": {
       "id": 1
     }
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "timestamp": 1544802050723,
-    "text": "sum has been the industry's standar",
+    "text": "sum has been the industry's standar ..",
     "user": {
       "id": 1
     }
@@ -26,15 +26,15 @@
   {
     "id": 3,
     "timestamp": 1544802050523,
-    "text": "a long established fact that a reader",
+    "text": "a long established fact that a reader ...",
     "user": {
-      "id": 1
+      "id": 2
     }
   },
   {
     "id": 4,
     "timestamp": 1544802050423,
-    "text": "sum has been the industry's standar",
+    "text": "sum has been the industry's standar ....",
     "user": {
       "id": 1
     }
@@ -58,7 +58,7 @@
   {
     "id": 7,
     "timestamp": 1544802050123,
-    "text": "sum has been the industry's standar",
+    "text": "sum has been standar",
     "user": {
       "id": 1
     }
@@ -74,7 +74,7 @@
   {
     "id": 9,
     "timestamp": 1544802040823,
-    "text": "a long established fact that a reader",
+    "text": "a long established ",
     "user": {
       "id": 1
     }
@@ -82,7 +82,15 @@
   {
     "id": 10,
     "timestamp": 1544802030823,
-    "text": "sum has been the industry's standar",
+    "text": "sum has been the ",
+    "user": {
+      "id": 1
+    }
+  },
+  {
+    "id": 10,
+    "timestamp": 1544802030823,
+    "text": "sum has",
     "user": {
       "id": 1
     }

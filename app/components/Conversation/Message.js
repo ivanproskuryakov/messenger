@@ -16,16 +16,27 @@ const styles = ({
 class Message extends React.Component {
   render() {
     const { message, classes } = this.props;
-    return (
-      <div className="message">
-        <Avatar
-          src="https://picsum.photos/200/200/?image=1001"
-          className={`user ${classes.avatar}`}
-        />
-        <div className="details">
-          <div className="info">
-            {message.user.id}, <Moment calendar={calendarStrings} date={message.timestamp} />
+    if (message.isFirst) {
+      return (
+        <div className={`message ${message.classes}`}>
+          <Avatar
+            src="https://picsum.photos/200/200/?image=1001"
+            className={`user ${classes.avatar}`}
+          />
+          <div className="details">
+            <div className="info">
+              <Moment calendar={calendarStrings} date={message.timestamp} />
+            </div>
+            <div className="text">
+              {message.text}
+            </div>
           </div>
+        </div>
+      );
+    }
+    return (
+      <div className={`message __noAvatar ${message.classes}`}>
+        <div className="details">
           <div className="text">
             {message.text}
           </div>

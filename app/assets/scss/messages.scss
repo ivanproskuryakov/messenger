@@ -3,9 +3,8 @@
   margin-bottom: 120px;
 
   .message {
-    margin: 5px 18px;
+    margin: 1px 18px;
     color: black;
-    font-size: 14px;
     display: flex;
 
     .details {
@@ -17,17 +16,48 @@
         color: #8a8d91;
       }
       .text {
-        background: #f1f1f4;
-        padding: 10px 12px;
-        color: #2b2c33;
-        border-radius: 10px;
-        border-top-left-radius: 0;
+        font-size: 14px;
+        background: #2d7cc1;
+        color: #fff;
+        padding: 12px 15px;
+        border-radius: 15px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+    }
+    &.__first__last {
+      .details {
+        .text {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 15px;
+        }
+      }
+    }
+    &.__first {
+      .details {
+        .text {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+        }
+      }
+    }
+    &.__last {
+      .details {
+        .text {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 15px;
+        }
+      }
+    }
+    &.__noAvatar{
+      .details {
+        margin-left: 50px;
       }
     }
   }
 
   .messageMy {
-    margin: 5px 18px;
+    margin: 1px 25px;
     font-size: 14px;
     color: black;
     display: flex;
@@ -38,13 +68,41 @@
         display: inline-block;
         font-size: 12px;
         color: #8a8d91;
+        width: 100%;
+        text-align: right;
       }
       .text {
         background: #f1f1f4;
-        padding: 10px 12px;
         color: #2b2c33;
-        border-radius: 10px;
-        border-top-left-radius: 0;
+        font-size: 14px;
+        padding: 12px 15px;
+        border-radius: 15px;
+        border-bottom-right-radius: 2px;
+      }
+    }
+
+    &.__first__last {
+      .details {
+        .text {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+    &.__first {
+      .details {
+        .text {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+    }
+    &.__last {
+      .details {
+        .text {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 15px;
+        }
       }
     }
   }

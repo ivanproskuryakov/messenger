@@ -6,12 +6,23 @@ import calendarStrings from '../../helper/App';
 class Message extends React.Component {
   render() {
     const { message } = this.props;
-    return (
-      <div className="messageMy">
-        <div className="details">
-          <div className="info">
-            <Moment calendar={calendarStrings} date={message.timestamp} />
+    if (message.isFirst) {
+      return (
+        <div className={`messageMy ${message.classes}`}>
+          <div className="details">
+            <div className="info">
+              <Moment calendar={calendarStrings} date={message.timestamp} />
+            </div>
+            <div className="text">
+              {message.text}
+            </div>
           </div>
+        </div>
+      );
+    }
+    return (
+      <div className={`messageMy ${message.classes}`}>
+        <div className="details">
           <div className="text">
             {message.text}
           </div>
