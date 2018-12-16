@@ -2,73 +2,73 @@
   {
     "id": 1,
     "name": "Aristotle",
-    "photo": "https://picsum.photos/200/200/?image=1001",
+    "photo": "/user/1.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 2,
     "name": "Immanuel Kant",
-    "photo": "https://picsum.photos/200/200/?image=1002",
+    "photo": "/user/2.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 3,
     "name": "Plato",
-    "photo": "https://picsum.photos/200/200/?image=1003",
+    "photo": "/user/3.jpg",
     "lastMessage": "ona que se dedica a la imprenta) descon"
   },
   {
     "id": 4,
     "name": "Confucius",
-    "photo": "https://picsum.photos/200/200/?image=1004",
+    "photo": "/user/4.jpg",
     "lastMessage": "an pasajes de Lorem Ipsum, y más r"
   },
   {
     "id": 5,
     "name": "David Hume",
-    "photo": "https://picsum.photos/200/200/?image=1005",
+    "photo": "/user/5.jpg",
     "lastMessage": "a del Latin, que data del año 45 antes de C"
   },
   {
     "id": 6,
     "name": "Rene Descartes",
-    "photo": "https://picsum.photos/200/200/?image=1006",
+    "photo": "/user/6.jpg",
     "lastMessage": "0 palabras provenientes del latín, combinadas c"
   },
   {
     "id": 7,
     "name": "Socrates",
-    "photo": "https://picsum.photos/200/200/?image=1008",
+    "photo": "/user/7.jpg",
     "lastMessage": "stará libre de repeticiones, humor agregado o pa"
   },
   {
     "id": 8,
     "name": "Niccolo Machiavelli",
-    "photo": "https://picsum.photos/200/200/?image=911",
+    "photo": "/user/8.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 9,
     "name": "John Locke",
-    "photo": "https://picsum.photos/200/200/?image=912",
+    "photo": "/user/9.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 10,
     "name": "Diogenes of Sinope",
-    "photo": "https://picsum.photos/200/200/?image=913",
+    "photo": "/user/10.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 11,
-    "name": "Thomas Aquinas",
-    "photo": "https://picsum.photos/200/200/?image=914",
+    "name": "Laozi",
+    "photo": "/user/11.jpg",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 12,
-    "name": "Laozi",
-    "photo": "https://picsum.photos/200/200/?image=919",
+    "name": "Baruch Spinoza",
+    "photo": "/user/12.jpg",
     "lastMessage": "a long established fact that a reader"
   }
 ]

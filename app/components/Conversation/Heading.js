@@ -17,11 +17,11 @@ class Heading extends React.Component {
     return (
       <div className="heading">
         <Avatar
-          src="https://picsum.photos/200/200/?image=1001"
+          src="/user/10.jpg"
           className={`user ${classes.avatar}`}
         />
         <div className="name">
-          Username A, {id}
+          Diogenes of Sinope, {id}
         </div>
       </div>
     );

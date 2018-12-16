@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Search from '@material-ui/icons/Search';
 
 const styles = ({
 });
@@ -8,7 +9,10 @@ class Heading extends React.Component {
   render() {
     return (
       <div className="heading">
-        <input className="search" type="text" placeholder="Search by name" />
+        <div className="search">
+          <Search className="searchIcon" />
+          <input className="searchInput" type="text" placeholder="Search by name" />
+        </div>
       </div>
     );
   }
