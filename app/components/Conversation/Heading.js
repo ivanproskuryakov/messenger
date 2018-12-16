@@ -6,8 +6,8 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = ({
   avatar: {
     margin: 0,
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
   },
 });
 

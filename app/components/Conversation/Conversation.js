@@ -32,6 +32,10 @@ class Conversation extends React.Component {
       m.isLast = false;
       m.my = myUserId === messages[i].user.id;
 
+      if (i === 0) {
+        m.classes += '__initial';
+        m.isFirst = true;
+      }
       if (messages[i - 1]) {
         if (messages[i - 1].user.id !== m.user.id) {
           m.isFirst = true;

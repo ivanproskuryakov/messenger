@@ -2,44 +2,65 @@
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   width: 350px;
   height: 100vh;
-  overflow: scroll;
-  background: #f1f1f4;
 
-  .userItem {
-    border-right: 3px solid transparent;
-    &:hover {
-      border-right: 3px solid #ccc;
-      background: rgba(0, 0, 0, 0.08);
+  .heading {
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 50px;
+    background: #f1f1f4;
+
+    .search {
+      background: #fff;
+      padding: 8px;
+      border: 1px solid #ddd;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #666;
     }
-    &.__active {
-      border-right: 3px solid #ccc;
-      background: rgba(0, 0, 0, 0.08);
-    }
-    .user {
-      padding: 10px;
+  }
+  .items {
+    overflow: scroll;
+    background: #f1f1f4;
+    height: calc(100% - 71px);
 
-      .avatar {
+    .userItem {
+      border-right: 3px solid transparent;
+      &:hover {
+        border-right: 3px solid #ccc;
+        background: rgba(0, 0, 0, 0.08);
       }
-      time {
-        position: absolute;
-        color: #8a8d91;
-        right: 10px;
-        top: 10px;
-        font-size: 11px;
+      &.__active {
+        border-right: 3px solid #ccc;
+        background: rgba(0, 0, 0, 0.08);
       }
-      .details {
-        padding-left: 10px;
-        overflow: hidden;
+      .user {
+        padding: 10px;
 
-        .name {
-          font-size: 15px;
-          font-weight: 600;
-          color: #2b2c33;
+        .avatar {
         }
-        .lastMessage{
-          font-size: 14px;
+        time {
+          position: absolute;
           color: #8a8d91;
-          width: 1000px;
+          right: 10px;
+          top: 10px;
+          font-size: 11px;
+        }
+        .details {
+          padding-left: 10px;
+          overflow: hidden;
+
+          .name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #43444f;
+          }
+          .lastMessage{
+            font-size: 14px;
+            color: #8a8d91;
+            width: 1000px;
+          }
         }
       }
     }

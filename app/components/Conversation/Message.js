@@ -8,8 +8,8 @@ import calendarStrings from '../../helper/App';
 const styles = ({
   avatar: {
     margin: 0,
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
   },
 });
 

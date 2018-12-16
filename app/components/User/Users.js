@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import User from './User';
+import Heading from './Heading';
 
 const styles = ({
   List: {
@@ -47,20 +48,23 @@ class Users extends React.Component {
     const { users, selectedIndex } = this.state;
     return (
       <aside id="users">
-        <List component="nav" className={classes.List}>
-          {users.map(user => (
-            <ListItem
-              key={user.name}
-              button
-              onClick={event => this.handleListItemClick(event, user.id)}
-              className={`userItem ${selectedIndex === user.id ? '__active' : ''} ${classes.ListItem}`}
-            >
-              <User
-                user={user}
-              />
-            </ListItem>
-          ))}
-        </List>
+        <Heading />
+        <div className="items">
+          <List component="nav" className={classes.List}>
+            {users.map(user => (
+              <ListItem
+                key={user.name}
+                button
+                onClick={event => this.handleListItemClick(event, user.id)}
+                className={`userItem ${selectedIndex === user.id ? '__active' : ''} ${classes.ListItem}`}
+              >
+                <User
+                  user={user}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </div>
       </aside>
     );
   }
