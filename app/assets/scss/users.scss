@@ -5,32 +5,44 @@
   overflow: scroll;
   background: #f1f1f4;
 
-  .user {
-    padding: 10px;
-
-    .avatar {
+  .userItem {
+    border-right: 3px solid transparent;
+    &:hover {
+      border-right: 3px solid #ccc;
+      background: rgba(0, 0, 0, 0.08);
     }
-    time {
-      position: absolute;
-      color: #8a8d91;
-      right: 10px;
-      top: 10px;
-      font-size: 11px;
+    &.__active {
+      border-right: 3px solid #ccc;
+      background: rgba(0, 0, 0, 0.08);
     }
-    .details {
-      padding-left: 10px;
-      overflow: hidden;
+    .user {
+      padding: 10px;
 
-      .name {
-        font-size: 15px;
-        font-weight: 600;
-        color: #2b2c33;
+      .avatar {
       }
-      .lastMessage{
-        font-size: 14px;
+      time {
+        position: absolute;
         color: #8a8d91;
-        width: 1000px;
+        right: 10px;
+        top: 10px;
+        font-size: 11px;
+      }
+      .details {
+        padding-left: 10px;
+        overflow: hidden;
+
+        .name {
+          font-size: 15px;
+          font-weight: 600;
+          color: #2b2c33;
+        }
+        .lastMessage{
+          font-size: 14px;
+          color: #8a8d91;
+          width: 1000px;
+        }
       }
     }
   }
+
 }

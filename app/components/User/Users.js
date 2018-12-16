@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import User from './User';
 
 const styles = ({
-  root: {
+  List: {
+    padding: 0,
+    margin: 0,
+  },
+  ListItem: {
     padding: 0,
     margin: 0,
   },
 });
 
 class Users extends React.Component {
+  state = {
+    selectedIndex: 1,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,14 +38,27 @@ class Users extends React.Component {
       .then(data => this.setState({ users: data }));
   };
 
+  handleListItemClick = (event, index) => {
+    this.setState({ selectedIndex: index });
+  };
+
   render() {
     const { classes } = this.props;
-    const { users } = this.state;
+    const { users, selectedIndex } = this.state;
     return (
       <aside id="users">
-        <List component="nav" className={classes.root}>
+        <List component="nav" className={classes.List}>
           {users.map(user => (
-            <User user={user} key={user.name} />
+            <ListItem
+              key={user.name}
+              button
+              onClick={event => this.handleListItemClick(event, user.id)}
+              className={`userItem ${selectedIndex === user.id ? '__active' : ''} ${classes.ListItem}`}
+            >
+              <User
+                user={user}
+              />
+            </ListItem>
           ))}
         </List>
       </aside>

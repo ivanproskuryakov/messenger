@@ -1,50 +1,74 @@
 [
   {
     "id": 1,
-    "name": "User A",
+    "name": "Aristotle",
     "photo": "https://picsum.photos/200/200/?image=1001",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 2,
-    "name": "User B",
+    "name": "Immanuel Kant",
     "photo": "https://picsum.photos/200/200/?image=1002",
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 3,
-    "name": "User C",
+    "name": "Plato",
     "photo": "https://picsum.photos/200/200/?image=1003",
     "lastMessage": "ona que se dedica a la imprenta) descon"
   },
   {
     "id": 4,
-    "name": "User D",
+    "name": "Confucius",
     "photo": "https://picsum.photos/200/200/?image=1004",
     "lastMessage": "an pasajes de Lorem Ipsum, y más r"
   },
   {
     "id": 5,
-    "name": "User E",
+    "name": "David Hume",
     "photo": "https://picsum.photos/200/200/?image=1005",
     "lastMessage": "a del Latin, que data del año 45 antes de C"
   },
   {
     "id": 6,
-    "name": "User F",
+    "name": "Rene Descartes",
     "photo": "https://picsum.photos/200/200/?image=1006",
     "lastMessage": "0 palabras provenientes del latín, combinadas c"
   },
   {
     "id": 7,
-    "name": "User G",
+    "name": "Socrates",
     "photo": "https://picsum.photos/200/200/?image=1008",
     "lastMessage": "stará libre de repeticiones, humor agregado o pa"
   },
   {
     "id": 8,
-    "name": "User H",
-    "photo": "https://picsum.photos/200/200/?image=1009",
+    "name": "Niccolo Machiavelli",
+    "photo": "https://picsum.photos/200/200/?image=911",
+    "lastMessage": "a long established fact that a reader"
+  },
+  {
+    "id": 9,
+    "name": "John Locke",
+    "photo": "https://picsum.photos/200/200/?image=912",
+    "lastMessage": "a long established fact that a reader"
+  },
+  {
+    "id": 10,
+    "name": "Diogenes of Sinope",
+    "photo": "https://picsum.photos/200/200/?image=913",
+    "lastMessage": "a long established fact that a reader"
+  },
+  {
+    "id": 11,
+    "name": "Thomas Aquinas",
+    "photo": "https://picsum.photos/200/200/?image=914",
+    "lastMessage": "a long established fact that a reader"
+  },
+  {
+    "id": 12,
+    "name": "Laozi",
+    "photo": "https://picsum.photos/200/200/?image=919",
     "lastMessage": "a long established fact that a reader"
   }
 ]
