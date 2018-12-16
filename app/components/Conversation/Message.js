@@ -20,7 +20,7 @@ class Message extends React.Component {
       return (
         <div className={`message ${message.classes}`}>
           <Avatar
-            src="https://picsum.photos/200/200/?image=1001"
+            src="/user/10.jpg"
             className={`user ${classes.avatar}`}
           />
           <div className="details">

@@ -2,6 +2,7 @@ import React from 'react';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Search from '@material-ui/icons/Search';
 
 const styles = ({
   avatar: {
@@ -22,6 +23,10 @@ class Heading extends React.Component {
         />
         <div className="name">
           Diogenes of Sinope, {id}
+        </div>
+        <div className="search __dark">
+          <Search className="searchIcon" />
+          <input className="searchInput" type="text" placeholder="Search in messages" />
         </div>
       </div>
     );

@@ -1,9 +1,24 @@
 .search {
+  flex: 1;
+  position: relative;
+
+  &.__dark {
+    .searchIcon {
+      color: #aaa;
+    }
+    .searchInput {
+      background: #f1f1f4;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+  }
   .searchIcon {
     position: absolute;
-    color: #666;
-    left: 19px;
-    top: 16px;
+    color: #aaa;
+    left: 10px;
+    top: 9px;
     font-size: 17px;
   }
   .searchInput {
@@ -14,7 +29,7 @@
     border-radius: 5px;
     font-size: 14px;
     color: #666;
-    padding-left: 30px;
+    padding-left: 33px;
 
     &::placeholder {
       color: #aaa;
