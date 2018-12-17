@@ -28,7 +28,7 @@ const config = {
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
-      template: `${__dirname}/app/index.html`,
+      template: `${__dirname}/build/index.html`,
       filename: 'index.html',
       inject: 'body',
     }),
