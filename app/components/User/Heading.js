@@ -1,9 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Search from '@material-ui/icons/Search';
-
-const styles = ({
-});
 
 class Heading extends React.Component {
   render() {
@@ -18,7 +14,4 @@ class Heading extends React.Component {
   }
 }
 
-Heading.propTypes = {
-};
-
-export default withStyles(styles)(Heading);
+export default Heading;

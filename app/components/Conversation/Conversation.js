@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Write from './Write';
 import Message from './Message';
 import MessageMy from './MessageMy';
 import Heading from './Heading';
-
-const styles = ({
-});
 
 class Conversation extends React.Component {
   constructor(props) {
@@ -89,4 +85,4 @@ Conversation.propTypes = {
   }).isRequired,
 };
 
-export default withStyles(styles)(Conversation);
+export default Conversation;
