@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
-import Face from '@material-ui/icons/Face';
 import AttachFile from '@material-ui/icons/AttachFile';
 import Send from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/core/styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
+import Face from '@material-ui/icons/Face';
 import { Picker } from 'emoji-mart';
 
 import ResizableTextArea from '../ResizableTextarea';
@@ -27,10 +27,10 @@ class Write extends React.Component {
     this.props = props;
   }
 
-  handleClick = (event, open) => {
-    this.setState({
-      open: !open,
-    });
+  handleClick = () => {
+    this.setState(state => ({
+      open: !state.open,
+    }));
   };
 
   handleClickAway = () => {
@@ -51,9 +51,18 @@ class Write extends React.Component {
       <div id="messageWrite">
         <div className="messageContainer">
           <ClickAwayListener onClickAway={this.handleClickAway}>
-            <div id="emojis">
+            <div>
+              <IconButton
+                id="buttonEmoji"
+                color="default"
+                className={classes.button}
+                onClick={event => this.handleClick(event, open)}
+                component="span"
+              >
+                <Face />
+              </IconButton>
               {open ? (
-                <Paper className="emojisContainer">
+                <Paper id="emojis">
                   <Picker
                     onClick={this.emojiClick}
                   />
@@ -61,15 +70,6 @@ class Write extends React.Component {
               ) : null}
             </div>
           </ClickAwayListener>
-          <IconButton
-            id="buttonEmoji"
-            color="default"
-            className={classes.button}
-            onClick={event => this.handleClick(event, open)}
-            component="span"
-          >
-            <Face />
-          </IconButton>
           <IconButton id="buttonUpload" color="default" className={classes.button} component="span">
             <AttachFile />
           </IconButton>

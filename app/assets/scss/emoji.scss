@@ -4,9 +4,7 @@
   position: absolute;
   top: -365px;
   right: 0;
-
-  .emojisContainer {
-    box-shadow: none;
+  box-shadow: none;
 
     .emoji-mart-bar:last-child {
       display: none;
@@ -29,5 +27,4 @@
         }
       }
     }
-  }
 }
