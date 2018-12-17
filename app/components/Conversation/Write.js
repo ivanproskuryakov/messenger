@@ -53,11 +53,8 @@ class Write extends React.Component {
       <div id="messageWrite">
         <Popper open={open} anchorEl={anchorEmoji} placement={placement} transition>
           {({ TransitionProps }) => (
-            <Fade {...TransitionProps} timeout={350}>
+            <Fade {...TransitionProps} timeout={0}>
               <Picker
-                set="emojione"
-                title="Pick your emoji..."
-                defaultSkin="4"
                 onClick={this.emojiClick}
               />
             </Fade>
