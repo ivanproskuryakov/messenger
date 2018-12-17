@@ -7,7 +7,6 @@ import Send from '@material-ui/icons/Send';
 import { withStyles } from '@material-ui/core/styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
-import grey from '@material-ui/core/colors/grey';
 import { Picker } from 'emoji-mart';
 
 import ResizableTextArea from '../ResizableTextarea';
@@ -16,26 +15,8 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
-  input: {
-    display: 'none',
-  },
-  root: {
-    position: 'relative',
-  },
-  paper: {
-    position: 'absolute',
-    bottom: 75,
-    right: 0,
-  },
-  fake: {
-    backgroundColor: grey[200],
-    height: theme.spacing.unit,
-    margin: theme.spacing.unit * 2,
-    '&:nth-child(2n)': {
-      marginRight: theme.spacing.unit * 3,
-    },
-  },
 });
+
 class Write extends React.Component {
   state = {
     open: false,
@@ -46,20 +27,20 @@ class Write extends React.Component {
     this.props = props;
   }
 
-  handleClick = () => {
-    this.setState(state => ({
-      open: !state.open,
-    }));
-  };
-
-  emojiClick = (emoji, event) => {
-    console.log(emoji, event);
+  handleClick = (event, open) => {
+    this.setState({
+      open: !open,
+    });
   };
 
   handleClickAway = () => {
     this.setState({
       open: false,
     });
+  };
+
+  emojiClick = (emoji, event) => {
+    console.log(emoji, event);
   };
 
   render() {
@@ -69,20 +50,10 @@ class Write extends React.Component {
     return (
       <div id="messageWrite">
         <div className="messageContainer">
-          <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
           <ClickAwayListener onClickAway={this.handleClickAway}>
-            <div>
-              <IconButton
-                id="buttonEmoji"
-                color="default"
-                className={classes.button}
-                onClick={this.handleClick}
-                component="span"
-              >
-                <Face />
-              </IconButton>
+            <div id="emojis">
               {open ? (
-                <Paper className={classes.paper}>
+                <Paper className="emojisContainer">
                   <Picker
                     onClick={this.emojiClick}
                   />
@@ -90,6 +61,15 @@ class Write extends React.Component {
               ) : null}
             </div>
           </ClickAwayListener>
+          <IconButton
+            id="buttonEmoji"
+            color="default"
+            className={classes.button}
+            onClick={event => this.handleClick(event, open)}
+            component="span"
+          >
+            <Face />
+          </IconButton>
           <IconButton id="buttonUpload" color="default" className={classes.button} component="span">
             <AttachFile />
           </IconButton>
