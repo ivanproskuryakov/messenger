@@ -6,6 +6,10 @@ class Heading extends React.Component {
     search: '',
   };
 
+  changeSearch = (event) => {
+    this.setState({ search: event.target.value });
+  };
+
   render() {
     const { search } = this.state;
 
@@ -17,6 +21,7 @@ class Heading extends React.Component {
             className="searchInput"
             type="text"
             value={search}
+            onChange={this.changeSearch}
             placeholder="Search by name"
           />
         </div>

@@ -14,16 +14,30 @@
     "es6": true
   },
   "rules": {
+    "no-plusplus": "off",
     "no-param-reassign": "off",
     "space-before-function-paren": "off",
     "react/forbid-prop-types": "off",
     "react/prefer-stateless-function": "warn",
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "linebreak-style": "off",
     "global-require": "off",
     "semi": "warn",
     "arrow-body-style": "off",
-    "no-multiple-empty-lines": ["warn", {"max": 1}]
+    "no-multiple-empty-lines": [
+      "warn",
+      {
+        "max": 1
+      }
+    ]
   }
 }

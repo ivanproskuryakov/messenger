@@ -23,19 +23,24 @@ const styles = ({
 class Heading extends React.Component {
   state = {
     anchorEl: null,
+    search: '',
   };
 
-  handleClick = (event) => {
+  showMenu = (event) => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = () => {
+  closeMenu = () => {
     this.setState({ anchorEl: null });
+  };
+
+  changeSearch = (event) => {
+    this.setState({ search: event.target.value });
   };
 
   render() {
     const { id, classes } = this.props;
-    const { anchorEl } = this.state;
+    const { anchorEl, search } = this.state;
 
     return (
       <div className="heading">
@@ -44,11 +49,17 @@ class Heading extends React.Component {
           className={`user ${classes.avatar}`}
         />
         <div className="name">
-          Diogenes of Sinope, {id}
+          Diogenes of Sinope, {id} {search}
         </div>
         <div id="textSearch" className="search __dark">
           <Search className="searchIcon" />
-          <input className="searchInput" type="text" placeholder="Search in messages" />
+          <input
+            className="searchInput"
+            type="text"
+            value={search}
+            onChange={this.changeSearch}
+            placeholder="Search in messages"
+          />
         </div>
         <IconButton
           id="buttonMenu"
@@ -56,7 +67,7 @@ class Heading extends React.Component {
           aria-label="Delete"
           aria-owns={anchorEl ? 'simple-menu' : undefined}
           aria-haspopup="true"
-          onClick={this.handleClick}
+          onClick={this.showMenu}
         >
           <MoreVert />
         </IconButton>
@@ -64,11 +75,11 @@ class Heading extends React.Component {
           id="simple-menu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
-          onClose={this.handleClose}
+          onClose={this.closeMenu}
         >
-          <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-          <MenuItem onClick={this.handleClose}>My account</MenuItem>
-          <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+          <MenuItem onClick={this.closeMenu}>Profile</MenuItem>
+          <MenuItem onClick={this.closeMenu}>My account</MenuItem>
+          <MenuItem onClick={this.closeMenu}>Logout</MenuItem>
         </Menu>
       </div>
     );

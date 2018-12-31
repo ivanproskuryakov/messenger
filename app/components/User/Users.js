@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
+import { connect } from 'react-redux';
+
 import User from './User';
 import Heading from './Heading';
+import * as userActions from '../../actions/user';
 
 const styles = ({
   List: {
@@ -30,7 +33,7 @@ class Users extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchUsers();
+    // this.fetchUsers();
   }
 
   fetchUsers = () => {
@@ -73,5 +76,11 @@ class Users extends React.Component {
 Users.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    user: state.users,
+  };
+}
 
 export default withStyles(styles)(Users);
