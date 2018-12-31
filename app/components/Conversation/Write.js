@@ -20,6 +20,7 @@ const styles = theme => ({
 class Write extends React.Component {
   state = {
     open: false,
+    text: '',
   };
 
   constructor(props) {
@@ -40,12 +41,16 @@ class Write extends React.Component {
   };
 
   emojiClick = (emoji, event) => {
-    console.log(emoji, event);
+    console.log(event);
+    console.log(emoji.native);
+    this.setState(state => ({
+      text: `${state.text} ${emoji.native}`,
+    }));
   };
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const { open, text } = this.state;
 
     return (
       <div id="messageWrite">
@@ -76,7 +81,7 @@ class Write extends React.Component {
           <IconButton id="buttonSend" color="default" className={classes.button} component="span">
             <Send />
           </IconButton>
-          <ResizableTextArea />
+          <ResizableTextArea value={text} />
         </div>
       </div>
     );
