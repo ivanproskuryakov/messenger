@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import User from './User';
 import Heading from './Heading';
-import * as userActions from '../../actions/user';
+import { userSelect } from '../../actions/user';
 
 const styles = ({
   List: {
@@ -25,30 +25,16 @@ class Users extends React.Component {
     selectedIndex: 1,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [],
-    };
-  }
+  onUserClick = (event, user) => {
+    const { userSelectAction } = this.props;
+    userSelectAction(user);
 
-  componentDidMount() {
-    // this.fetchUsers();
-  }
-
-  fetchUsers = () => {
-    fetch('/api/users.json')
-      .then(response => response.json())
-      .then(data => this.setState({ users: data }));
-  };
-
-  handleListItemClick = (event, index) => {
-    this.setState({ selectedIndex: index });
+    this.setState({ selectedIndex: user.id });
   };
 
   render() {
-    const { classes } = this.props;
-    const { users, selectedIndex } = this.state;
+    const { classes, users } = this.props;
+    const { selectedIndex } = this.state;
     return (
       <aside id="users">
         <Heading />
@@ -58,7 +44,7 @@ class Users extends React.Component {
               <ListItem
                 key={user.name}
                 button
-                onClick={event => this.handleListItemClick(event, user.id)}
+                onClick={event => this.onUserClick(event, user)}
                 className={`userItem ${selectedIndex === user.id ? '__active' : ''} ${classes.ListItem}`}
               >
                 <User
@@ -75,12 +61,21 @@ class Users extends React.Component {
 
 Users.propTypes = {
   classes: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired,
+  userSelectAction: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    user: state.users,
+    users: state.users.collection,
   };
 }
 
-export default withStyles(styles)(Users);
+const mapDispatchToProps = dispatch => ({
+  userSelectAction: user => dispatch(userSelect(user)),
+});
+
+export default withStyles(styles)(connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Users));

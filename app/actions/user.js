@@ -3,9 +3,9 @@ export const userSearch = name => ({
   name,
 });
 
-export const userSelect = name => ({
+export const userSelect = user => ({
   type: 'USER_SELECT',
-  name,
+  user,
 });
 
 export const VisibilityFilters = {
