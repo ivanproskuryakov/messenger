@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import User from './User';
 import Heading from './Heading';
+import store from '../../store';
 import { userSelect } from '../../actions/user';
 
 const styles = ({
@@ -20,24 +21,13 @@ const styles = ({
   },
 });
 
-@connect(
-  state => ({
-    users: state.users.collection,
-  }),
-  dispatch => ({
-    userSelectAction: user => dispatch(userSelect(user)),
-  }),
-)
-
 class Users extends React.Component {
   state = {
     selectedIndex: 1,
   };
 
   onUserClick = (event, user) => {
-    const { userSelectAction } = this.props;
-    userSelectAction(user);
-    // dispatch(userSelect(user));
+    store.dispatch(userSelect(user));
 
     this.setState({ selectedIndex: user.id });
   };
@@ -72,7 +62,12 @@ class Users extends React.Component {
 Users.propTypes = {
   classes: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
-  userSelectAction: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Users);
+function mapStateToProps(state) {
+  return {
+    users: state.users.collection,
+  };
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(Users));
