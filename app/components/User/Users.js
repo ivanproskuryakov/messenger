@@ -20,6 +20,15 @@ const styles = ({
   },
 });
 
+@connect(
+  state => ({
+    users: state.users.collection,
+  }),
+  dispatch => ({
+    userSelectAction: user => dispatch(userSelect(user)),
+  }),
+)
+
 class Users extends React.Component {
   state = {
     selectedIndex: 1,
@@ -28,6 +37,7 @@ class Users extends React.Component {
   onUserClick = (event, user) => {
     const { userSelectAction } = this.props;
     userSelectAction(user);
+    // dispatch(userSelect(user));
 
     this.setState({ selectedIndex: user.id });
   };
@@ -65,17 +75,4 @@ Users.propTypes = {
   userSelectAction: PropTypes.func.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    users: state.users.collection,
-  };
-}
-
-const mapDispatchToProps = dispatch => ({
-  userSelectAction: user => dispatch(userSelect(user)),
-});
-
-export default withStyles(styles)(connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Users));
+export default withStyles(styles)(Users);

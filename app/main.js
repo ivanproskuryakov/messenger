@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';
-import Root from './config/Root';
 
-const store = createStore(rootReducer);
+import Root from './config/Root';
+import store from './store/index';
 
 const render = (Component) => {
   ReactDOM.render(

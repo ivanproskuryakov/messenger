@@ -1,14 +1,22 @@
 {
   "presets": [
     "@babel/preset-react",
-    [ "@babel/preset-env", {
-      "targets": {
-        "browsers": "> 2%"
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "> 2%"
+        }
       }
-    }]
+    ]
   ],
-
   "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "react-hot-loader/babel"
   ]
