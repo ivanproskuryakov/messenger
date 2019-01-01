@@ -3,72 +3,84 @@
     "id": 1,
     "name": "Aristotle",
     "photo": "/user/1.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 2,
     "name": "Immanuel Kant",
     "photo": "/user/2.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 3,
     "name": "Plato",
     "photo": "/user/3.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "ona que se dedica a la imprenta) descon"
   },
   {
     "id": 4,
     "name": "Confucius",
     "photo": "/user/4.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "an pasajes de Lorem Ipsum, y más r"
   },
   {
     "id": 5,
     "name": "David Hume",
     "photo": "/user/5.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a del Latin, que data del año 45 antes de C"
   },
   {
     "id": 6,
     "name": "Rene Descartes",
     "photo": "/user/6.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "0 palabras provenientes del latín, combinadas c"
   },
   {
     "id": 7,
     "name": "Socrates",
     "photo": "/user/7.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "stará libre de repeticiones, humor agregado o pa"
   },
   {
     "id": 8,
     "name": "Niccolo Machiavelli",
     "photo": "/user/8.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 9,
     "name": "John Locke",
     "photo": "/user/9.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 10,
     "name": "Diogenes of Sinope",
     "photo": "/user/10.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 11,
     "name": "Laozi",
     "photo": "/user/11.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   },
   {
     "id": 12,
     "name": "Baruch Spinoza",
     "photo": "/user/12.jpg",
+    "activeAt": 1544802050723,
     "lastMessage": "a long established fact that a reader"
   }
 ]

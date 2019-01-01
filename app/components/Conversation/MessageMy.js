@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import calendarStrings from '../../helper/App';
+import { calendarStringsMessage } from '../../helper/App';
 
 class Message extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Message extends React.Component {
         <div className={`messageMy ${message.classes}`}>
           <div className="details">
             <div className="info">
-              <Moment calendar={calendarStrings} date={message.timestamp} />
+              <Moment calendar={calendarStringsMessage} date={message.timestamp} />
             </div>
             <div className="text">
               {message.text}

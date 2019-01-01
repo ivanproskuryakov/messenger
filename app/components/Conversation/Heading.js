@@ -7,6 +7,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MoreVert from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Moment from 'react-moment';
+import { connect } from 'react-redux';
+import { calendarStringsHeader } from '../../helper/App';
 
 const styles = ({
   button: {
@@ -39,17 +42,20 @@ class Heading extends React.Component {
   };
 
   render() {
-    const { id, classes } = this.props;
+    const { selected, classes } = this.props;
     const { anchorEl, search } = this.state;
 
     return (
       <div className="heading">
         <Avatar
-          src="/user/10.jpg"
+          src={selected.photo}
           className={`user ${classes.avatar}`}
         />
         <div className="name">
-          Diogenes of Sinope, {id} {search}
+          {selected.name}
+          <p className="activeAt">
+            <Moment calendar={calendarStringsHeader} date={selected.activeAt} />
+          </p>
         </div>
         <div id="textSearch" className="search __dark">
           <Search className="searchIcon" />
@@ -87,8 +93,16 @@ class Heading extends React.Component {
 }
 
 Heading.propTypes = {
-  id: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
+  selected: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Heading);
+function mapStateToProps(state) {
+  return {
+    collection: state.users.collection,
+    selected: state.users.selected,
+  };
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(Heading));
+

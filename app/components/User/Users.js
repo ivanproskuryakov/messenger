@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import User from './User';
 import Heading from './Heading';
 import store from '../../store';
-import { userSelect } from '../../actions/user';
+import { userSelect, userCollectionLoaded } from '../../actions/user';
 
 const styles = ({
   List: {
@@ -22,30 +22,33 @@ const styles = ({
 });
 
 class Users extends React.Component {
-  state = {
-    selectedIndex: 1,
-  };
+  componentDidMount() {
+    this.fetchUsers();
+  }
 
   onUserClick = (event, user) => {
     store.dispatch(userSelect(user));
+  };
 
-    this.setState({ selectedIndex: user.id });
+  fetchUsers = () => {
+    fetch('/api/users.json')
+      .then(response => response.json())
+      .then(data => store.dispatch(userCollectionLoaded(data)));
   };
 
   render() {
-    const { classes, users } = this.props;
-    const { selectedIndex } = this.state;
+    const { classes, collection, selected } = this.props;
     return (
       <aside id="users">
         <Heading />
         <div className="items">
           <List component="nav" className={classes.List}>
-            {users.map(user => (
+            {collection.map(user => (
               <ListItem
                 key={user.name}
                 button
                 onClick={event => this.onUserClick(event, user)}
-                className={`userItem ${selectedIndex === user.id ? '__active' : ''} ${classes.ListItem}`}
+                className={`userItem ${selected.id === user.id ? '__active' : ''} ${classes.ListItem}`}
               >
                 <User
                   user={user}
@@ -61,12 +64,14 @@ class Users extends React.Component {
 
 Users.propTypes = {
   classes: PropTypes.object.isRequired,
-  users: PropTypes.array.isRequired,
+  collection: PropTypes.array.isRequired,
+  selected: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    users: state.users.collection,
+    collection: state.users.collection,
+    selected: state.users.selected,
   };
 }
 

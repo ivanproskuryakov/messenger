@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
-import calendarStrings from '../../helper/App';
+import { calendarStringsUsers } from '../../helper/App';
 
 const styles = ({
   avatar: {
@@ -17,7 +17,6 @@ const styles = ({
 
 class User extends React.Component {
   render() {
-    const date = new Date();
     const { user, classes } = this.props;
     return (
       <ListItem button className="user" component={Link} to={`/messages/${user.id}`}>
@@ -25,7 +24,7 @@ class User extends React.Component {
           src={user.photo}
           className={`avatar ${classes.avatar}`}
         />
-        <Moment calendar={calendarStrings} date={date} />
+        <Moment calendar={calendarStringsUsers} date={user.activeAt} />
         <div className="details">
           <p className="name">{user.name}</p>
           <p className="lastMessage">{user.lastMessage}</p>

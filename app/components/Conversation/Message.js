@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
-import calendarStrings from '../../helper/App';
+import { calendarStringsMessage } from '../../helper/App';
 
 const styles = ({
   avatar: {
@@ -25,7 +25,7 @@ class Message extends React.Component {
           />
           <div className="details">
             <div className="info">
-              <Moment calendar={calendarStrings} date={message.timestamp} />
+              <Moment calendar={calendarStringsMessage} date={message.timestamp} />
             </div>
             <div className="text">
               {message.text}

@@ -1,9 +1,14 @@
 export const userSearch = name => ({
   type: 'USER_SEARCH',
-  name,
+  payload: name,
 });
 
 export const userSelect = user => ({
   type: 'USER_SELECT',
-  user,
+  payload: user,
+});
+
+export const userCollectionLoaded = users => ({
+  type: 'USER_COLLECTION_LOADED',
+  payload: users,
 });

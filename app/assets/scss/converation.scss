@@ -20,9 +20,16 @@
       flex: 2;
       font-size: 14px;
       margin-left: 10px;
-      margin-top: 9px;
+      margin-top: 3px;
       font-weight: 600;
       color: #43444f;
+
+      .activeAt {
+        font-size: 12px;
+        font-weight: 500;
+        margin-top: 1px;
+        color: #8a8d91;
+      }
     }
 
     #buttonMenu {
