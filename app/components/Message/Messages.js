@@ -5,34 +5,32 @@ import Write from './Write';
 import Message from './Message';
 import MessageMy from './MessageMy';
 import Heading from './Heading';
-// import fetchMessages from '../../service/message';
+import fetchMessages from '../../service/message';
 
-class Conversation extends React.Component {
-  // componentDidMount() {
-  //   fetchMessages();
-  // }
+class Messages extends React.Component {
+  componentDidMount() {
+    fetchMessages();
+  }
 
   render() {
     const { match, collection } = this.props;
 
     return (
-      <section id="conversation">
+      <section id="messages">
         <Heading id={match.params.id} />
-        <div id="messages">
-          {collection.map((message) => {
-            if (message.user.id === 2) {
-              return <MessageMy message={message} key={message.id} />;
-            }
-            return <Message message={message} key={message.id} />;
-          })}
-        </div>
+        {collection.map((message) => {
+          if (message.user.id === 2) {
+            return <MessageMy message={message} key={message.id} />;
+          }
+          return <Message message={message} key={message.id} />;
+        })}
         <Write />
       </section>
     );
   }
 }
 
-Conversation.propTypes = {
+Messages.propTypes = {
   collection: PropTypes.array.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -48,4 +46,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Conversation);
+export default connect(mapStateToProps)(Messages);

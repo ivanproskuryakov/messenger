@@ -1,10 +1,9 @@
-@import "converation";
-@import "users";
-@import "write";
-@import "messages";
-@import "search";
+@import "message/write";
+@import "message/message";
+@import "message/messages";
+@import "user/users";
 @import "emoji";
-
+@import "search";
 
 textarea, select, input, button { outline: none; }
 
