@@ -19,5 +19,5 @@ export const calendarStringsMessage = {
   sameDay: 'LT',
   lastWeek: '[Last] dddd [at] LT',
   nextWeek: 'dddd [at] LT',
-  sameElse: 'L [at] LT',
+  sameElse: 'LL [at] LT',
 };

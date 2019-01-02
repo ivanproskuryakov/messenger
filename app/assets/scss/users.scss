@@ -2,6 +2,7 @@
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   width: 350px;
   height: 100vh;
+  position: relative;
 
   .heading {
     padding: 7px 10px;
@@ -46,7 +47,7 @@
             font-weight: 600;
             color: #43444f;
           }
-          .lastMessage{
+          .lastMessage {
             font-size: 14px;
             color: #8a8d91;
             width: 1000px;
@@ -55,5 +56,12 @@
       }
     }
   }
-
+  .noResults {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -45px;
+    font-size: 90px;
+    color: #8a8d91;
+  }
 }

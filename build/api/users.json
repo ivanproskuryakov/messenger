@@ -3,84 +3,108 @@
     "id": 1,
     "name": "Aristotle",
     "photo": "/user/1.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1544802050123,
+      "text": "it is only that my head is different from yours."
+    }
   },
   {
     "id": 2,
     "name": "Immanuel Kant",
     "photo": "/user/2.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1544800050723,
+      "text": "It only that my head is different from yours."
+    }
   },
   {
     "id": 3,
     "name": "Plato",
     "photo": "/user/3.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "ona que se dedica a la imprenta) descon"
+    "lastMessage": {
+      "timestamp": 1544102050723,
+      "text": "is only that my head is different from yours."
+    }
   },
   {
     "id": 4,
     "name": "Confucius",
     "photo": "/user/4.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "an pasajes de Lorem Ipsum, y más r"
+    "lastMessage": {
+      "timestamp": 1544202050723,
+      "text": " that my head is different from yours."
+    }
   },
   {
     "id": 5,
     "name": "David Hume",
     "photo": "/user/5.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a del Latin, que data del año 45 antes de C"
+    "lastMessage": {
+      "timestamp": 1544502050723,
+      "text": "different from yours."
+    }
   },
   {
     "id": 6,
     "name": "Rene Descartes",
     "photo": "/user/6.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "0 palabras provenientes del latín, combinadas c"
+    "lastMessage": {
+      "timestamp": 1541802050723,
+      "text": "is different from yours."
+    }
   },
   {
     "id": 7,
     "name": "Socrates",
     "photo": "/user/7.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "stará libre de repeticiones, humor agregado o pa"
+    "lastMessage": {
+      "timestamp": 1544802050823,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   },
   {
     "id": 8,
     "name": "Niccolo Machiavelli",
     "photo": "/user/8.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1544802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   },
   {
     "id": 9,
     "name": "John Locke",
     "photo": "/user/9.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1544802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   },
   {
     "id": 10,
     "name": "Diogenes of Sinope",
     "photo": "/user/10.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1545802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   },
   {
     "id": 11,
     "name": "Laozi",
     "photo": "/user/11.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1546802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   },
   {
     "id": 12,
     "name": "Baruch Spinoza",
     "photo": "/user/12.jpg",
-    "activeAt": 1544802050723,
-    "lastMessage": "a long established fact that a reader"
+    "lastMessage": {
+      "timestamp": 1544802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours."
+    }
   }
 ]

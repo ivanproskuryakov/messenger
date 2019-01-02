@@ -4,11 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import { connect } from 'react-redux';
-
+import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import User from './User';
 import Heading from './Heading';
 import store from '../../store';
-import { userSelect, userCollectionLoaded } from '../../actions/user';
+import { userSelect } from '../../actions/user';
+import fetchUsers from '../../service/user';
 
 const styles = ({
   List: {
@@ -23,21 +24,23 @@ const styles = ({
 
 class Users extends React.Component {
   componentDidMount() {
-    this.fetchUsers();
+    fetchUsers();
   }
 
   onUserClick = (event, user) => {
     store.dispatch(userSelect(user));
   };
 
-  fetchUsers = () => {
-    fetch('/api/users.json')
-      .then(response => response.json())
-      .then(data => store.dispatch(userCollectionLoaded(data)));
-  };
-
   render() {
     const { classes, collection, selected } = this.props;
+    if (collection.length === 0) {
+      return (
+        <aside id="users">
+          <Heading />
+          <PeopleOutline className="noResults" />
+        </aside>
+      );
+    }
     return (
       <aside id="users">
         <Heading />

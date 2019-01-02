@@ -24,10 +24,10 @@ class User extends React.Component {
           src={user.photo}
           className={`avatar ${classes.avatar}`}
         />
-        <Moment calendar={calendarStringsUsers} date={user.activeAt} />
+        <Moment calendar={calendarStringsUsers} date={user.lastMessage.timestamp} />
         <div className="details">
           <p className="name">{user.name}</p>
-          <p className="lastMessage">{user.lastMessage}</p>
+          <p className="lastMessage">{user.lastMessage.text}</p>
         </div>
       </ListItem>
     );
@@ -39,7 +39,7 @@ User.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,
-    lastMessage: PropTypes.string,
+    lastMessage: PropTypes.object,
   }).isRequired,
   classes: PropTypes.object.isRequired,
 };

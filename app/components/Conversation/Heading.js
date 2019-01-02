@@ -54,7 +54,7 @@ class Heading extends React.Component {
         <div className="name">
           {selected.name}
           <p className="activeAt">
-            <Moment calendar={calendarStringsHeader} date={selected.activeAt} />
+            <Moment calendar={calendarStringsHeader} date={selected.lastMessage.timestamp} />
           </p>
         </div>
         <div id="textSearch" className="search __dark">

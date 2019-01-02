@@ -1,17 +1,17 @@
 import React from 'react';
 import Search from '@material-ui/icons/Search';
+import PropTypes from 'prop-types';
+import connect from 'react-redux/es/connect/connect';
+import { userSearch } from '../../actions/user';
+import store from '../../store';
 
 class Heading extends React.Component {
-  state = {
-    search: '',
-  };
-
-  changeSearch = (event) => {
-    this.setState({ search: event.target.value });
+  onChangeSearch = (event) => {
+    store.dispatch(userSearch(event.target.value));
   };
 
   render() {
-    const { search } = this.state;
+    const { search } = this.props;
 
     return (
       <div className="heading">
@@ -21,7 +21,7 @@ class Heading extends React.Component {
             className="searchInput"
             type="text"
             value={search}
-            onChange={this.changeSearch}
+            onChange={this.onChangeSearch}
             placeholder="Search by name"
           />
         </div>
@@ -30,4 +30,14 @@ class Heading extends React.Component {
   }
 }
 
-export default Heading;
+Heading.propTypes = {
+  search: PropTypes.string.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    search: state.users.search,
+  };
+}
+
+export default connect(mapStateToProps)(Heading);
