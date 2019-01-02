@@ -73,8 +73,8 @@ Users.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.users.collection,
-    selected: state.users.selected,
+    collection: state.user.collection,
+    selected: state.user.selected,
   };
 }
 

@@ -11,7 +11,7 @@ const queryCollection = (query) => {
       .match(query));
 };
 
-const users = (state = initialState, action) => {
+const user = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_SEARCH':
       queryCollection(action.payload.toLowerCase());
@@ -36,4 +36,4 @@ const users = (state = initialState, action) => {
   }
 };
 
-export default users;
+export default user;

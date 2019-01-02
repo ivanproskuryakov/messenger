@@ -36,7 +36,7 @@ Heading.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    search: state.users.search,
+    search: state.user.search,
   };
 }
 

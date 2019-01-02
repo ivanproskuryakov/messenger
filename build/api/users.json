@@ -4,7 +4,7 @@
     "name": "Aristotle",
     "photo": "/user/1.jpg",
     "lastMessage": {
-      "timestamp": 1544802050123,
+      "timestamp": 1522802050123,
       "text": "it is only that my head is different from yours."
     }
   },
@@ -13,7 +13,7 @@
     "name": "Immanuel Kant",
     "photo": "/user/2.jpg",
     "lastMessage": {
-      "timestamp": 1544800050723,
+      "timestamp": 1511800050723,
       "text": "It only that my head is different from yours."
     }
   },
@@ -22,7 +22,7 @@
     "name": "Plato",
     "photo": "/user/3.jpg",
     "lastMessage": {
-      "timestamp": 1544102050723,
+      "timestamp": 1524102050723,
       "text": "is only that my head is different from yours."
     }
   },
@@ -67,7 +67,7 @@
     "name": "Niccolo Machiavelli",
     "photo": "/user/8.jpg",
     "lastMessage": {
-      "timestamp": 1544802050723,
+      "timestamp": 1114802050723,
       "text": "It is not that I am mad, it is only that my head is different from yours."
     }
   },
@@ -76,7 +76,7 @@
     "name": "John Locke",
     "photo": "/user/9.jpg",
     "lastMessage": {
-      "timestamp": 1544802050723,
+      "timestamp": 1524802050723,
       "text": "It is not that I am mad, it is only that my head is different from yours."
     }
   },
@@ -85,7 +85,7 @@
     "name": "Diogenes of Sinope",
     "photo": "/user/10.jpg",
     "lastMessage": {
-      "timestamp": 1545802050723,
+      "timestamp": 1515802050723,
       "text": "It is not that I am mad, it is only that my head is different from yours."
     }
   },

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
-import { calendarStringsMessage } from '../../helper/App';
+import { calendarStringsMessage } from '../../helper/app';
 
 const styles = ({
   avatar: {

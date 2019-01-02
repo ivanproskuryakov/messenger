@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { calendarStringsMessage } from '../../helper/App';
+import { calendarStringsMessage } from '../../helper/app';
 
 class Message extends React.Component {
   render() {

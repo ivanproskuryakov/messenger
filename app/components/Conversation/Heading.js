@@ -9,7 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { calendarStringsHeader } from '../../helper/App';
+import { calendarStringsHeader } from '../../helper/app';
 
 const styles = ({
   button: {
@@ -45,6 +45,9 @@ class Heading extends React.Component {
     const { selected, classes } = this.props;
     const { anchorEl, search } = this.state;
 
+    if (!selected.name) {
+      return '';
+    }
     return (
       <div className="heading">
         <Avatar
@@ -99,8 +102,8 @@ Heading.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.users.collection,
-    selected: state.users.selected,
+    collection: state.user.collection,
+    selected: state.user.selected,
   };
 }
 
