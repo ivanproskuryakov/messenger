@@ -8,6 +8,11 @@ export const userSelect = user => ({
   payload: user,
 });
 
+export const userSelectById = userId => ({
+  type: 'USER_SELECT_BY_ID',
+  payload: userId,
+});
+
 export const userCollectionLoaded = users => ({
   type: 'USER_COLLECTION_LOADED',
   payload: users,

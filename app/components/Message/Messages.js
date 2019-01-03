@@ -13,11 +13,11 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { match, collection } = this.props;
+    const { collection } = this.props;
 
     return (
       <section id="talk">
-        <Heading id={match.params.id} />
+        <Heading />
         <div id="messages">
           {collection.map((message) => {
             if (message.user.id === 2) {
@@ -34,11 +34,6 @@ class Messages extends React.Component {
 
 Messages.propTypes = {
   collection: PropTypes.array.isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  }).isRequired,
 };
 
 function mapStateToProps(state) {

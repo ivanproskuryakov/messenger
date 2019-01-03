@@ -11,8 +11,9 @@ class Root extends React.Component {
         <CssBaseline />
         <Router>
           <div id="layout">
-            <Users />
-            <Route exact path="/messages/:id" component={Messages} />
+            <Route exact path="/" component={Users} />
+            <Route exact path="/user/:id" component={Users} />
+            <Route exact path="/user/:id" component={Messages} />
           </div>
         </Router>
       </React.Fragment>

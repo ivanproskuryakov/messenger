@@ -24,7 +24,9 @@ const styles = ({
 
 class Users extends React.Component {
   componentDidMount() {
-    fetchUsers();
+    const { match } = this.props;
+
+    fetchUsers(match.params.id);
   }
 
   onUserClick = (event, user) => {
@@ -32,7 +34,12 @@ class Users extends React.Component {
   };
 
   render() {
-    const { classes, collection, selected } = this.props;
+    const {
+      classes,
+      collection,
+      selected,
+    } = this.props;
+
     if (collection.length === 0) {
       return (
         <aside id="users">
@@ -69,6 +76,14 @@ Users.propTypes = {
   classes: PropTypes.object.isRequired,
   collection: PropTypes.array.isRequired,
   selected: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+};
+Users.defaultProps = {
+  match: {},
 };
 
 function mapStateToProps(state) {

@@ -19,7 +19,7 @@ class User extends React.Component {
   render() {
     const { user, classes } = this.props;
     return (
-      <ListItem button className="user" component={Link} to={`/messages/${user.id}`}>
+      <ListItem button className="user" component={Link} to={`/user/${user.id}`}>
         <Avatar
           src={user.photo}
           className={`avatar ${classes.avatar}`}
