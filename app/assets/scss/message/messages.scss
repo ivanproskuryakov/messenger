@@ -1,11 +1,5 @@
-#messages {
-  margin-top: 65px;
-  margin-bottom: 150px;
-  flex: calc(100vw - 350px);
-  height: 100vh;
-  position: relative;
-  background: #fff;
-  overflow: scroll;
+#talk {
+  width: calc(100vw - 350px);
 
   .heading {
     padding: 7px 10px 7px 20px;
@@ -16,7 +10,7 @@
     z-index: 1;
     top: 0;
     height: 50px;
-    width: calc(100vw - 350px);
+    width: calc(100% - 351px);
 
     .name {
       flex: 2;
@@ -41,4 +35,59 @@
       margin-right: 0px;
     }
   }
+
+  #messages {
+    padding-top: 65px;
+    height: calc(100vh - 105px);
+    position: relative;
+    background: #fff;
+    overflow: scroll;
+  }
+
+  #messageWrite {
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    width: calc(100% - 351px);
+
+    .messageContainer {
+      margin: 0 10px 10px 49px;
+      position: relative;
+
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 3px;
+        background: #f1f1f4;
+        resize: none;
+        line-height: 24px;
+        overflow: auto;
+        height: auto;
+        font-size: 16px;
+        padding: 20px;
+      }
+      #buttonEmoji {
+        position: absolute;
+        top: 1px;
+        right: 105px;
+        z-index: 1;
+      }
+      #buttonUpload {
+        position: absolute;
+        top: 1px;
+        right: 55px;
+        z-index: 1;
+      }
+      #buttonSend {
+        position: absolute;
+        top: 1px;
+        right: 0;
+        z-index: 1;
+      }
+    }
+  }
+
 }

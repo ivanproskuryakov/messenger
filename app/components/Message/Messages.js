@@ -16,14 +16,16 @@ class Messages extends React.Component {
     const { match, collection } = this.props;
 
     return (
-      <section id="messages">
+      <section id="talk">
         <Heading id={match.params.id} />
-        {collection.map((message) => {
-          if (message.user.id === 2) {
-            return <MessageMy message={message} key={message.id} />;
-          }
-          return <Message message={message} key={message.id} />;
-        })}
+        <div id="messages">
+          {collection.map((message) => {
+            if (message.user.id === 2) {
+              return <MessageMy message={message} key={message.id} />;
+            }
+            return <Message message={message} key={message.id} />;
+          })}
+        </div>
         <Write />
       </section>
     );
