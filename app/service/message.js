@@ -33,11 +33,12 @@ const formatMessages = (messages) => {
   return formatted;
 };
 
-const fetchMessages = () => {
+export const fetchMessages = () => {
   fetch('/api/messages.json')
     .then(response => response.json())
     .then(data => formatMessages(data))
     .then(data => store.dispatch(messageCollectionLoaded(data)));
 };
 
-export default fetchMessages;
+export const sendMessage = () => {
+};

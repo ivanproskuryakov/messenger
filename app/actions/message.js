@@ -1,5 +1,10 @@
-export const messageAdd = text => ({
-  type: 'MESSAGE_ADD',
+export const messageSend = text => ({
+  type: 'MESSAGE_SEND',
+  payload: text,
+});
+
+export const messageEdit = text => ({
+  type: 'MESSAGE_EDIT',
   payload: text,
 });
 

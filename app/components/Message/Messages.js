@@ -5,7 +5,7 @@ import Write from './Write';
 import Message from './Message';
 import MessageMy from './MessageMy';
 import Heading from './Heading';
-import fetchMessages from '../../service/message';
+import { fetchMessages } from '../../service/message';
 
 class Messages extends React.Component {
   componentDidMount() {

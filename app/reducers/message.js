@@ -6,8 +6,18 @@ const initialState = {
 
 const message = (state = initialState, action) => {
   switch (action.type) {
-    case 'MESSAGE_ADD':
-      return state;
+    case 'MESSAGE_SEND':
+      console.log(action, state.text);
+      return {
+        ...state,
+        text: '',
+      };
+    case 'MESSAGE_EDIT':
+      console.log(state.text);
+      return {
+        ...state,
+        text: action.payload,
+      };
     case 'MESSAGE_COLLECTION_LOADED':
       initialState.collection = action.payload;
       return {
