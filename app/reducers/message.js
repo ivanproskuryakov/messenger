@@ -1,19 +1,33 @@
+import moment from 'moment';
+
 const initialState = {
   collection: [],
   search: '',
   text: '',
 };
 
+const buildMessage = (text) => {
+  return {
+    id: moment()
+      .unix(),
+    text,
+    timestamp: moment()
+      .unix(),
+    user: {
+      id: 2, // current user id
+    },
+  };
+};
+
 const message = (state = initialState, action) => {
   switch (action.type) {
     case 'MESSAGE_SEND':
-      console.log(action, state.text);
+      state.collection.push(buildMessage(state.text));
       return {
         ...state,
         text: '',
       };
     case 'MESSAGE_EDIT':
-      console.log(state.text);
       return {
         ...state,
         text: action.payload,

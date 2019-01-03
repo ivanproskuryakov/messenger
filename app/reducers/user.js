@@ -14,7 +14,6 @@ const queryCollection = (query) => {
 const user = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_SEARCH':
-      queryCollection(action.payload.toLowerCase());
       return {
         ...state,
         collection: queryCollection(action.payload.toLowerCase()),

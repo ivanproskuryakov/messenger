@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
+import { connect } from 'react-redux';
 import { calendarStringsMessage } from '../../helper/app';
 
 const styles = ({
@@ -15,12 +16,12 @@ const styles = ({
 
 class Message extends React.Component {
   render() {
-    const { message, classes } = this.props;
+    const { message, classes, selected } = this.props;
     if (message.isFirst) {
       return (
         <div className={`message ${message.classes}`}>
           <Avatar
-            src="/user/10.jpg"
+            src={selected.photo}
             className={`user ${classes.avatar}`}
           />
           <div className="details">
@@ -49,6 +50,15 @@ class Message extends React.Component {
 Message.propTypes = {
   message: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  selected: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Message);
+function mapStateToProps(state) {
+  return {
+    collection: state.user.collection,
+    selected: state.user.selected,
+  };
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(Message));
+
