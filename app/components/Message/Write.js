@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Face from '@material-ui/icons/Face';
 import { Picker } from 'emoji-mart';
 import { connect } from 'react-redux';
+import Textarea from 'react-textarea-autosize';
 
 import store from '../../store';
 import { messageSend, messageEdit } from '../../actions/message';
@@ -22,9 +23,6 @@ const styles = theme => ({
 class Write extends React.Component {
   state = {
     emojiOpened: false,
-    rows: 1,
-    minRows: 1,
-    maxRows: 10,
   };
 
   constructor(props) {
@@ -54,32 +52,12 @@ class Write extends React.Component {
   };
 
   handleChange = (event) => {
-    const lineHeight = 24;
-    const { minRows, maxRows } = this.state;
-    const previousRows = event.target.rows;
-
-    event.target.rows = minRows;
-
-    const currentRows = Math.floor(event.target.scrollHeight / lineHeight);
-
-    if (currentRows === previousRows) {
-      event.target.rows = currentRows;
-    }
-    if (currentRows >= maxRows) {
-      event.target.rows = maxRows;
-      event.target.scrollTop = event.target.scrollHeight;
-    }
-
     store.dispatch(messageEdit(event.target.value));
-
-    this.setState({
-      rows: currentRows < maxRows ? currentRows : maxRows,
-    });
   };
 
   render() {
     const { classes, text } = this.props;
-    const { emojiOpened, rows } = this.state;
+    const { emojiOpened } = this.state;
 
     return (
       <div id="messageWrite">
@@ -116,8 +94,7 @@ class Write extends React.Component {
           >
             <Send />
           </IconButton>
-          <textarea
-            rows={rows}
+          <Textarea
             value={text}
             placeholder="Type a message..."
             onChange={this.handleChange}

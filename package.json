@@ -50,6 +50,7 @@
     "react-moment": "^0.8.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "4.3.0",
+    "react-textarea-autosize": "^7.1.0",
     "redux": "^4.0.1",
     "typeface-roboto": "0.0.54"
   },
