@@ -13,7 +13,7 @@ class Root extends React.Component {
           <div id="layout">
             <Route exact path="/" component={Users} />
             <Route exact path="/user/:id" component={Users} />
-            <Route exact path="/user/:id" component={Messages} />
+            <Route component={Messages} />
           </div>
         </Router>
       </React.Fragment>

@@ -51,7 +51,14 @@ class Write extends React.Component {
     store.dispatch(messageEdit(text + emoji.native));
   };
 
-  handleChange = (event) => {
+  onKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      store.dispatch(messageSend());
+    }
+  };
+
+  onChange = (event) => {
     store.dispatch(messageEdit(event.target.value));
   };
 
@@ -97,7 +104,8 @@ class Write extends React.Component {
           <Textarea
             value={text}
             placeholder="Type a message..."
-            onChange={this.handleChange}
+            onKeyPress={this.onKeyPress}
+            onChange={this.onChange}
           />
         </div>
       </div>
