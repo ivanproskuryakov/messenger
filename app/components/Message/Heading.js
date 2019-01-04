@@ -1,15 +1,17 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar/Avatar';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar/Avatar';
 import Search from '@material-ui/icons/Search';
-import IconButton from '@material-ui/core/IconButton';
+import Close from '@material-ui/icons/Close';
 import MoreVert from '@material-ui/icons/MoreVert';
 import Info from '@material-ui/icons/Info';
+import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { calendarStringsHeader } from '../../helper/app';
@@ -82,6 +84,12 @@ class Heading extends React.Component {
             onChange={this.changeSearch}
             placeholder="Search in messages"
           />
+          {search.length > 0 ? (
+            <Close
+              className="clearIcon"
+              onClick={this.onClearClick}
+            />
+          ) : ('') }
         </div>
         <IconButton
           id="buttonMenu"

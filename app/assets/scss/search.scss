@@ -21,6 +21,17 @@
     top: 9px;
     font-size: 17px;
   }
+  .clearIcon {
+    position: absolute;
+    color: #aaa;
+    right: 10px;
+    top: 9px;
+    font-size: 17px;
+    cursor: pointer;
+    &:hover {
+      color: #888;
+    }
+  }
   .searchInput {
     background: #fff;
     padding: 8px;
