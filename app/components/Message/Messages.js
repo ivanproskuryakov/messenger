@@ -42,8 +42,7 @@ class Messages extends React.Component {
             }
             return <Message message={message} key={message.id} />;
           })}
-          <Scroll.Element name="scroll-to-element" className="element">
-          </Scroll.Element>
+          <div id="scroll-to-element" />
         </div>
         <Write />
       </section>
