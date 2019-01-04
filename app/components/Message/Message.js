@@ -17,6 +17,7 @@ const styles = ({
 class Message extends React.Component {
   render() {
     const { message, classes, selected } = this.props;
+
     if (message.isFirst) {
       return (
         <div className={`message ${message.classes}`}>
@@ -35,6 +36,7 @@ class Message extends React.Component {
         </div>
       );
     }
+
     return (
       <div className={`message __noAvatar ${message.classes}`}>
         <div className="details">

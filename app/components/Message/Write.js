@@ -103,7 +103,7 @@ class Write extends React.Component {
           </IconButton>
           <Textarea
             value={text}
-            placeholder="Type a message..."
+            placeholder="Write a message..."
             onKeyPress={this.onKeyPress}
             onChange={this.onChange}
           />

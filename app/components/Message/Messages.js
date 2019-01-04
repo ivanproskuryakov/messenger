@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as Scroll from 'react-scroll';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
 import Write from './Write';
@@ -9,21 +8,28 @@ import Message from './Message';
 import MessageMy from './MessageMy';
 import Heading from './Heading';
 import { fetchMessages } from '../../service/message';
+import { messageCollectionLoaded } from '../../actions/message';
+import store from '../../store';
 
 class Messages extends React.Component {
   componentDidMount() {
-    fetchMessages();
-    setTimeout(() => {
-      Scroll.animateScroll.scrollTo('scroll-to-element', {
-        duration: 800,
-        delay: 0,
-        smooth: 'easeInOutQuart',
-      });
-    }, 1000);
+    fetchMessages()
+      .then(data => store.dispatch(messageCollectionLoaded(data)));
+  }
+
+  componentDidUpdate() {
+    const { selectedUser } = this.props;
+
+    if (selectedUser.id) {
+      document
+        .getElementById('messagesFooter')
+        .scrollIntoView(false);
+    }
   }
 
   render() {
     const { collection, selectedUser } = this.props;
+
     if (!selectedUser.id) {
       return (
         <section id="talk">
@@ -42,7 +48,7 @@ class Messages extends React.Component {
             }
             return <Message message={message} key={message.id} />;
           })}
-          <div id="scroll-to-element" />
+          <div id="messagesFooter" />
         </div>
         <Write />
       </section>

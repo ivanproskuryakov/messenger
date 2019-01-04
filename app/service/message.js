@@ -1,44 +1,57 @@
-import store from '../store';
-import { messageCollectionLoaded } from '../actions/message';
+import moment from 'moment';
 
-const formatMessages = (messages) => {
-  const myUserId = 2;
+const myUserId = 2;
+
+export const formatMessages = (messages) => {
   const formatted = [];
 
   for (let i = 0; i < messages.length; i += 1) {
     const m = messages[i];
+    const previous = messages[i - 1];
+    const next = messages[i + 1];
+
     m.classes = '';
     m.isFirst = false;
-    m.isLast = false;
     m.my = myUserId === messages[i].user.id;
 
     if (i === 0) {
       m.classes += '__initial';
       m.isFirst = true;
     }
-    if (messages[i - 1]) {
-      if (messages[i - 1].user.id !== m.user.id) {
+    if (previous) {
+      if (previous.user.id !== m.user.id) {
         m.isFirst = true;
         m.classes += '__first';
       }
     }
-    if (messages[i + 1]) {
-      if (m.user.id !== messages[i + 1].user.id) {
-        m.isLast = true;
+    if (next) {
+      if (next.user.id !== m.user.id) {
         m.classes += '__last';
       }
     }
+
     formatted.push(m);
   }
+
+  console.log(formatted);
+
   return formatted;
 };
 
 export const fetchMessages = () => {
-  fetch('/api/messages.json')
+  return fetch('/api/messages.json')
     .then(response => response.json())
-    .then(data => formatMessages(data))
-    .then(data => store.dispatch(messageCollectionLoaded(data)));
+    .then(data => formatMessages(data));
 };
 
-export const sendMessage = () => {
+export const buildMessage = (text) => {
+  return {
+    id: Math.random(),
+    text,
+    timestamp: moment()
+      .unix(),
+    user: {
+      id: myUserId, // current user id
+    },
+  };
 };
