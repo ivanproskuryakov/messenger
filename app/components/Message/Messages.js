@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
+import Message from './Message';
+import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
 import { fetchMessages } from '../../service/message';
@@ -10,14 +12,17 @@ import { messageCollectionLoaded } from '../../actions/message';
 import store from '../../store';
 
 class Messages extends React.Component {
+  componentDidMount() {
+  }
+
   componentDidUpdate() {
     const { selectedUser } = this.props;
 
-    if (selectedUser.id) {
-      document
-        .getElementById('messagesFooter')
-        .scrollIntoView(false);
+    document
+      .getElementById('messagesFooter')
+      .scrollIntoView(false);
 
+    if (selectedUser.id) {
       fetchMessages(selectedUser)
         .then(messages => store.dispatch(
           messageCollectionLoaded(selectedUser, messages),
@@ -26,25 +31,30 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { messages, selectedUser } = this.props;
+    const { selectedUser, messages } = this.props;
 
-    console.log(messages);
-
-    if (!selectedUser.id) {
+    if (selectedUser.id) {
+      console.log(messages[selectedUser.id]);
       return (
         <section id="talk">
-          <ChatBubbleOutline className="noUserSelected" />
+          <Heading />
+          <div id="messages">
+            {messages[selectedUser.id].messages.map((message) => {
+              if (message.user.id === 2) {
+                return <MessageMy message={message} key={message.id} />;
+              }
+              return <Message message={message} key={message.id} />;
+            })}
+            <div id="messagesFooter" />
+          </div>
+          <Write />
         </section>
       );
     }
 
     return (
       <section id="talk">
-        <Heading />
-        <div id="messages">
-          <div id="messagesFooter" />
-        </div>
-        <Write />
+        <ChatBubbleOutline className="noUserSelected" />
       </section>
     );
   }
