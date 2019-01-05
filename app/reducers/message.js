@@ -1,17 +1,18 @@
 import { formatMessages, buildMessage } from '../service/message';
 
 const initialState = {
-  users: [],
+  messages: [],
   search: '',
   text: '',
 };
 
 const message = (state = initialState, action) => {
   if (action.type === 'MESSAGE_SEND') {
+    const { userId } = action.payload;
+
     if (state.text) {
-      const { userId } = action.payload;
-      state.users[userId].messages.push(buildMessage(state.text));
-      state.users[userId].messages = formatMessages(state.users[userId].messages);
+      state.messages[userId].messages.push(buildMessage(state.text));
+      state.messages[userId].messages = formatMessages(state.messages[userId].messages);
 
       return {
         ...state,
@@ -26,9 +27,11 @@ const message = (state = initialState, action) => {
     };
   }
   if (action.type === 'MESSAGE_COLLECTION_LOADED') {
-    return {
-      ...state,
-      messages: action.payload,
+    const { userId, messages } = action.payload;
+
+    console.log(action);
+    state.messages[userId] = {
+      messages: formatMessages(messages),
     };
   }
 

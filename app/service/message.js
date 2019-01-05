@@ -37,8 +37,6 @@ export const formatMessages = (messages) => {
     formatted.push(m);
   }
 
-  console.log(formatted);
-
   return formatted;
 };
 

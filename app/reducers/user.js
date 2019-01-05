@@ -39,7 +39,6 @@ const user = (state = initialState, action) => {
         selected: findUserById(state.collection, action.payload),
       };
     case 'USER_COLLECTION_LOADED':
-      initialState.collection = action.payload;
       return {
         ...state,
         collection: action.payload,

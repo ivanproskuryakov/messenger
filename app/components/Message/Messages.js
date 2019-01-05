@@ -4,19 +4,12 @@ import { connect } from 'react-redux';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
 import Write from './Write';
-import Message from './Message';
-import MessageMy from './MessageMy';
 import Heading from './Heading';
 import { fetchMessages } from '../../service/message';
 import { messageCollectionLoaded } from '../../actions/message';
 import store from '../../store';
 
 class Messages extends React.Component {
-  componentDidMount() {
-    fetchMessages()
-      .then(data => store.dispatch(messageCollectionLoaded(data)));
-  }
-
   componentDidUpdate() {
     const { selectedUser } = this.props;
 
@@ -24,11 +17,18 @@ class Messages extends React.Component {
       document
         .getElementById('messagesFooter')
         .scrollIntoView(false);
+
+      fetchMessages(selectedUser)
+        .then(messages => store.dispatch(
+          messageCollectionLoaded(selectedUser, messages),
+        ));
     }
   }
 
   render() {
-    const { collection, selectedUser } = this.props;
+    const { messages, selectedUser } = this.props;
+
+    console.log(messages);
 
     if (!selectedUser.id) {
       return (
@@ -42,12 +42,6 @@ class Messages extends React.Component {
       <section id="talk">
         <Heading />
         <div id="messages">
-          {collection.map((message) => {
-            if (message.user.id === 2) {
-              return <MessageMy message={message} key={message.id} />;
-            }
-            return <Message message={message} key={message.id} />;
-          })}
           <div id="messagesFooter" />
         </div>
         <Write />
@@ -57,13 +51,13 @@ class Messages extends React.Component {
 }
 
 Messages.propTypes = {
-  collection: PropTypes.array.isRequired,
+  messages: PropTypes.array.isRequired,
   selectedUser: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    collection: state.message.collection,
+    messages: state.message.messages,
     selectedUser: state.user.selected,
     text: state.message.text,
   };
