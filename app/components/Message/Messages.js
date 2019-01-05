@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
-import Message from './Message';
-import MessageMy from './MessageMy';
+// import Message from './Message';
+// import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
 import { fetchMessages } from '../../service/message';
@@ -39,12 +39,6 @@ class Messages extends React.Component {
         <section id="talk">
           <Heading />
           <div id="messages">
-            {messages[selectedUser.id].messages.map((message) => {
-              if (message.user.id === 2) {
-                return <MessageMy message={message} key={message.id} />;
-              }
-              return <Message message={message} key={message.id} />;
-            })}
             <div id="messagesFooter" />
           </div>
           <Write />

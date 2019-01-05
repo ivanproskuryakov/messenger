@@ -15,24 +15,21 @@ const styles = ({
   },
 });
 
-class User extends React.Component {
-  render() {
-    const { user, classes } = this.props;
-    return (
-      <ListItem button className="user" component={Link} to={`/user/${user.id}`}>
-        <Avatar
-          src={user.photo}
-          className={`avatar ${classes.avatar}`}
-        />
-        <Moment calendar={calendarStringsUsers} date={user.lastMessage.timestamp} />
-        <div className="details">
-          <p className="name">{user.name}</p>
-          <p className="lastMessage">{user.lastMessage.text}</p>
-        </div>
-      </ListItem>
-    );
-  }
-}
+const User = ({ user, classes }) => {
+  return (
+    <ListItem button className="user" component={Link} to={`/user/${user.id}`}>
+      <Avatar
+        src={user.photo}
+        className={`avatar ${classes.avatar}`}
+      />
+      <Moment calendar={calendarStringsUsers} date={user.lastMessage.timestamp} />
+      <div className="details">
+        <p className="name">{user.name}</p>
+        <p className="lastMessage">{user.lastMessage.text}</p>
+      </div>
+    </ListItem>
+  );
+};
 
 User.propTypes = {
   user: PropTypes.shape({

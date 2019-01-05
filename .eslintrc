@@ -15,6 +15,7 @@
   },
   "rules": {
     "no-plusplus": "off",
+    "no-console": "off",
     "no-param-reassign": "off",
     "space-before-function-paren": "off",
     "react/forbid-prop-types": "off",
