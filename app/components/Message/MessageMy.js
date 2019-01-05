@@ -14,7 +14,7 @@ class MessageMy extends React.Component {
               <Moment calendar={calendarStringsMessage} date={message.timestamp} />
             </div>
             <div className="text">
-              {message.text} {message.classes}
+              {message.text}
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@ class MessageMy extends React.Component {
       <div className={`messageMy ${message.classes}`}>
         <div className="details">
           <div className="text">
-            {message.text} {message.classes}
+            {message.text}
           </div>
         </div>
       </div>

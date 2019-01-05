@@ -15,6 +15,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { calendarStringsHeader } from '../../helper/app';
+import store from '../../store';
+import { userSearch } from '../../actions/user';
 
 const styles = ({
   icon: {
@@ -50,6 +52,10 @@ class Heading extends React.Component {
 
     window.open(selected.url, '_blank');
     this.closeMenu();
+  };
+
+  onClearClick = () => {
+    this.setState({ search: '' });
   };
 
   changeSearch = (event) => {

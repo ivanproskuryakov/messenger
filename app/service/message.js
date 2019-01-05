@@ -18,11 +18,15 @@ export const formatMessages = (messages) => {
       m.classes += '__initial';
       m.isFirst = true;
     }
+
     if (previous) {
       if (previous.user.id !== m.user.id) {
         m.isFirst = true;
         m.classes += '__first';
       }
+    }
+    if (previous && !next) {
+      m.classes += '__last';
     }
     if (next) {
       if (next.user.id !== m.user.id) {
