@@ -8,8 +8,7 @@ import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import User from './User';
 import Heading from './Heading';
 import store from '../../store';
-import { userSelect } from '../../actions/user';
-import loadUsers from '../../service/user';
+import { userSelect, loadUsers } from '../../actions/user';
 
 const styles = ({
   List: {
@@ -25,7 +24,8 @@ const styles = ({
 class Users extends React.Component {
   componentDidMount() {
     const { match } = this.props;
-    loadUsers(match.params.id);
+
+    store.dispatch(loadUsers(match.params.id));
   }
 
   onUserClick = (event, user) => {
@@ -38,6 +38,8 @@ class Users extends React.Component {
       collection,
       selected,
     } = this.props;
+
+    console.log(collection);
 
     if (collection.length === 0) {
       return (

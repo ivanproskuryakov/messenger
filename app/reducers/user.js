@@ -6,6 +6,12 @@ const initialState = {
   search: '',
 };
 
+const sortUsersByLastMessageTimestamp = (collection) => {
+  return collection.sort((a, b) => {
+    return b.lastMessage.timestamp - a.lastMessage.timestamp;
+  });
+};
+
 const queryCollection = (query) => {
   return initialState
     .collection
@@ -23,31 +29,31 @@ const findUserById = (collection, userId) => {
 };
 
 const user = (state = initialState, action) => {
-  switch (action.type) {
-    case 'USER_SEARCH':
-      return {
-        ...state,
-        collection: queryCollection(action.payload.toLowerCase()),
-        search: action.payload,
-      };
-    case 'USER_SELECT':
-      return {
-        ...state,
-        selected: action.payload,
-      };
-    case 'USER_SELECT_BY_ID':
-      return {
-        ...state,
-        selected: findUserById(state.collection, action.payload),
-      };
-    case 'USER_COLLECTION_LOADED':
-      return {
-        ...state,
-        collection: action.payload,
-      };
-    default:
-      return state;
+  if (action.type === 'USER_SELECT') {
+    return {
+      ...state,
+      selected: action.payload,
+    };
   }
+  if (action.type === 'USER_SEARCH') {
+    return {
+      ...state,
+      collection: queryCollection(action.payload.toLowerCase()),
+      search: action.payload,
+    };
+  }
+
+  if (action.type === 'USER_COLLECTION_LOAD') {
+    fetch('/api/users.json')
+      .then(response => response.json())
+      .then(users => sortUsersByLastMessageTimestamp(users))
+      .then((users) => {
+        state.collection = users;
+        state.selected = findUserById(action.payload);
+      });
+  }
+
+  return state;
 };
 
 export default user;

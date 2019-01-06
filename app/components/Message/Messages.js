@@ -20,9 +20,6 @@ class Messages extends React.Component {
   render() {
     const { selected, messages } = this.props;
 
-    console.log(messages);
-    console.log(selected);
-
     if (selected.id === 0) {
       return (
         <section id="talk">
