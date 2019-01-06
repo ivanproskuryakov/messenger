@@ -11,18 +11,18 @@ import { loadMessages } from '../../actions/message';
 
 class Messages extends React.Component {
   componentDidMount() {
-    loadMessages();
+    loadMessages(11);
   }
 
   render() {
-    const { selected, messages } = this.props;
+    const { selectedUser, collection } = this.props;
 
-    if (selected.id) {
+    if (selectedUser.id) {
       return (
         <section id="talk">
           <Heading />
           <div id="messages">
-            {messages.map((message) => {
+            {collection.map((message) => {
               if (message.user.id === 2) {
                 return <MessageMy message={message} key={message.id} />;
               }
@@ -45,8 +45,8 @@ class Messages extends React.Component {
 }
 
 Messages.propTypes = {
-  messages: PropTypes.array.isRequired,
-  selected: PropTypes.object.isRequired,
+  collection: PropTypes.array.isRequired,
+  selectedUser: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -59,8 +59,8 @@ Messages.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    messages: state.message.messages,
-    selected: state.user.selected,
+    collection: state.message.collection,
+    selectedUser: state.user.selected,
     text: state.message.text,
   };
 }

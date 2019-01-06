@@ -37,8 +37,6 @@ class Users extends React.Component {
       selected,
     } = this.props;
 
-    console.log('Users', collection);
-
     if (collection.length === 0) {
       return (
         <aside id="users">
@@ -47,6 +45,7 @@ class Users extends React.Component {
         </aside>
       );
     }
+
     return (
       <aside id="users">
         <Heading />

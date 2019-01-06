@@ -1,5 +1,5 @@
 const initialState = {
-  messages: [],
+  collection: [],
   search: '',
   text: '',
 };
@@ -24,11 +24,14 @@ const message = (state = initialState, action) => {
   //     text: action.payload,
   //   };
   // }
-
   if (action.type === 'MESSAGE_COLLECTION_LOAD_SUCCESS') {
+    console.log(state.collection, action);
+
+    // messages[action.payload.userId] = action.payload.messages;
+
     return {
       ...state,
-      messages: action.payload,
+      collection: action.payload.messages,
     };
   }
 

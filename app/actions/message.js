@@ -13,9 +13,12 @@ export const messageEdit = text => ({
   payload: text,
 });
 
-export const messageCollectionLoadSuccess = collection => ({
+export const messageCollectionLoadSuccess = (userId, messages) => ({
   type: 'MESSAGE_COLLECTION_LOAD_SUCCESS',
-  payload: collection,
+  payload: {
+    userId,
+    messages,
+  },
 });
 
 const formatMessages = (messages) => {
@@ -68,12 +71,10 @@ export const buildMessage = (text) => {
   };
 };
 
-export const loadMessages = () => {
+export const loadMessages = (userId) => {
   fetch('/api/messages.json')
     .then(response => response.json())
     .then(data => store.dispatch(
-      messageCollectionLoadSuccess(
-        formatMessages(data),
-      ),
+      messageCollectionLoadSuccess(userId, formatMessages(data)),
     ));
 };
