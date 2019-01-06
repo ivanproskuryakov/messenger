@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import Root from './config/Root';
+import Root from './components/Root';
 import store from './store/index';
 
 const render = (Component) => {
@@ -20,8 +20,8 @@ const render = (Component) => {
 render(Root);
 
 if (module.hot) {
-  module.hot.accept('./config/Root', () => {
-    const newApp = require('./config/Root').default;
+  module.hot.accept('./components/Root', () => {
+    const newApp = require('./components/Root').default;
     render(newApp);
   });
 }

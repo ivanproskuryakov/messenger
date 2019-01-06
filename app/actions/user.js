@@ -5,12 +5,10 @@ export const userSearchAction = name => ({
   type: 'USER_SEARCH',
   payload: name,
 });
-
 export const userSelectAction = user => ({
   type: 'USER_SELECT',
   payload: user,
 });
-
 export const userCollectionLoadSuccessAction = (collection, selected) => ({
   type: 'USER_COLLECTION_LOAD_SUCCESS',
   payload: {
