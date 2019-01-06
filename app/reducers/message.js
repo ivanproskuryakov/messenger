@@ -25,10 +25,6 @@ const message = (state = initialState, action) => {
   //   };
   // }
   if (action.type === 'MESSAGE_COLLECTION_LOAD_SUCCESS') {
-    console.log(state.collection, action);
-
-    // messages[action.payload.userId] = action.payload.messages;
-
     return {
       ...state,
       collection: action.payload.messages,

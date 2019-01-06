@@ -72,7 +72,7 @@ export const buildMessage = (text) => {
 };
 
 export const loadMessages = (userId) => {
-  fetch('/api/messages.json')
+  fetch(`/api/messages/${userId}.json`)
     .then(response => response.json())
     .then(data => store.dispatch(
       messageCollectionLoadSuccess(userId, formatMessages(data)),

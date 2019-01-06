@@ -17,7 +17,7 @@ class Messages extends React.Component {
   render() {
     const { selectedUser, collection } = this.props;
 
-    if (selectedUser.id) {
+    if (selectedUser) {
       return (
         <section id="talk">
           <Heading />

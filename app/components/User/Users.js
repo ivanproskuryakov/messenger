@@ -9,6 +9,7 @@ import User from './User';
 import Heading from './Heading';
 import store from '../../store';
 import { userSelect, loadUsers } from '../../actions/user';
+import { loadMessages } from '../../actions/message';
 
 const styles = ({
   List: {
@@ -23,11 +24,12 @@ const styles = ({
 
 class Users extends React.Component {
   componentDidMount() {
-    loadUsers(11);
+    loadUsers();
   }
 
   onUserClick = (event, user) => {
     store.dispatch(userSelect(user));
+    loadMessages(user.id);
   };
 
   render() {

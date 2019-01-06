@@ -54,53 +54,5 @@
     "user": {
       "id": 1
     }
-  },
-  {
-    "id": 8,
-    "timestamp": 1544802050123,
-    "text": "Blushing is the color of virtue.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 9,
-    "timestamp": 1544802050023,
-    "text": "What was the proper time for lunch?",
-    "user": {
-      "id": 2
-    }
-  },
-  {
-    "id": 10,
-    "timestamp": 1544802040823,
-    "text": "If a rich man, when you will; if a poor man, when you can.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 11,
-    "timestamp": 1544802030823,
-    "text": "I have nothing to ask but that you would remove to the other side, that you may not, by intercepting the sunshine ...",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 12,
-    "timestamp": 1544802030823,
-    "text": "take from me what you cannot give.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 13,
-    "timestamp": 1544802020823,
-    "text": "You'd better exile ...",
-    "user": {
-      "id": 2
-    }
   }
 ]

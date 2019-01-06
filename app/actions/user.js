@@ -18,23 +18,21 @@ export const userCollectionLoadSuccess = (collection, selected) => ({
   },
 });
 
-const findUserById = (collection, userId) => {
-  return collection
-    .filter(item => item.id === Number(userId))[0];
-};
-
 const sortUsersByLastMessageTimestamp = (collection) => {
   return collection.sort((a, b) => {
     return b.lastMessage.timestamp - a.lastMessage.timestamp;
   });
 };
 
-export const loadUsers = (userId) => {
+export const loadUsers = () => {
   fetch('/api/users.json')
     .then(response => response.json())
     .then(users => sortUsersByLastMessageTimestamp(users))
-    .then(users => store.dispatch(userCollectionLoadSuccess(
-      users,
-      findUserById(users, userId),
-    )));
+    .then((users) => {
+      store.dispatch(userSelect(users[0]));
+      store.dispatch(userCollectionLoadSuccess(
+        users,
+        users[0],
+      ));
+    });
 };
