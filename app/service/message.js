@@ -1,4 +1,6 @@
 import moment from 'moment';
+import store from '../store';
+import { messageCollectionLoaded } from '../actions/message';
 
 const myUserId = 2;
 
@@ -40,10 +42,13 @@ export const formatMessages = (messages) => {
   return formatted;
 };
 
-export const fetchMessages = () => {
+export const fetchMessages = (userId) => {
   return fetch('/api/messages.json')
     .then(response => response.json())
-    .then(data => formatMessages(data));
+    .then(data => formatMessages(data))
+    .then((data) => {
+      store.dispatch(messageCollectionLoaded(userId, data));
+    });
 };
 
 export const buildMessage = (text) => {

@@ -1,4 +1,4 @@
-import { formatMessages } from '../service/message';
+// import { formatMessages } from '../service/message';
 
 const initialState = {
   messages: [],
@@ -27,16 +27,16 @@ const message = (state = initialState, action) => {
   //   };
   // }
   if (action.type === 'MESSAGE_COLLECTION_LOADED') {
-    const { user, messages } = action.payload;
+    const { userId, messages } = action.payload;
 
     console.log(action);
 
-    state.messages[user.id] = {
-      messages: formatMessages(messages),
-    };
+    state.messages[userId] = messages;
   }
 
-  return state;
+  return {
+    ...state,
+  };
 };
 
 export default message;

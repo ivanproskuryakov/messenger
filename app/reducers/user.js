@@ -1,6 +1,8 @@
 const initialState = {
   collection: [],
-  selected: {},
+  selected: {
+    id: null,
+  },
   search: '',
 };
 

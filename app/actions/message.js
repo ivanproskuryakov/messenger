@@ -8,10 +8,10 @@ export const messageEdit = text => ({
   payload: text,
 });
 
-export const messageCollectionLoaded = (user, messages) => ({
+export const messageCollectionLoaded = (userId, messages) => ({
   type: 'MESSAGE_COLLECTION_LOADED',
   payload: {
-    user,
+    userId,
     messages,
   },
 });

@@ -3,42 +3,34 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
-// import Message from './Message';
-// import MessageMy from './MessageMy';
+import Message from './Message';
+import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
 import { fetchMessages } from '../../service/message';
-import { messageCollectionLoaded } from '../../actions/message';
-import store from '../../store';
 
 class Messages extends React.Component {
-  componentDidMount() {
-  }
+  componentWillMount() {
+    const { match } = this.props;
 
-  componentDidUpdate() {
-    const { selectedUser } = this.props;
-
-    document
-      .getElementById('messagesFooter')
-      .scrollIntoView(false);
-
-    if (selectedUser.id) {
-      fetchMessages(selectedUser)
-        .then(messages => store.dispatch(
-          messageCollectionLoaded(selectedUser, messages),
-        ));
-    }
+    fetchMessages(match.params.id);
   }
 
   render() {
-    const { selectedUser, messages } = this.props;
+    const { selected, messages } = this.props;
 
-    if (selectedUser.id) {
-      console.log(messages[selectedUser.id]);
+    if (selected.id === 0) {
       return (
         <section id="talk">
           <Heading />
           <div id="messages">
+            {messages[selected.id].map((message) => {
+              if (message.user.id === 2) {
+                return <MessageMy message={message} key={message.id} />;
+              }
+              return <Message message={message} key={message.id} />;
+            })}
+
             <div id="messagesFooter" />
           </div>
           <Write />
@@ -56,13 +48,21 @@ class Messages extends React.Component {
 
 Messages.propTypes = {
   messages: PropTypes.array.isRequired,
-  selectedUser: PropTypes.object.isRequired,
+  selected: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+};
+Messages.defaultProps = {
+  match: {},
 };
 
 function mapStateToProps(state) {
   return {
     messages: state.message.messages,
-    selectedUser: state.user.selected,
+    selected: state.user.selected,
     text: state.message.text,
   };
 }

@@ -14,32 +14,18 @@ const styles = ({
   },
 });
 
-class Message extends React.Component {
-  render() {
-    const { message, classes, selected } = this.props;
-
-    if (message.isFirst) {
-      return (
-        <div className={`message ${message.classes}`}>
-          <Avatar
-            src={selected.photo}
-            className={`user ${classes.avatar}`}
-          />
-          <div className="details">
-            <div className="info">
-              <Moment calendar={calendarStringsMessage} date={message.timestamp} />
-            </div>
-            <div className="text">
-              {message.text}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
+const Message = ({ message, classes, selected }) => {
+  if (message.isFirst) {
     return (
-      <div className={`message __noAvatar ${message.classes}`}>
+      <div className={`message ${message.classes}`}>
+        <Avatar
+          src={selected.photo}
+          className={`user ${classes.avatar}`}
+        />
         <div className="details">
+          <div className="info">
+            <Moment calendar={calendarStringsMessage} date={message.timestamp} />
+          </div>
           <div className="text">
             {message.text}
           </div>
@@ -47,7 +33,17 @@ class Message extends React.Component {
       </div>
     );
   }
-}
+
+  return (
+    <div className={`message __noAvatar ${message.classes}`}>
+      <div className="details">
+        <div className="text">
+          {message.text}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 Message.propTypes = {
   message: PropTypes.object.isRequired,

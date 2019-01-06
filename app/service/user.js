@@ -7,12 +7,16 @@ const sortUsersByLastMessageTimestamp = (collection) => {
   });
 };
 
-const fetchUsers = (userId) => {
+const loadUsers = (userId) => {
   fetch('/api/users.json')
     .then(response => response.json())
     .then(data => sortUsersByLastMessageTimestamp(data))
-    .then(data => store.dispatch(userCollectionLoaded(data)))
-    .then(() => store.dispatch(userSelectById(userId)));
+    .then(orderedUsers => store.dispatch(userCollectionLoaded(orderedUsers)))
+    .then(() => {
+      if (userId) {
+        store.dispatch(userSelectById(userId));
+      }
+    });
 };
 
-export default fetchUsers;
+export default loadUsers;

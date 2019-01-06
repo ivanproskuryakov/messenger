@@ -9,7 +9,7 @@ import User from './User';
 import Heading from './Heading';
 import store from '../../store';
 import { userSelect } from '../../actions/user';
-import fetchUsers from '../../service/user';
+import loadUsers from '../../service/user';
 
 const styles = ({
   List: {
@@ -25,8 +25,7 @@ const styles = ({
 class Users extends React.Component {
   componentDidMount() {
     const { match } = this.props;
-
-    fetchUsers(match.params.id);
+    loadUsers(match.params.id);
   }
 
   onUserClick = (event, user) => {
