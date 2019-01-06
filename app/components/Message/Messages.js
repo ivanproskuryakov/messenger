@@ -7,17 +7,21 @@ import Message from './Message';
 import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
-import { fetchMessages } from '../../service/message';
+import store from '../../store';
+import { messageCollectionLoad } from '../../actions/message';
 
 class Messages extends React.Component {
-  componentWillMount() {
-    const { match } = this.props;
+  componentDidUpdate() {
+    const { selected } = this.props;
 
-    fetchMessages(match.params.id);
+    store.dispatch(messageCollectionLoad(selected.id));
   }
 
   render() {
     const { selected, messages } = this.props;
+
+    console.log(messages);
+    console.log(selected);
 
     if (selected.id === 0) {
       return (
