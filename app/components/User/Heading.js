@@ -3,16 +3,16 @@ import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
-import { userSearch } from '../../actions/user';
+import { userSearchAction } from '../../actions/user';
 import store from '../../store';
 
 class Heading extends React.Component {
   onChangeSearch = (event) => {
-    store.dispatch(userSearch(event.target.value));
+    store.dispatch(userSearchAction(event.target.value));
   };
 
   onClearClick = () => {
-    store.dispatch(userSearch(''));
+    store.dispatch(userSearchAction(''));
   };
 
   render() {

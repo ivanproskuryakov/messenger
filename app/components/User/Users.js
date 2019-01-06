@@ -8,7 +8,7 @@ import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import User from './User';
 import Heading from './Heading';
 import store from '../../store';
-import { userSelect, loadUsers } from '../../actions/user';
+import { userSelectAction, loadUsers } from '../../actions/user';
 import { loadMessages } from '../../actions/message';
 
 const styles = ({
@@ -28,7 +28,7 @@ class Users extends React.Component {
   }
 
   onUserClick = (event, user) => {
-    store.dispatch(userSelect(user));
+    store.dispatch(userSelectAction(user));
     loadMessages(user.id);
   };
 

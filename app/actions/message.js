@@ -3,7 +3,7 @@ import store from '../store';
 
 const myUserId = 2;
 
-export const messageSend = text => ({
+export const messageSendAction = text => ({
   type: 'MESSAGE_SEND',
   payload: text,
 });
@@ -16,7 +16,7 @@ export const messageEditAction = (userId, text) => ({
   },
 });
 
-export const messageCollectionLoadSuccess = (userId, messages) => ({
+export const messageCollectionLoadSuccessAction = (userId, messages) => ({
   type: 'MESSAGE_COLLECTION_LOAD_SUCCESS',
   payload: {
     userId,
@@ -84,13 +84,13 @@ export const sendMessage = () => {
 
   const messages = formatMessages(state.messages);
 
-  store.dispatch(messageSend(messages));
+  store.dispatch(messageSendAction(messages));
 };
 
 export const loadMessages = (userId) => {
   fetch(`/api/messages/${userId}.json`)
     .then(response => response.json())
     .then(data => store.dispatch(
-      messageCollectionLoadSuccess(userId, formatMessages(data)),
+      messageCollectionLoadSuccessAction(userId, formatMessages(data)),
     ));
 };

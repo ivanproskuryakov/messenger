@@ -1,16 +1,16 @@
 import store from '../store';
 
-export const userSearch = name => ({
+export const userSearchAction = name => ({
   type: 'USER_SEARCH',
   payload: name,
 });
 
-export const userSelect = user => ({
+export const userSelectAction = user => ({
   type: 'USER_SELECT',
   payload: user,
 });
 
-export const userCollectionLoadSuccess = (collection, selected) => ({
+export const userCollectionLoadSuccessAction = (collection, selected) => ({
   type: 'USER_COLLECTION_LOAD_SUCCESS',
   payload: {
     collection,
@@ -29,8 +29,8 @@ export const loadUsers = () => {
     .then(response => response.json())
     .then(users => sortUsersByLastMessageTimestamp(users))
     .then((users) => {
-      store.dispatch(userSelect(users[0]));
-      store.dispatch(userCollectionLoadSuccess(
+      store.dispatch(userSelectAction(users[0]));
+      store.dispatch(userCollectionLoadSuccessAction(
         users,
         users[0],
       ));
