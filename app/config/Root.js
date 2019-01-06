@@ -10,9 +10,8 @@ const Root = () => {
       <CssBaseline />
       <Router>
         <div id="layout">
-          <Route exact path="/" component={Users} />
-          <Route exact path="/user/:id" component={Users} />
-          <Route exact path="/user/:id" component={Messages} />
+          <Route component={Users} />
+          <Route component={Messages} />
         </div>
       </Router>
     </React.Fragment>

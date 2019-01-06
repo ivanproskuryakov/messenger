@@ -23,9 +23,7 @@ const styles = ({
 
 class Users extends React.Component {
   componentDidMount() {
-    const { match } = this.props;
-
-    store.dispatch(loadUsers(match.params.id));
+    loadUsers(11);
   }
 
   onUserClick = (event, user) => {

@@ -6,26 +6,11 @@ const initialState = {
   search: '',
 };
 
-const sortUsersByLastMessageTimestamp = (collection) => {
-  return collection.sort((a, b) => {
-    return b.lastMessage.timestamp - a.lastMessage.timestamp;
-  });
-};
-
 const queryCollection = (query) => {
   return initialState
     .collection
     .filter(item => item.name.toLowerCase()
       .match(query));
-};
-
-const findUserById = (collection, userId) => {
-  if (userId) {
-    return collection
-      .filter(item => item.id === Number(userId))[0];
-  }
-
-  return {};
 };
 
 const user = (state = initialState, action) => {
@@ -42,15 +27,12 @@ const user = (state = initialState, action) => {
       search: action.payload,
     };
   }
-
-  if (action.type === 'USER_COLLECTION_LOAD') {
-    fetch('/api/users.json')
-      .then(response => response.json())
-      .then(users => sortUsersByLastMessageTimestamp(users))
-      .then((users) => {
-        state.collection = users;
-        state.selected = findUserById(action.payload);
-      });
+  if (action.type === 'USER_COLLECTION_LOAD_SUCCESS') {
+    return {
+      ...state,
+      collection: action.payload.collection,
+      selected: action.payload.selected,
+    };
   }
 
   return state;
