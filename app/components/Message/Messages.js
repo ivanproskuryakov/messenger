@@ -31,7 +31,7 @@ class Messages extends React.Component {
       return (
         <section id="talk">
           <Heading />
-          <div id="collection">
+          <div id="messages">
             {collection.map((message) => {
               if (message.user.id === 2) {
                 return <MessageMy message={message} key={message.id} />;
