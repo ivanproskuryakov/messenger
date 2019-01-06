@@ -37,7 +37,7 @@ class Users extends React.Component {
       selected,
     } = this.props;
 
-    console.log(collection);
+    console.log('Users', collection);
 
     if (collection.length === 0) {
       return (

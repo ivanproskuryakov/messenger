@@ -7,25 +7,22 @@ import Message from './Message';
 import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
-import store from '../../store';
-import { messageCollectionLoad } from '../../actions/message';
+import { loadMessages } from '../../actions/message';
 
 class Messages extends React.Component {
-  componentDidUpdate() {
-    const { selected } = this.props;
-
-    store.dispatch(messageCollectionLoad(selected.id));
+  componentDidMount() {
+    loadMessages();
   }
 
   render() {
     const { selected, messages } = this.props;
 
-    if (selected.id === 0) {
+    if (selected.id) {
       return (
         <section id="talk">
           <Heading />
           <div id="messages">
-            {messages[selected.id].map((message) => {
+            {messages.map((message) => {
               if (message.user.id === 2) {
                 return <MessageMy message={message} key={message.id} />;
               }
