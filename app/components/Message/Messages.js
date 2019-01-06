@@ -25,14 +25,14 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { selectedUser, messages } = this.props;
+    const { selectedUser, collection } = this.props;
 
     if (selectedUser) {
       return (
         <section id="talk">
           <Heading />
-          <div id="messages">
-            {messages.map((message) => {
+          <div id="collection">
+            {collection.map((message) => {
               if (message.user.id === 2) {
                 return <MessageMy message={message} key={message.id} />;
               }
@@ -55,7 +55,7 @@ class Messages extends React.Component {
 }
 
 Messages.propTypes = {
-  messages: PropTypes.array.isRequired,
+  collection: PropTypes.array.isRequired,
   selectedUser: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -69,9 +69,9 @@ Messages.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    messages: state.user.messages,
+    collection: state.message.collection,
     selectedUser: state.user.selected,
-    text: state.user.text,
+    text: state.message.text,
   };
 }
 

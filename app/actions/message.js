@@ -16,6 +16,10 @@ export const messageEditAction = (userId, text) => ({
   },
 });
 
+export const messageTextFlushAction = () => ({
+  type: 'MESSAGE_TEXT_FLUSH',
+});
+
 export const messageCollectionLoadSuccessAction = (userId, messages) => ({
   type: 'MESSAGE_COLLECTION_LOAD_SUCCESS',
   payload: {
@@ -70,19 +74,20 @@ export const editMessage = (value) => {
 };
 
 export const sendMessage = () => {
-  const state = store.getState().user;
+  const state = store.getState().message;
   const message = {
     id: Math.random(),
     text: state.text,
-    timestamp: moment().unix(),
+    timestamp: moment()
+      .unix(),
     user: {
       id: myUserId, // current user id
     },
   };
 
-  state.messages.push(message);
+  state.collection.push(message);
 
-  const messages = formatMessages(state.messages);
+  const messages = formatMessages(state.collection);
 
   store.dispatch(messageSendAction(messages));
 };

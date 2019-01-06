@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import User from './User';
 import Heading from './Heading';
-import store from '../../store';
-import { userSelectAction, loadUsers } from '../../actions/user';
+import { selectUser, loadUsers } from '../../actions/user';
 import { loadMessages } from '../../actions/message';
 
 const styles = ({
@@ -28,7 +27,7 @@ class Users extends React.Component {
   }
 
   onUserClick = (event, user) => {
-    store.dispatch(userSelectAction(user));
+    selectUser(user);
     loadMessages(user.id);
   };
 

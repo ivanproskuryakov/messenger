@@ -1,4 +1,5 @@
 import store from '../store';
+import { messageTextFlushAction } from './message';
 
 export const userSearchAction = name => ({
   type: 'USER_SEARCH',
@@ -22,6 +23,11 @@ const sortUsersByLastMessageTimestamp = (collection) => {
   return collection.sort((a, b) => {
     return b.lastMessage.timestamp - a.lastMessage.timestamp;
   });
+};
+
+export const selectUser = (user) => {
+  store.dispatch(userSelectAction(user));
+  store.dispatch(messageTextFlushAction());
 };
 
 export const loadUsers = () => {
