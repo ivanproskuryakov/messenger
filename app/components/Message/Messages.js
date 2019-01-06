@@ -14,6 +14,16 @@ class Messages extends React.Component {
     loadMessages(11);
   }
 
+  componentDidUpdate() {
+    const { selectedUser } = this.props;
+
+    if (selectedUser.id) {
+      document
+        .getElementById('messagesFooter')
+        .scrollIntoView(false);
+    }
+  }
+
   render() {
     const { selectedUser, collection } = this.props;
 

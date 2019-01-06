@@ -21,7 +21,7 @@ export const messageCollectionLoadSuccess = (userId, messages) => ({
   },
 });
 
-const formatMessages = (messages) => {
+export const formatMessages = (messages) => {
   const formatted = [];
 
   for (let i = 0; i < messages.length; i += 1) {
@@ -59,16 +59,23 @@ const formatMessages = (messages) => {
   return formatted;
 };
 
-export const buildMessage = (text) => {
-  return {
+export const sendMessage = () => {
+  const state = store.getState().message;
+  const message = {
     id: Math.random(),
-    text,
+    text: state.text,
     timestamp: moment()
       .unix(),
     user: {
       id: myUserId, // current user id
     },
   };
+
+  state.collection.push(message);
+
+  const messages = formatMessages(state.collection);
+
+  store.dispatch(messageSend(messages));
 };
 
 export const loadMessages = (userId) => {

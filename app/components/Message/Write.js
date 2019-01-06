@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 
 import store from '../../store';
-import { messageSend, messageEdit } from '../../actions/message';
+import { sendMessage, messageEdit } from '../../actions/message';
 
 const styles = theme => ({
   button: {
@@ -43,7 +43,7 @@ class Write extends React.Component {
   };
 
   send = () => {
-    store.dispatch(messageSend());
+    sendMessage();
   };
 
   emojiClick = (emoji) => {
@@ -54,7 +54,7 @@ class Write extends React.Component {
   onKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      store.dispatch(messageSend());
+      sendMessage();
     }
   };
 
