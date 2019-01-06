@@ -120,7 +120,7 @@ Write.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    text: state.message.text,
+    text: state.user.text,
   };
 }
 

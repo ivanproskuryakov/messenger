@@ -3,6 +3,8 @@ const initialState = {
   selected: {
     id: null,
   },
+  messages: [],
+  text: '',
   search: '',
 };
 
@@ -32,6 +34,27 @@ const user = (state = initialState, action) => {
       ...state,
       collection: action.payload.collection,
       selected: action.payload.selected,
+    };
+  }
+  if (action.type === 'MESSAGE_SEND') {
+    if (state.text) {
+      return {
+        ...state,
+        messages: action.payload,
+        text: '',
+      };
+    }
+  }
+  if (action.type === 'MESSAGE_EDIT') {
+    return {
+      ...state,
+      text: action.payload,
+    };
+  }
+  if (action.type === 'MESSAGE_COLLECTION_LOAD_SUCCESS') {
+    return {
+      ...state,
+      messages: action.payload.messages,
     };
   }
 
