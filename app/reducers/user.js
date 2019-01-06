@@ -28,6 +28,8 @@ const user = (state = initialState, action) => {
     };
   }
   if (action.type === 'USER_COLLECTION_LOAD_SUCCESS') {
+    initialState.collection = action.payload.collection;
+
     return {
       ...state,
       collection: action.payload.collection,
