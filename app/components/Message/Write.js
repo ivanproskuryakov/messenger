@@ -11,8 +11,7 @@ import { Picker } from 'emoji-mart';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 
-import store from '../../store';
-import { sendMessage, messageEdit } from '../../actions/message';
+import { sendMessage, editMessage } from '../../actions/message';
 
 const styles = theme => ({
   button: {
@@ -47,8 +46,7 @@ class Write extends React.Component {
   };
 
   emojiClick = (emoji) => {
-    const { text } = this.props;
-    store.dispatch(messageEdit(text + emoji.native));
+    editMessage(emoji.native);
   };
 
   onKeyPress = (event) => {
@@ -59,7 +57,7 @@ class Write extends React.Component {
   };
 
   onChange = (event) => {
-    store.dispatch(messageEdit(event.target.value));
+    editMessage(event.target.value);
   };
 
   render() {

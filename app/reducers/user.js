@@ -1,11 +1,11 @@
 const initialState = {
   collection: [],
-  selected: {
-    id: null,
-  },
   messages: [],
   text: '',
   search: '',
+  selected: {
+    id: null,
+  },
 };
 
 const queryCollection = (query) => {
@@ -36,6 +36,8 @@ const user = (state = initialState, action) => {
       selected: action.payload.selected,
     };
   }
+
+  // Messages
   if (action.type === 'MESSAGE_SEND') {
     if (state.text) {
       return {
@@ -48,7 +50,7 @@ const user = (state = initialState, action) => {
   if (action.type === 'MESSAGE_EDIT') {
     return {
       ...state,
-      text: action.payload,
+      text: action.payload.text,
     };
   }
   if (action.type === 'MESSAGE_COLLECTION_LOAD_SUCCESS') {

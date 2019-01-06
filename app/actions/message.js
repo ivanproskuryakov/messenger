@@ -8,9 +8,12 @@ export const messageSend = text => ({
   payload: text,
 });
 
-export const messageEdit = text => ({
+export const messageEditAction = (userId, text) => ({
   type: 'MESSAGE_EDIT',
-  payload: text,
+  payload: {
+    userId,
+    text,
+  },
 });
 
 export const messageCollectionLoadSuccess = (userId, messages) => ({
@@ -59,21 +62,27 @@ export const formatMessages = (messages) => {
   return formatted;
 };
 
+export const editMessage = (value) => {
+  const state = store.getState().user;
+  const selectedUser = state.selected;
+
+  store.dispatch(messageEditAction(selectedUser.id, value));
+};
+
 export const sendMessage = () => {
-  const state = store.getState().message;
+  const state = store.getState().user;
   const message = {
     id: Math.random(),
     text: state.text,
-    timestamp: moment()
-      .unix(),
+    timestamp: moment().unix(),
     user: {
       id: myUserId, // current user id
     },
   };
 
-  state.collection.push(message);
+  state.messages.push(message);
 
-  const messages = formatMessages(state.collection);
+  const messages = formatMessages(state.messages);
 
   store.dispatch(messageSend(messages));
 };
