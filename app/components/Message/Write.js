@@ -46,7 +46,8 @@ class Write extends React.Component {
   };
 
   emojiClick = (emoji) => {
-    editMessage(emoji.native);
+    const { text } = this.props;
+    editMessage(text + emoji.native);
   };
 
   onKeyPress = (event) => {
