@@ -1,5 +1,5 @@
 #talk {
-  width: calc(100vw - 350px);
+  width: calc(100vw - 360px);
   background: #fff;
   position: relative;
 
@@ -22,7 +22,7 @@
     z-index: 1;
     top: 0;
     height: 50px;
-    width: calc(100% - 351px);
+    width: calc(100% - 361px);
 
     .name {
       flex: 2;
@@ -62,7 +62,7 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    width: calc(100% - 351px);
+    width: calc(100% - 361px);
 
     .messageContainer {
       margin: 0 10px 10px 49px;
