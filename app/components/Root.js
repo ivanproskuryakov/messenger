@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-import Group from '@material-ui/icons/Group';
+import Person from '@material-ui/icons/Person';
 import LocationOn from '@material-ui/icons/LocationOn';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 
@@ -18,6 +18,7 @@ import Messages from './Message/Messages';
 const styles = theme => ({
   tabsRoot: {
     height: 50,
+    background: '#fff',
     borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
   },
   tabsIndicator: {
@@ -27,7 +28,7 @@ const styles = theme => ({
     color: '#43444f',
     marginTop: 1,
     marginRight: 0,
-    minWidth: 89,
+    minWidth: 115,
     fontWeight: theme.typography.fontWeightRegular,
   },
 });
@@ -60,15 +61,16 @@ class Root extends React.Component {
                 }}
               >
                 <Tab
-                  icon={<Group />}
-                  classes={{ root: classes.tabRoot }}
-                />
-                <Tab
-                  icon={<LibraryBooks />}
+                  icon={<Person />}
                   classes={{ root: classes.tabRoot }}
                 />
                 <Tab
                   icon={<LocationOn />}
+                  disabled
+                  classes={{ root: classes.tabRoot }}
+                />
+                <Tab
+                  icon={<LibraryBooks />}
                   disabled
                   classes={{ root: classes.tabRoot }}
                 />
