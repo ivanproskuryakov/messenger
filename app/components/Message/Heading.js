@@ -115,7 +115,7 @@ class Heading extends React.Component {
             <ListItemIcon className={classes.icon}>
               <Info />
             </ListItemIcon>
-            <ListItemText classes={{ primary: classes.primary }} inset primary="View profile" />
+            <ListItemText classes={{ primary: classes.primary }} inset primary="View Profile" />
           </MenuItem>
         </Menu>
       </div>

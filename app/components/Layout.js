@@ -6,10 +6,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PeopleOutline from '@material-ui/icons/PeopleOutline';
-import LocationOn from '@material-ui/icons/LocationOn';
-import LibraryBooks from '@material-ui/icons/LibraryBooks';
-
 import Users from './User/Users';
 import Messages from './Message/Messages';
 
@@ -20,20 +16,23 @@ const styles = theme => ({
     borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
   },
   tabsIndicator: {
-    backgroundColor: '#43444f',
+    background: '#43444f',
+  },
+  tabSelected: {
+    background: '#43444f',
   },
   tabRoot: {
     color: '#43444f',
     marginTop: 1,
     marginRight: 0,
-    minWidth: 115,
+    minWidth: 110,
     fontWeight: theme.typography.fontWeightRegular,
   },
 });
 
 class Layout extends React.Component {
   state = {
-    selectedTab: 2,
+    selectedTab: 0,
   };
 
   handleChange = (event, selectedTab) => {
@@ -59,16 +58,16 @@ class Layout extends React.Component {
                 }}
               >
                 <Tab
-                  icon={<PeopleOutline />}
+                  label="Profiles"
                   classes={{ root: classes.tabRoot }}
                 />
                 <Tab
-                  icon={<LocationOn />}
+                  label="Properties"
                   disabled
                   classes={{ root: classes.tabRoot }}
                 />
                 <Tab
-                  icon={<LibraryBooks />}
+                  label="Stories"
                   disabled
                   classes={{ root: classes.tabRoot }}
                 />
@@ -84,7 +83,7 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Layout);
