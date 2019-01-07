@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-import Person from '@material-ui/icons/Person';
+import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import LocationOn from '@material-ui/icons/LocationOn';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
-
-import { withStyles } from '@material-ui/core/styles';
 
 import Users from './User/Users';
 import Messages from './Message/Messages';
@@ -33,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-class Root extends React.Component {
+class Layout extends React.Component {
   state = {
     selectedTab: 2,
   };
@@ -61,7 +59,7 @@ class Root extends React.Component {
                 }}
               >
                 <Tab
-                  icon={<Person />}
+                  icon={<PeopleOutline />}
                   classes={{ root: classes.tabRoot }}
                 />
                 <Tab
@@ -85,9 +83,9 @@ class Root extends React.Component {
   }
 }
 
-Root.propTypes = {
+Layout.propTypes = {
   classes: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(Root);
+export default withStyles(styles)(Layout);
 
