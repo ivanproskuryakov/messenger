@@ -44,6 +44,7 @@ export const loadUsers = () => {
 
 export const getAuthorizationData = () => {
   fetch(config.URL_USER_ME)
+    .then(response => response.json())
     .then((response) => {
       console.log(response);
     });

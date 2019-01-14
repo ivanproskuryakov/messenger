@@ -32,6 +32,7 @@ const config = {
     contentBase: resolve(__dirname, 'build'),
     historyApiFallback: true,
     publicPath: '/',
+    disableHostCheck: true,
   },
 
   resolve: {
