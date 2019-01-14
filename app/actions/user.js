@@ -60,6 +60,10 @@ export const getAuthorizationData = () => {
   axios
     .get(config.URL_USER_ME, options)
     .then((response) => {
-      store.dispatch(userMeAction(response.data));
+      if (response.data == null) {
+        location.href = config.URL_INDEX;
+      } else {
+        store.dispatch(userMeAction(response.data));
+      }
     });
 };

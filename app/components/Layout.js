@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import MoonLoader from 'react-spinners/BarLoader';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -34,6 +35,7 @@ const styles = theme => ({
 class Layout extends React.Component {
   state = {
     selectedTab: 0,
+    loading: true,
   };
 
   componentDidMount() {
@@ -45,7 +47,7 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { selectedTab } = this.state;
+    const { selectedTab, loading } = this.state;
     const { classes } = this.props;
 
     return (
@@ -53,6 +55,17 @@ class Layout extends React.Component {
         <CssBaseline />
         <Router>
           <div id="layout">
+            <div id="loading">
+              <MoonLoader
+                class="loading"
+                sizeUnit="px"
+                size={50}
+                height={3}
+                color="#222"
+                loading={loading}
+              />
+            </div>
+
             <aside id="sideNav">
               <Tabs
                 value={selectedTab}
