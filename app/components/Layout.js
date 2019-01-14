@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MoonLoader from 'react-spinners/BarLoader';
 
@@ -35,7 +36,6 @@ const styles = theme => ({
 class Layout extends React.Component {
   state = {
     selectedTab: 0,
-    loading: true,
   };
 
   componentDidMount() {
@@ -47,24 +47,27 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { selectedTab, loading } = this.state;
-    const { classes } = this.props;
+    const { selectedTab } = this.state;
+    const { classes, me } = this.props;
+    const isLoading = me.id === undefined;
 
     return (
       <React.Fragment>
         <CssBaseline />
         <Router>
           <div id="layout">
-            <div id="loading">
-              <MoonLoader
-                class="loading"
-                sizeUnit="px"
-                size={50}
-                height={3}
-                color="#222"
-                loading={loading}
-              />
-            </div>
+            {isLoading ? (
+              <div id="loading">
+                <MoonLoader
+                  class="loading"
+                  sizeUnit="px"
+                  size={50}
+                  height={3}
+                  color="#2d7cc1"
+                  loading={isLoading}
+                />
+              </div>
+            ) : ('')}
 
             <aside id="sideNav">
               <Tabs
@@ -101,8 +104,15 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
+  me: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Layout);
+function mapStateToProps(state) {
+  return {
+    me: state.user.me,
+  };
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(Layout));
 
