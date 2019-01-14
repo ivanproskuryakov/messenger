@@ -1,4 +1,5 @@
 const initialState = {
+  me: {},
   collection: [],
   search: '',
   selected: {
@@ -14,6 +15,12 @@ const queryCollection = (query) => {
 };
 
 const user = (state = initialState, action) => {
+  if (action.type === 'USER_ME') {
+    return {
+      ...state,
+      me: action.payload,
+    };
+  }
   if (action.type === 'USER_SELECT') {
     return {
       ...state,

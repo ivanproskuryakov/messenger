@@ -9,6 +9,10 @@ export const userSearchAction = name => ({
   type: 'USER_SEARCH',
   payload: name,
 });
+export const userMeAction = user => ({
+  type: 'USER_ME',
+  payload: user,
+});
 export const userSelectAction = user => ({
   type: 'USER_SELECT',
   payload: user,
@@ -56,6 +60,6 @@ export const getAuthorizationData = () => {
   axios
     .get(config.URL_USER_ME, options)
     .then((response) => {
-      console.log(response.data);
+      store.dispatch(userMeAction(response.data));
     });
 };

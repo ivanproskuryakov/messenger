@@ -4,17 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
-import MoreVert from '@material-ui/icons/MoreVert';
-import Info from '@material-ui/icons/Info';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { calendarStringsHeader } from '../../helper/time';
+import Me from '../Me';
 
 const styles = ({
   icon: {
@@ -33,23 +27,7 @@ const styles = ({
 
 class Heading extends React.Component {
   state = {
-    anchorEl: null,
     search: '',
-  };
-
-  showMenu = (event) => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  closeMenu = () => {
-    this.setState({ anchorEl: null });
-  };
-
-  viewProfile = () => {
-    const { selected } = this.props;
-
-    window.open(selected.url, '_blank');
-    this.closeMenu();
   };
 
   onClearClick = () => {
@@ -62,7 +40,7 @@ class Heading extends React.Component {
 
   render() {
     const { selected, classes } = this.props;
-    const { anchorEl, search } = this.state;
+    const { search } = this.state;
 
     if (!selected.name) {
       return '';
@@ -95,29 +73,8 @@ class Heading extends React.Component {
             />
           ) : ('') }
         </div>
-        <IconButton
-          id="buttonMenu"
-          className={classes.button}
-          aria-label="Delete"
-          aria-owns={anchorEl ? 'profile-menu' : undefined}
-          aria-haspopup="true"
-          onClick={this.showMenu}
-        >
-          <MoreVert />
-        </IconButton>
-        <Menu
-          id="profile-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={this.closeMenu}
-        >
-          <MenuItem onClick={this.viewProfile}>
-            <ListItemIcon className={classes.icon}>
-              <Info />
-            </ListItemIcon>
-            <ListItemText classes={{ primary: classes.primary }} inset primary="View Profile" />
-          </MenuItem>
-        </Menu>
+
+        <Me />
       </div>
     );
   }
