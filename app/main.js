@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import Root from './components/Layout';
+import Layout from './components/Layout';
 import store from './store/index';
 
 const render = (Component) => {
@@ -17,7 +17,7 @@ const render = (Component) => {
   );
 };
 
-render(Root);
+render(Layout);
 
 if (module.hot) {
   module.hot.accept('./components/Layout', () => {

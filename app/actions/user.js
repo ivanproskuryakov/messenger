@@ -1,3 +1,6 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 import store from '../store';
 import config from '../config';
 import { messageTextFlushAction } from './message';
@@ -43,9 +46,16 @@ export const loadUsers = () => {
 };
 
 export const getAuthorizationData = () => {
-  fetch(config.URL_USER_ME)
-    .then(response => response.json())
+  const options = {
+    withCredentials: true,
+    headers: {
+      'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
+    },
+  };
+
+  axios
+    .get(config.URL_USER_ME, options)
     .then((response) => {
-      console.log(response);
+      console.log(response.data);
     });
 };
