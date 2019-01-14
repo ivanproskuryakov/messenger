@@ -14,7 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { calendarStringsHeader } from '../../helper/app';
+import { calendarStringsHeader } from '../../helper/time';
 
 const styles = ({
   icon: {

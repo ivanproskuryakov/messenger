@@ -8,6 +8,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Users from './User/Users';
 import Messages from './Message/Messages';
+import { getAuthorizationData } from '../actions/user';
 
 const styles = theme => ({
   tabsRoot: {
@@ -34,6 +35,10 @@ class Layout extends React.Component {
   state = {
     selectedTab: 0,
   };
+
+  componentDidMount() {
+    getAuthorizationData();
+  }
 
   handleChange = (event, selectedTab) => {
     this.setState({ selectedTab });

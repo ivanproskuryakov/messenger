@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { calendarStringsMessage } from '../../helper/app';
+import { calendarStringsMessage } from '../../helper/time';
 
 const MessageMy = ({ message }) => {
   if (message.isFirst) {

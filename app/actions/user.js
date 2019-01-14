@@ -1,4 +1,5 @@
 import store from '../store';
+import config from '../config';
 import { messageTextFlushAction } from './message';
 
 export const userSearchAction = name => ({
@@ -29,7 +30,7 @@ export const selectUser = (user) => {
 };
 
 export const loadUsers = () => {
-  fetch('/api/users.json')
+  fetch(config.URL_USER_COLLECTION)
     .then(response => response.json())
     .then(users => sortUsersByLastMessageTimestamp(users))
     .then((users) => {
@@ -38,5 +39,12 @@ export const loadUsers = () => {
         users,
         users[0],
       ));
+    });
+};
+
+export const getAuthorizationData = () => {
+  fetch(config.URL_USER_ME)
+    .then((response) => {
+      console.log(response);
     });
 };
