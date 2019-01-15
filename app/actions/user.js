@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import store from '../store';
 import config from '../config';
 import { messageTextFlushAction } from './message';
+import buildUsers from '../service/user';
 
 export const userSearchAction = name => ({
   type: 'USER_SEARCH',
@@ -25,22 +26,24 @@ export const userCollectionLoadSuccessAction = (collection, selected) => ({
   },
 });
 
-const sortUsersByLastMessageTimestamp = (collection) => {
-  return collection.sort((a, b) => {
-    return b.lastMessage.timestamp - a.lastMessage.timestamp;
-  });
-};
-
 export const selectUser = (user) => {
   store.dispatch(userSelectAction(user));
   store.dispatch(messageTextFlushAction());
 };
 
 export const loadUsers = () => {
-  fetch(config.URL_USER_COLLECTION)
-    .then(response => response.json())
-    .then(users => sortUsersByLastMessageTimestamp(users))
-    .then((users) => {
+  const options = {
+    withCredentials: true,
+    headers: {
+      'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
+    },
+  };
+
+  axios
+    .get(config.URL_USER_COLLECTION, options)
+    .then((response) => {
+      const users = buildUsers(response.data);
+
       store.dispatch(userSelectAction(users[0]));
       store.dispatch(userCollectionLoadSuccessAction(
         users,

@@ -12,7 +12,7 @@ const config = {
   URL_SETTINGS: `${apiHost}/profile/settings/edit/`,
   URL_HELP: `${apiHost}/help/z78`,
   URL_USER_ME: `${apiHost}/api/user/me`,
-  URL_USER_COLLECTION: '/api/users.json',
+  URL_USER_COLLECTION: `${apiHost}/api/messenger/group`,
 };
 
 export default config;
