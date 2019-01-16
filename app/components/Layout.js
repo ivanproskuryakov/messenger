@@ -16,21 +16,21 @@ import Heading from './Group/Heading';
 
 const styles = theme => ({
   tabsRoot: {
-    height: 50,
+    marginLeft: 0,
     borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-    fontSize: '12px',
   },
   tabsIndicator: {
-    background: '#43444f',
+    background: '#fafafa',
   },
   tabSelected: {
     background: '#43444f',
   },
   tabRoot: {
     color: '#43444f',
-    marginTop: 1,
     marginRight: 0,
+    marginLeft: 0,
     minWidth: 110,
+    fontSize: '12px',
     fontWeight: theme.typography.fontWeightRegular,
   },
 });
@@ -86,6 +86,7 @@ class Layout extends React.Component {
               >
                 <Tab
                   label="Profiles"
+                  disableRipple
                   classes={{ root: classes.tabRoot }}
                 />
                 <Tab
