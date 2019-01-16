@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 import config from '../config';
 import { loadMessages, messageTextFlushAction } from './message';
-import buildUsers from '../service/group';
+import buildGroups from '../service/group';
 import httpOptions from '../service/http';
 
 export const groupSearchAction = name => ({
@@ -33,14 +33,14 @@ export const loadGroups = () => {
       httpOptions,
     )
     .then((response) => {
-      const users = buildUsers(response.data);
+      const groups = buildGroups(response.data);
 
-      store.dispatch(groupSelectAction(users[0]));
+      store.dispatch(groupSelectAction(groups[0]));
       store.dispatch(groupCollectionLoadSuccessAction(
-        users,
-        users[0],
+        groups,
+        groups[0],
       ));
 
-      loadMessages(users[0].id); // Load messages for the last selected group
+      loadMessages(groups[0].id); // Load messages for the last selected group
     });
 };

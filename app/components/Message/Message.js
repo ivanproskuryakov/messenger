@@ -53,7 +53,7 @@ Message.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    selected: state.user.selected,
+    selected: state.group.selected,
   };
 }
 

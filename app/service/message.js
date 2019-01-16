@@ -1,11 +1,11 @@
 import moment from 'moment';
 import store from '../store';
 
-export const buildMessage = (text, user) => {
+export const buildMessage = (text, group) => {
   return {
     text,
     group: {
-      id: user.id,
+      id: group.id,
     },
   };
 };

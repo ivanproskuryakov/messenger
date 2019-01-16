@@ -26,9 +26,9 @@ class Groups extends React.Component {
     loadGroups();
   }
 
-  onUserClick = (event, user) => {
-    selectGroup(user);
-    loadMessages(user.id);
+  onGroupClick = (event, group) => {
+    selectGroup(group);
+    loadMessages(group.id);
   };
 
   render() {
@@ -40,7 +40,7 @@ class Groups extends React.Component {
 
     if (collection.length === 0) {
       return (
-        <aside id="users">
+        <aside id="groups">
           <Heading />
           <PeopleOutline className="noResults" />
         </aside>
@@ -52,15 +52,15 @@ class Groups extends React.Component {
         <Heading />
         <div className="items">
           <List component="nav" className={classes.List}>
-            {collection.map(user => (
+            {collection.map(group => (
               <ListItem
-                key={user.name}
+                key={group.name}
                 button
-                onClick={event => this.onUserClick(event, user)}
-                className={`userItem ${selected.id === user.id ? '__active' : ''} ${classes.ListItem}`}
+                onClick={event => this.onGroupClick(event, group)}
+                className={`userItem ${selected.id === group.id ? '__active' : ''} ${classes.ListItem}`}
               >
                 <Group
-                  user={user}
+                  group={group}
                 />
               </ListItem>
             ))}
@@ -87,8 +87,8 @@ Groups.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.user.collection,
-    selected: state.user.selected,
+    collection: state.group.collection,
+    selected: state.group.selected,
   };
 }
 

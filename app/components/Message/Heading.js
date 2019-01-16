@@ -87,8 +87,8 @@ Heading.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.user.collection,
-    selected: state.user.selected,
+    collection: state.group.collection,
+    selected: state.group.selected,
   };
 }
 

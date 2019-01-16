@@ -15,24 +15,24 @@ const styles = ({
   },
 });
 
-const Group = ({ user, classes }) => {
+const Group = ({ group, classes }) => {
   return (
-    <ListItem button className="user" component={Link} to={`/group/${user.id}`}>
+    <ListItem button className="user" component={Link} to={`/group/${group.id}`}>
       <Avatar
-        src={user.photo}
+        src={group.photo}
         className={`avatar ${classes.avatar}`}
       />
-      <Moment calendar={calendarStringsUsers} date={user.lastMessage.timestamp} />
+      <Moment calendar={calendarStringsUsers} date={group.lastMessage.timestamp} />
       <div className="details">
-        <p className="name">{user.name}</p>
-        <p className="lastMessage">{user.lastMessage.text}</p>
+        <p className="name">{group.name}</p>
+        <p className="lastMessage">{group.lastMessage.text}</p>
       </div>
     </ListItem>
   );
 };
 
 Group.propTypes = {
-  user: PropTypes.shape({
+  group: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,

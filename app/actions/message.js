@@ -8,29 +8,29 @@ export const messageSendAction = text => ({
   type: 'MESSAGE_SEND',
   payload: text,
 });
-export const messageEditAction = (userId, text) => ({
+export const messageEditAction = (groupId, text) => ({
   type: 'MESSAGE_EDIT',
   payload: {
-    userId,
+    groupId,
     text,
   },
 });
 export const messageTextFlushAction = () => ({
   type: 'MESSAGE_TEXT_FLUSH',
 });
-export const messageCollectionLoadSuccessAction = (userId, messages) => ({
+export const messageCollectionLoadSuccessAction = (groupId, messages) => ({
   type: 'MESSAGE_COLLECTION_LOAD_SUCCESS',
   payload: {
-    userId,
+    groupId,
     messages,
   },
 });
 
 export const editText = (value) => {
-  const state = store.getState().user;
-  const selectedUser = state.selected;
+  const state = store.getState().group;
+  const selectedGroup = state.selected;
 
-  store.dispatch(messageEditAction(selectedUser.id, value));
+  store.dispatch(messageEditAction(selectedGroup.id, value));
 };
 
 export const sendMessage = () => {
@@ -41,7 +41,7 @@ export const sendMessage = () => {
     return;
   }
 
-  const data = buildMessage(text, state.user.selected);
+  const data = buildMessage(text, state.group.selected);
   const instantData = buildInstantMessage(text, state.user.me);
 
   axios

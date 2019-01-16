@@ -10,9 +10,9 @@ import Heading from './Heading';
 
 class Messages extends React.Component {
   componentDidUpdate() {
-    const { selectedUser } = this.props;
+    const { selectedGroup } = this.props;
 
-    if (selectedUser.id) {
+    if (selectedGroup.id) {
       document
         .getElementById('messagesFooter')
         .scrollIntoView(false);
@@ -20,9 +20,9 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { selectedUser, collection, me } = this.props;
+    const { selectedGroup, collection, me } = this.props;
 
-    if (selectedUser) {
+    if (selectedGroup) {
       return (
         <section id="talk">
           <Heading />
@@ -51,7 +51,7 @@ class Messages extends React.Component {
 
 Messages.propTypes = {
   collection: PropTypes.array.isRequired,
-  selectedUser: PropTypes.object.isRequired,
+  selectedGroup: PropTypes.object.isRequired,
   me: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -66,7 +66,7 @@ Messages.defaultProps = {
 function mapStateToProps(state) {
   return {
     collection: state.message.collection,
-    selectedUser: state.user.selected,
+    selectedGroup: state.group.selected,
     me: state.user.me,
     text: state.message.text,
   };
