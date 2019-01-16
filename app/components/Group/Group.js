@@ -15,9 +15,9 @@ const styles = ({
   },
 });
 
-const User = ({ user, classes }) => {
+const Group = ({ user, classes }) => {
   return (
-    <ListItem button className="user" component={Link} to={`/user/${user.id}`}>
+    <ListItem button className="user" component={Link} to={`/group/${user.id}`}>
       <Avatar
         src={user.photo}
         className={`avatar ${classes.avatar}`}
@@ -31,7 +31,7 @@ const User = ({ user, classes }) => {
   );
 };
 
-User.propTypes = {
+Group.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -41,5 +41,5 @@ User.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(User);
+export default withStyles(styles)(Group);
 

@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
-import User from './User';
+import Group from './Group';
 import Heading from './Heading';
 import { selectUser, loadUsers } from '../../actions/user';
 import { loadMessages } from '../../actions/message';
@@ -21,7 +21,7 @@ const styles = ({
   },
 });
 
-class Users extends React.Component {
+class Groups extends React.Component {
   componentDidMount() {
     loadUsers();
   }
@@ -59,7 +59,7 @@ class Users extends React.Component {
                 onClick={event => this.onUserClick(event, user)}
                 className={`userItem ${selected.id === user.id ? '__active' : ''} ${classes.ListItem}`}
               >
-                <User
+                <Group
                   user={user}
                 />
               </ListItem>
@@ -71,7 +71,7 @@ class Users extends React.Component {
   }
 }
 
-Users.propTypes = {
+Groups.propTypes = {
   classes: PropTypes.object.isRequired,
   collection: PropTypes.array.isRequired,
   selected: PropTypes.object.isRequired,
@@ -81,7 +81,7 @@ Users.propTypes = {
     }),
   }),
 };
-Users.defaultProps = {
+Groups.defaultProps = {
   match: {},
 };
 
@@ -92,4 +92,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Users));
+export default withStyles(styles)(connect(mapStateToProps)(Groups));

@@ -8,7 +8,7 @@ import MoonLoader from 'react-spinners/BarLoader';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Users from './User/Users';
+import Groups from './Group/Groups';
 import Messages from './Message/Messages';
 import { getAuthorizationData } from '../actions/user';
 
@@ -93,7 +93,7 @@ class Layout extends React.Component {
                   classes={{ root: classes.tabRoot }}
                 />
               </Tabs>
-              <Route component={Users} />
+              <Route component={Groups} />
             </aside>
             <Route component={Messages} />
           </div>
