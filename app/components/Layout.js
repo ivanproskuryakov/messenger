@@ -65,7 +65,7 @@ class Layout extends React.Component {
                   sizeUnit="px"
                   size={50}
                   height={3}
-                  color="#2d7cc1"
+                  color="#43444f"
                   loading={isLoading}
                 />
               </div>
