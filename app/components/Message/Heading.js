@@ -7,7 +7,7 @@ import Close from '@material-ui/icons/Close';
 
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { calendarStringsHeader } from '../../helper/time';
+import { calendarStringsHeader } from '../../service/time';
 import Me from '../Me';
 
 const styles = ({

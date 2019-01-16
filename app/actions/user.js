@@ -3,7 +3,7 @@ import store from '../store';
 import config from '../config';
 import { messageTextFlushAction } from './message';
 import buildUsers from '../service/user';
-import httpOptions from '../helper/http';
+import httpOptions from '../service/http';
 
 export const userSearchAction = name => ({
   type: 'USER_SEARCH',

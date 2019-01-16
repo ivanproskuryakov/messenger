@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { calendarStringsMessage } from '../../helper/time';
+import { calendarStringsMessage } from '../../service/time';
 
 const styles = ({
   avatar: {

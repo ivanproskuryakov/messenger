@@ -1,12 +1,11 @@
-const getUsersFromGroups = (collection) => {
+const buildGroups = (collection) => {
   const items = [];
 
   collection.forEach((group) => {
-    const user = group.users[0];
+    group.photo = group.users[0].photo;
+    group.name = group.users[0].name;
 
-    user.lastMessage = group.lastMessage;
-
-    items.push(user);
+    items.push(group);
   });
 
   return items;
@@ -21,7 +20,7 @@ const sortUsersByLastMessageTimestamp = (collection) => {
 const buildUsers = (data) => {
   let users;
 
-  users = getUsersFromGroups(data);
+  users = buildGroups(data);
   users = sortUsersByLastMessageTimestamp(users);
 
   return users;

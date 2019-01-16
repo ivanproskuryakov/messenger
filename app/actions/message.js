@@ -2,9 +2,8 @@ import moment from 'moment';
 import axios from 'axios';
 import store from '../store';
 import config from '../config';
-import httpOptions from '../helper/http';
-
-const myUserId = 2;
+import httpOptions from '../service/http';
+import formatMessages from '../service/message';
 
 export const messageSendAction = text => ({
   type: 'MESSAGE_SEND',
@@ -28,44 +27,6 @@ export const messageCollectionLoadSuccessAction = (userId, messages) => ({
   },
 });
 
-export const formatMessages = (messages) => {
-  const formatted = [];
-
-  for (let i = 0; i < messages.length; i += 1) {
-    const m = messages[i];
-    const previous = messages[i - 1];
-    const next = messages[i + 1];
-
-    m.classes = '';
-    m.isFirst = false;
-    m.my = myUserId === messages[i].user.id;
-
-    if (i === 0) {
-      m.classes += '__initial';
-      m.isFirst = true;
-    }
-
-    if (previous) {
-      if (previous.user.id !== m.user.id) {
-        m.isFirst = true;
-        m.classes += '__first';
-      }
-    }
-    if (previous && !next) {
-      m.classes += '__last';
-    }
-    if (next) {
-      if (next.user.id !== m.user.id) {
-        m.classes += '__last';
-      }
-    }
-
-    formatted.push(m);
-  }
-
-  return formatted;
-};
-
 export const editMessage = (value) => {
   const state = store.getState().user;
   const selectedUser = state.selected;
@@ -75,6 +36,7 @@ export const editMessage = (value) => {
 
 export const sendMessage = () => {
   const state = store.getState().message;
+  const myUserId = state.me.id;
 
   if (state.text.trim().length !== 0) {
     const message = {
@@ -89,9 +51,9 @@ export const sendMessage = () => {
 
     state.collection.push(message);
 
-    const messages = formatMessages(state.collection);
+    const formatted = formatMessages(state.collection);
 
-    store.dispatch(messageSendAction(messages));
+    store.dispatch(messageSendAction(formatted));
   }
 };
 
@@ -101,10 +63,11 @@ export const loadMessages = (groupId) => {
   axios
     .get(url, httpOptions)
     .then((response) => {
-      console.log(response.data);
+      const formatted = formatMessages(response.data.messages);
 
-      // store.dispatch(
-      //   messageCollectionLoadSuccessAction(userId, formatMessages(data)),
-      // )
+      console.log(response.data);
+      console.log(formatted);
+
+      store.dispatch(messageCollectionLoadSuccessAction(groupId, formatted));
     });
 };

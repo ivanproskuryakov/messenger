@@ -7,15 +7,8 @@ import Message from './Message';
 import MessageMy from './MessageMy';
 import Write from './Write';
 import Heading from './Heading';
-import { loadMessages } from '../../actions/message';
 
 class Messages extends React.Component {
-  componentDidMount() {
-    const { selectedUser } = this.props;
-
-    loadMessages(selectedUser.id);
-  }
-
   componentDidUpdate() {
     const { selectedUser } = this.props;
 
@@ -27,7 +20,7 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { selectedUser, collection } = this.props;
+    const { selectedUser, collection, me } = this.props;
 
     if (selectedUser) {
       return (
@@ -35,7 +28,7 @@ class Messages extends React.Component {
           <Heading />
           <div id="messages">
             {collection.map((message) => {
-              if (message.user.id === 2) {
+              if (message.user.id === me.id) {
                 return <MessageMy message={message} key={message.id} />;
               }
               return <Message message={message} key={message.id} />;
@@ -59,6 +52,7 @@ class Messages extends React.Component {
 Messages.propTypes = {
   collection: PropTypes.array.isRequired,
   selectedUser: PropTypes.object.isRequired,
+  me: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -73,6 +67,7 @@ function mapStateToProps(state) {
   return {
     collection: state.message.collection,
     selectedUser: state.user.selected,
+    me: state.user.me,
     text: state.message.text,
   };
 }
