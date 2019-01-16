@@ -32,7 +32,7 @@ export const selectUser = (user) => {
 
 export const loadUsers = () => {
   axios
-    .get(config.URL_GROUP_COLLECTION, httpOptions)
+    .get(config.URL_GROUP, httpOptions)
     .then((response) => {
       const users = buildUsers(response.data);
 

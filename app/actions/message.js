@@ -27,7 +27,7 @@ export const messageCollectionLoadSuccessAction = (userId, messages) => ({
   },
 });
 
-export const editMessage = (value) => {
+export const editText = (value) => {
   const state = store.getState().user;
   const selectedUser = state.selected;
 
@@ -35,30 +35,41 @@ export const editMessage = (value) => {
 };
 
 export const sendMessage = () => {
-  const state = store.getState().message;
-  const myUserId = state.me.id;
+  const state = store.getState();
 
-  if (state.text.trim().length !== 0) {
-    const message = {
-      id: Math.random(),
-      text: state.text,
-      timestamp: moment()
-        .unix(),
-      user: {
-        id: myUserId, // current user id
-      },
-    };
-
-    state.collection.push(message);
-
-    const formatted = formatMessages(state.collection);
-
-    store.dispatch(messageSendAction(formatted));
+  if (state.message.text.trim().length === 0) {
+    return;
   }
+
+  const data = {
+    text: state.message.text,
+    group: {
+      id: state.user.selected.id,
+    },
+  };
+  const instantData = {
+    id: state.user.me.id,
+    text: data.text,
+    timestamp: moment()
+      .unix(),
+    user: state.user.me,
+  };
+
+  state.message.collection.push(instantData);
+
+  const formatted = formatMessages(state.message.collection);
+
+  store.dispatch(messageSendAction(formatted));
+
+  axios
+    .post(config.URL_GROUP, data, httpOptions)
+    .then((response) => {
+      console.log(response);
+    });
 };
 
 export const loadMessages = (groupId) => {
-  const url = `${config.URL_GROUP_COLLECTION}/${groupId}`;
+  const url = `${config.URL_GROUP}${groupId}`;
 
   axios
     .get(url, httpOptions)
