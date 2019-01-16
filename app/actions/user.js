@@ -1,10 +1,9 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
-
 import store from '../store';
 import config from '../config';
 import { messageTextFlushAction } from './message';
 import buildUsers from '../service/user';
+import httpOptions from '../helper/http';
 
 export const userSearchAction = name => ({
   type: 'USER_SEARCH',
@@ -32,15 +31,8 @@ export const selectUser = (user) => {
 };
 
 export const loadUsers = () => {
-  const options = {
-    withCredentials: true,
-    headers: {
-      'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
-    },
-  };
-
   axios
-    .get(config.URL_USER_COLLECTION, options)
+    .get(config.URL_GROUP_COLLECTION, httpOptions)
     .then((response) => {
       const users = buildUsers(response.data);
 
@@ -53,15 +45,8 @@ export const loadUsers = () => {
 };
 
 export const getAuthorizationData = () => {
-  const options = {
-    withCredentials: true,
-    headers: {
-      'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
-    },
-  };
-
   axios
-    .get(config.URL_USER_ME, options)
+    .get(config.URL_USER_ME, httpOptions)
     .then((response) => {
       if (response.data == null) {
         location.href = config.URL_INDEX;

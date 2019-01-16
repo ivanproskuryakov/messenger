@@ -6,8 +6,6 @@ const getUsersFromGroups = (collection) => {
 
     user.lastMessage = group.lastMessage;
 
-    console.log(user.lastMessage.timestamp);
-
     items.push(user);
   });
 

@@ -1,5 +1,8 @@
 import moment from 'moment';
+import axios from 'axios';
 import store from '../store';
+import config from '../config';
+import httpOptions from '../helper/http';
 
 const myUserId = 2;
 
@@ -92,10 +95,16 @@ export const sendMessage = () => {
   }
 };
 
-export const loadMessages = (userId) => {
-  fetch(`/api/messages/${userId}.json`)
-    .then(response => response.json())
-    .then(data => store.dispatch(
-      messageCollectionLoadSuccessAction(userId, formatMessages(data)),
-    ));
+export const loadMessages = (groupId) => {
+  const url = `${config.URL_GROUP_COLLECTION}/${groupId}`;
+
+  axios
+    .get(url, httpOptions)
+    .then((response) => {
+      console.log(response.data);
+
+      // store.dispatch(
+      //   messageCollectionLoadSuccessAction(userId, formatMessages(data)),
+      // )
+    });
 };

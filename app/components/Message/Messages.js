@@ -11,7 +11,9 @@ import { loadMessages } from '../../actions/message';
 
 class Messages extends React.Component {
   componentDidMount() {
-    loadMessages(11);
+    const { selectedUser } = this.props;
+
+    loadMessages(selectedUser.id);
   }
 
   componentDidUpdate() {
