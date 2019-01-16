@@ -19,23 +19,21 @@ class Heading extends React.Component {
     const { search } = this.props;
 
     return (
-      <div className="heading">
-        <div className="search">
-          <Search className="searchIcon" />
-          <input
-            className="searchInput"
-            type="text"
-            value={search}
-            onChange={this.onChangeSearch}
-            placeholder="Search by name"
+      <div className="search">
+        <Search className="searchIcon" />
+        <input
+          className="searchInput"
+          type="text"
+          value={search}
+          onChange={this.onChangeSearch}
+          placeholder="Search by name"
+        />
+        {search.length > 0 ? (
+          <Close
+            className="clearIcon"
+            onClick={this.onClearClick}
           />
-          {search.length > 0 ? (
-            <Close
-              className="clearIcon"
-              onClick={this.onClearClick}
-            />
-          ) : ('') }
-        </div>
+        ) : ('') }
       </div>
     );
   }

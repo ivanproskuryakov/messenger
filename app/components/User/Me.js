@@ -54,19 +54,20 @@ class Me extends React.Component {
     const { anchorEl } = this.state;
 
     return (
-      <div className="me">
+      <div id="myProfile">
         <Avatar
           src={me.photo}
           className={`avatar ${classes.avatar}`}
-          id="myProfile"
           aria-label="Delete"
-          aria-owns={anchorEl ? 'profile-menu' : undefined}
+          aria-owns={anchorEl ? 'profileMenu' : undefined}
           aria-haspopup="true"
           onClick={this.showMenu}
         />
-
+        <div className="name">
+          {me.name}
+        </div>
         <Menu
-          id="profile-menu"
+          id="profileMenu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={this.closeMenu}

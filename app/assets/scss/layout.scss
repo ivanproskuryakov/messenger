@@ -1,4 +1,25 @@
 #layout {
+  #myProfile {
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+
+    .name {
+      padding-left: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #43444f;
+      margin-top: 10px;
+    }
+  }
+  #groupSearch {
+    padding: 0 10px;
+
+    .search {
+      width: 100%;
+      position: relative;
+    }
+  }
   #sideNav {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     width: 350px;

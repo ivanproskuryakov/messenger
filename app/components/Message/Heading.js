@@ -8,7 +8,6 @@ import Close from '@material-ui/icons/Close';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { calendarStringsHeader } from '../../service/time';
-import Me from '../User/Me';
 
 const styles = ({
   icon: {
@@ -73,8 +72,6 @@ class Heading extends React.Component {
             />
           ) : ('') }
         </div>
-
-        <Me />
       </div>
     );
   }

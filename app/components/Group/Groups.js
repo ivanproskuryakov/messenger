@@ -6,7 +6,6 @@ import List from '@material-ui/core/List';
 import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import Group from './Group';
-import Heading from './Heading';
 import { selectGroup, loadGroups } from '../../actions/group';
 import { loadMessages } from '../../actions/message';
 
@@ -41,7 +40,6 @@ class Groups extends React.Component {
     if (collection.length === 0) {
       return (
         <aside id="groups">
-          <Heading />
           <PeopleOutline className="noResults" />
         </aside>
       );
@@ -49,7 +47,6 @@ class Groups extends React.Component {
 
     return (
       <aside id="groups">
-        <Heading />
         <div className="items">
           <List component="nav" className={classes.List}>
             {collection.map(group => (
