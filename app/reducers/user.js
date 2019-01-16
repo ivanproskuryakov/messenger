@@ -21,20 +21,20 @@ const user = (state = initialState, action) => {
       me: action.payload,
     };
   }
-  if (action.type === 'USER_SELECT') {
+  if (action.type === 'GROUP_SELECT') {
     return {
       ...state,
       selected: action.payload,
     };
   }
-  if (action.type === 'USER_SEARCH') {
+  if (action.type === 'GROUP_SEARCH') {
     return {
       ...state,
       collection: queryCollection(action.payload.toLowerCase()),
       search: action.payload,
     };
   }
-  if (action.type === 'USER_COLLECTION_LOAD_SUCCESS') {
+  if (action.type === 'GROUP_COLLECTION_LOAD_SUCCESS') {
     initialState.collection = action.payload.collection;
 
     return {

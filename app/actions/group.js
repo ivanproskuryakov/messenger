@@ -5,32 +5,28 @@ import { loadMessages, messageTextFlushAction } from './message';
 import buildUsers from '../service/group';
 import httpOptions from '../service/http';
 
-export const userSearchAction = name => ({
-  type: 'USER_SEARCH',
+export const groupSearchAction = name => ({
+  type: 'GROUP_SEARCH',
   payload: name,
 });
-export const userMeAction = user => ({
-  type: 'USER_ME',
-  payload: user,
+export const groupSelectAction = group => ({
+  type: 'GROUP_SELECT',
+  payload: group,
 });
-export const userSelectAction = user => ({
-  type: 'USER_SELECT',
-  payload: user,
-});
-export const userCollectionLoadSuccessAction = (collection, selected) => ({
-  type: 'USER_COLLECTION_LOAD_SUCCESS',
+export const groupCollectionLoadSuccessAction = (collection, selected) => ({
+  type: 'GROUP_COLLECTION_LOAD_SUCCESS',
   payload: {
     collection,
     selected,
   },
 });
 
-export const selectUser = (user) => {
-  store.dispatch(userSelectAction(user));
+export const selectGroup = (group) => {
+  store.dispatch(groupSelectAction(group));
   store.dispatch(messageTextFlushAction());
 };
 
-export const loadUsers = () => {
+export const loadGroups = () => {
   axios
     .get(
       config.URL_GROUP,
@@ -39,12 +35,12 @@ export const loadUsers = () => {
     .then((response) => {
       const users = buildUsers(response.data);
 
-      store.dispatch(userSelectAction(users[0]));
-      store.dispatch(userCollectionLoadSuccessAction(
+      store.dispatch(groupSelectAction(users[0]));
+      store.dispatch(groupCollectionLoadSuccessAction(
         users,
         users[0],
       ));
 
-      loadMessages(users[0].id); // Load messages for the last selected user
+      loadMessages(users[0].id); // Load messages for the last selected group
     });
 };

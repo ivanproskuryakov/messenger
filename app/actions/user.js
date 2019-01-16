@@ -2,7 +2,11 @@ import axios from 'axios';
 import store from '../store';
 import config from '../config';
 import httpOptions from '../service/http';
-import { userMeAction } from './group';
+
+export const userMeAction = user => ({
+  type: 'USER_ME',
+  payload: user,
+});
 
 const getAuthorizationData = () => {
   axios
