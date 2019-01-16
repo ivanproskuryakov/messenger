@@ -11,10 +11,17 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import MoreVert from '@material-ui/icons/MoreVert';
+import IconButton from '@material-ui/core/IconButton/IconButton';
+
 import config from '../../config';
 
 const styles = ({
   icon: {
+    margin: 0,
+  },
+  button: {
+    padding: 5,
     margin: 0,
   },
   avatar: {
@@ -58,14 +65,20 @@ class Me extends React.Component {
         <Avatar
           src={me.photo}
           className={`avatar ${classes.avatar}`}
-          aria-label="Delete"
-          aria-owns={anchorEl ? 'profileMenu' : undefined}
-          aria-haspopup="true"
-          onClick={this.showMenu}
         />
         <div className="name">
           {me.name}
         </div>
+        <IconButton
+          className={`info ${classes.button}`}
+          component="span"
+          aria-label="Delete"
+          aria-owns={anchorEl ? 'profileMenu' : undefined}
+          aria-haspopup="true"
+          onClick={this.showMenu}
+        >
+          <MoreVert />
+        </IconButton>
         <Menu
           id="profileMenu"
           anchorEl={anchorEl}
