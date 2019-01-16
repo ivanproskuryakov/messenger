@@ -45,10 +45,12 @@ export const sendMessage = () => {
   const instantData = buildInstantMessage(text, state.user.me);
 
   axios
-    .post(config.URL_MESSAGE, data, httpOptions)
-    .then((response) => {
-      console.log(response);
-
+    .post(
+      config.URL_MESSAGE,
+      data,
+      httpOptions,
+    )
+    .then(() => {
       state.message.collection.push(instantData);
       const formatted = formatMessages(state.message.collection);
 
@@ -60,12 +62,12 @@ export const loadMessages = (groupId) => {
   const url = `${config.URL_GROUP}${groupId}`;
 
   axios
-    .get(url, httpOptions)
+    .get(
+      url,
+      httpOptions,
+    )
     .then((response) => {
       const formatted = formatMessages(response.data.messages);
-
-      console.log(response.data);
-      console.log(formatted);
 
       store.dispatch(messageCollectionLoadSuccessAction(groupId, formatted));
     });

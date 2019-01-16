@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../store';
 import config from '../config';
-import { messageTextFlushAction } from './message';
+import { loadMessages, messageTextFlushAction } from './message';
 import buildUsers from '../service/user';
 import httpOptions from '../service/http';
 
@@ -32,7 +32,10 @@ export const selectUser = (user) => {
 
 export const loadUsers = () => {
   axios
-    .get(config.URL_GROUP, httpOptions)
+    .get(
+      config.URL_GROUP,
+      httpOptions,
+    )
     .then((response) => {
       const users = buildUsers(response.data);
 
@@ -41,6 +44,8 @@ export const loadUsers = () => {
         users,
         users[0],
       ));
+
+      loadMessages(users[0].id); // Load messages for the last selected user
     });
 };
 
