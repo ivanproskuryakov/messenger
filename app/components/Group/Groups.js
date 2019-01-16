@@ -48,7 +48,7 @@ class Groups extends React.Component {
     }
 
     return (
-      <aside id="users">
+      <aside id="groups">
         <Heading />
         <div className="items">
           <List component="nav" className={classes.List}>
