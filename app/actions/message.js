@@ -1,9 +1,8 @@
-import moment from 'moment';
 import axios from 'axios';
 import store from '../store';
 import config from '../config';
 import httpOptions from '../service/http';
-import formatMessages from '../service/message';
+import { buildInstantMessage, buildMessage, formatMessages } from '../service/message';
 
 export const messageSendAction = text => ({
   type: 'MESSAGE_SEND',
@@ -36,35 +35,24 @@ export const editText = (value) => {
 
 export const sendMessage = () => {
   const state = store.getState();
+  const { text } = state.message;
 
-  if (state.message.text.trim().length === 0) {
+  if (text.trim().length === 0) {
     return;
   }
 
-  const data = {
-    text: state.message.text,
-    group: {
-      id: state.user.selected.id,
-    },
-  };
-  const instantData = {
-    id: state.user.me.id,
-    text: data.text,
-    timestamp: moment()
-      .unix(),
-    user: state.user.me,
-  };
-
-  state.message.collection.push(instantData);
-
-  const formatted = formatMessages(state.message.collection);
-
-  store.dispatch(messageSendAction(formatted));
+  const data = buildMessage(text, state.user.selected);
+  const instantData = buildInstantMessage(text, state.user.me);
 
   axios
-    .post(config.URL_GROUP, data, httpOptions)
+    .post(config.URL_MESSAGE, data, httpOptions)
     .then((response) => {
       console.log(response);
+
+      state.message.collection.push(instantData);
+      const formatted = formatMessages(state.message.collection);
+
+      store.dispatch(messageSendAction(formatted));
     });
 };
 

@@ -1,6 +1,27 @@
+import moment from 'moment';
 import store from '../store';
 
-const formatMessages = (messages) => {
+export const buildMessage = (text, user) => {
+  return {
+    text,
+    group: {
+      id: user.id,
+    },
+  };
+};
+export const buildInstantMessage = (text, user) => {
+  return {
+    id: Math.random(),
+    timestamp: moment()
+      .unix(),
+    text,
+    user: {
+      id: user.id,
+    },
+  };
+};
+
+export const formatMessages = (messages) => {
   const state = store.getState().user;
   const myUserId = state.me.id;
   const formatted = [];
@@ -39,5 +60,3 @@ const formatMessages = (messages) => {
 
   return formatted;
 };
-
-export default formatMessages;
