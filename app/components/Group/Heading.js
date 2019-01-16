@@ -3,7 +3,7 @@ import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
-import { userSearchAction } from '../../actions/user';
+import { userSearchAction } from '../../actions/group';
 import store from '../../store';
 
 class Heading extends React.Component {

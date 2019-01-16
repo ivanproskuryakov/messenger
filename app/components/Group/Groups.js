@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
 import Group from './Group';
 import Heading from './Heading';
-import { selectUser, loadUsers } from '../../actions/user';
+import { selectUser, loadUsers } from '../../actions/group';
 import { loadMessages } from '../../actions/message';
 
 const styles = ({

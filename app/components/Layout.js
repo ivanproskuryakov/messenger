@@ -10,7 +10,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Groups from './Group/Groups';
 import Messages from './Message/Messages';
-import { getAuthorizationData } from '../actions/user';
+import getAuthorizationData from '../actions/user';
 
 const styles = theme => ({
   tabsRoot: {
