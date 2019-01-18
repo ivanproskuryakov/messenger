@@ -25,7 +25,6 @@ export const selectGroup = (group) => {
   store.dispatch(groupSelectAction(group));
   store.dispatch(messageTextFlushAction());
 };
-
 export const loadGroups = () => {
   axios
     .get(

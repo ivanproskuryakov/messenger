@@ -1,9 +1,7 @@
 const initialState = {
   collection: [],
   search: '',
-  selected: {
-    id: null,
-  },
+  selected: {},
 };
 
 const queryCollection = (query) => {

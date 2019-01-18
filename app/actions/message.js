@@ -30,14 +30,14 @@ export const editText = (value) => {
   const state = store.getState().group;
   const selectedGroup = state.selected;
 
+  // Dispatch event
   store.dispatch(messageEditAction(selectedGroup.id, value));
 };
-
 export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
   const userId = state.group.selected.users[0].id;
-  const instantData = buildInstantMessage(text, state.user.me);
+  const url = `${config.URL_MESSAGE_USER}/${userId}`;
 
   if (text.trim().length === 0) {
     return;
@@ -45,22 +45,21 @@ export const sendMessage = () => {
 
   axios
     .post(
-      `${config.URL_MESSAGE_USER}/${userId}`,
+      url,
       {
         text,
       },
       httpOptions,
     )
-    .then((response) => {
-      console.log(response.data);
-
+    .then(() => {
+      const instantData = buildInstantMessage(text, state.user.me);
       state.message.collection.push(instantData);
       const formatted = formatMessages(state.message.collection);
 
+      // Dispatch event
       store.dispatch(messageSendAction(formatted));
     });
 };
-
 export const loadMessages = (groupId) => {
   const url = `${config.URL_GROUP}${groupId}`;
 
@@ -72,6 +71,7 @@ export const loadMessages = (groupId) => {
     .then((response) => {
       const formatted = formatMessages(response.data.messages);
 
+      // Dispatch event
       store.dispatch(messageCollectionLoadSuccessAction(groupId, formatted));
     });
 };

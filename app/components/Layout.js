@@ -10,7 +10,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Groups from './Group/Groups';
 import Messages from './Message/Messages';
-import getAuthorizationData from '../actions/user';
+import authorizeUser from '../actions/user';
 import Heading from './Group/Heading';
 
 const styles = theme => ({
@@ -40,7 +40,7 @@ class Layout extends React.Component {
   };
 
   componentDidMount() {
-    getAuthorizationData();
+    authorizeUser();
   }
 
   handleChange = (event, selectedTab) => {
