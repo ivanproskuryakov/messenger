@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import Layout from './components/Layout';
+import App from './components/App';
 import store from './store/index';
 
 const render = (Component) => {
@@ -17,11 +17,11 @@ const render = (Component) => {
   );
 };
 
-render(Layout);
+render(App);
 
 if (module.hot) {
-  module.hot.accept('./components/Layout', () => {
-    const newApp = require('./components/Layout').default;
+  module.hot.accept('./components/App', () => {
+    const newApp = require('./components/App').default;
     render(newApp);
   });
 }

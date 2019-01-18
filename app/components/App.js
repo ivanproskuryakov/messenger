@@ -9,7 +9,7 @@ import Messages from './Message/Messages';
 import authorizeUser from '../actions/user';
 import Sidenav from './Sidenav';
 
-class Layout extends React.Component {
+class App extends React.Component {
   componentDidMount() {
     authorizeUser();
   }
@@ -46,7 +46,7 @@ class Layout extends React.Component {
   }
 }
 
-Layout.propTypes = {
+App.propTypes = {
   me: PropTypes.object.isRequired,
 };
 
@@ -56,5 +56,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps)(App);
 
