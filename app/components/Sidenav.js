@@ -7,7 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import Groups from './Group/Groups';
-import authorizeUser from '../actions/user';
+import authorizeUser from '../service/user';
 import Heading from './Group/Heading';
 
 const styles = theme => ({
