@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import store from '../store';
 import config from '../config';
-import httpOptions from './http';
+import httpOptions from '../helper/http';
 import {
   messageCollectionLoadSuccessAction,
   messageEditAction,

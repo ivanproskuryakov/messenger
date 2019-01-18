@@ -4,7 +4,7 @@ import store from '../store';
 import { messageTextFlushAction } from '../actions/message';
 import { loadMessages } from './message';
 import config from '../config';
-import httpOptions from './http';
+import httpOptions from '../helper/http';
 import { groupCollectionLoadSuccessAction, groupSelectAction } from '../actions/group';
 
 export const buildGroups = (collection) => {

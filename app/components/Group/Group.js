@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
-import { calendarStringsUsers } from '../../service/time';
+import { calendarStringsUsers } from '../../helper/time';
 
 const styles = ({
   avatar: {

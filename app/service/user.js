@@ -3,7 +3,7 @@ import Pusher from 'pusher-js';
 import Cookies from 'js-cookie';
 
 import config from '../config';
-import httpOptions from './http';
+import httpOptions from '../helper/http';
 import store from '../store';
 import authorizeSuccessAction from '../actions/user';
 

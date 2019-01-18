@@ -17,9 +17,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MoreVert from '@material-ui/icons/MoreVert';
 import Phone from '@material-ui/icons/Phone';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 
-import { calendarStringsHeader } from '../../service/time';
+import { calendarStringsHeader } from '../../helper/time';
 import config from '../../config';
 
 const styles = ({
@@ -57,6 +58,15 @@ class Heading extends React.Component {
 
   logout = () => {
     location.href = config.URL_LOGOUT;
+  };
+
+  viewMyProfile = () => {
+    const { me } = this.props;
+
+    window.open(
+      `${config.URL_PROFILE}/${me.id}`,
+      '_blank',
+    );
   };
 
   viewHelp = () => {
@@ -146,17 +156,23 @@ class Heading extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.closeMenu}
         >
-          <MenuItem onClick={this.viewHelp}>
+          <MenuItem onClick={this.viewMyProfile}>
             <ListItemIcon className={classes.icon}>
-              <Help />
+              <AccountCircle />
             </ListItemIcon>
-            <ListItemText classes={{ primary: classes.primary }} primary="Help" />
+            <ListItemText classes={{ primary: classes.primary }} primary="Profile" />
           </MenuItem>
           <MenuItem onClick={this.editSettings}>
             <ListItemIcon className={classes.icon}>
               <Tune />
             </ListItemIcon>
             <ListItemText classes={{ primary: classes.primary }} primary="Settings" />
+          </MenuItem>
+          <MenuItem onClick={this.viewHelp}>
+            <ListItemIcon className={classes.icon}>
+              <Help />
+            </ListItemIcon>
+            <ListItemText classes={{ primary: classes.primary }} primary="Help" />
           </MenuItem>
           <MenuItem onClick={this.logout}>
             <ListItemIcon className={classes.icon}>
@@ -173,6 +189,7 @@ class Heading extends React.Component {
 Heading.propTypes = {
   classes: PropTypes.object.isRequired,
   selected: PropTypes.object,
+  me: PropTypes.object.isRequired,
 };
 Heading.defaultProps = {
   selected: {
@@ -184,6 +201,7 @@ function mapStateToProps(state) {
   return {
     collection: state.group.collection,
     selected: state.group.selected,
+    me: state.user.me,
   };
 }
 
