@@ -10,7 +10,7 @@ import {
   messageSendAction,
 } from '../actions/message';
 
-export const buildInstantMessage = (text, user) => {
+const buildInstantMessage = (text, user) => {
   return {
     id: Math.random(),
     timestamp: moment()
@@ -22,7 +22,7 @@ export const buildInstantMessage = (text, user) => {
   };
 };
 
-export const formatMessages = (messages) => {
+const formatMessages = (messages) => {
   const state = store.getState().user;
   const myUserId = state.me.id;
   const formatted = [];
@@ -81,8 +81,9 @@ export const sendMessage = () => {
       httpOptions,
     )
     .then(() => {
-      const instantData = buildInstantMessage(text, state.user.me);
-      state.message.collection.push(instantData);
+      const m = buildInstantMessage(text, state.user.me);
+      state.message.collection.push(m);
+
       const formatted = formatMessages(state.message.collection);
 
       // Dispatch event

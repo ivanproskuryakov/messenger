@@ -6,6 +6,7 @@ import config from '../config';
 import httpOptions from '../helper/http';
 import store from '../store';
 import authorizeSuccessAction from '../actions/user';
+import { loadMessages } from './message';
 
 const subscribePusher = (user) => {
   Pusher.logToConsole = true;
@@ -31,6 +32,9 @@ const subscribePusher = (user) => {
 
   channel.bind('message', (data) => {
     console.log(data);
+    console.log(data.group.id);
+
+    loadMessages(data.group.id); // Load messages for the last selected group
   });
 };
 
