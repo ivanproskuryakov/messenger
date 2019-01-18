@@ -82,8 +82,14 @@ class Heading extends React.Component {
     );
   };
 
-  onClearClick = () => {
+  clearSearch = () => {
     this.setState({ search: '' });
+  };
+
+  onKeyUp = (event) => {
+    if (event.key === 'Escape') {
+      this.clearSearch();
+    }
   };
 
   changeSearch = (event) => {
@@ -127,13 +133,14 @@ class Heading extends React.Component {
             className="searchInput"
             type="text"
             value={search}
+            onKeyUp={this.onKeyUp}
             onChange={this.changeSearch}
             placeholder="Search in messages"
           />
           {search.length > 0 ? (
             <Close
               className="clearIcon"
-              onClick={this.onClearClick}
+              onClick={this.clearSearch}
             />
           ) : ('')}
         </div>

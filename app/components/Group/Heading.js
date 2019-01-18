@@ -11,8 +11,14 @@ class Heading extends React.Component {
     store.dispatch(groupSearchAction(event.target.value));
   };
 
-  onClearClick = () => {
+  clearSearch = () => {
     store.dispatch(groupSearchAction(''));
+  };
+
+  onKeyUp = (event) => {
+    if (event.key === 'Escape') {
+      this.clearSearch();
+    }
   };
 
   render() {
@@ -26,14 +32,15 @@ class Heading extends React.Component {
           type="text"
           value={search}
           onChange={this.onChangeSearch}
+          onKeyUp={this.onKeyUp}
           placeholder="Search by name"
         />
         {search.length > 0 ? (
           <Close
             className="clearIcon"
-            onClick={this.onClearClick}
+            onClick={this.clearSearch}
           />
-        ) : ('') }
+        ) : ('')}
       </div>
     );
   }
