@@ -16,6 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MoreVert from '@material-ui/icons/MoreVert';
+import Phone from '@material-ui/icons/Phone';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 
 import { calendarStringsHeader } from '../../service/time';
@@ -62,6 +63,15 @@ class Heading extends React.Component {
     location.href = config.URL_HELP;
   };
 
+  viewProfile = () => {
+    const { selected } = this.props;
+
+    window.open(
+      `${config.URL_PROFILE}/${selected.id}`,
+      '_blank',
+    );
+  };
+
   onClearClick = () => {
     this.setState({ search: '' });
   };
@@ -81,14 +91,26 @@ class Heading extends React.Component {
       <div className="heading">
         <Avatar
           src={selected.photo}
+          onClick={this.viewProfile}
           className={`user ${classes.avatar}`}
         />
         <div className="name">
           {selected.name}
           <p className="activeAt">
-            <Moment calendar={calendarStringsHeader} date={selected.lastMessage.timestamp} />
+            <Moment
+              calendar={calendarStringsHeader}
+              date={selected.lastMessage.timestamp}
+            />
           </p>
         </div>
+
+        <IconButton
+          id="phone"
+          className={classes.button}
+        >
+          <Phone />
+        </IconButton>
+
         <div id="textSearch" className="search __dark">
           <Search className="searchIcon" />
           <input

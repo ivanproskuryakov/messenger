@@ -25,6 +25,9 @@
     width: calc(100% - 351px);
     cursor: default;
 
+    .user {
+      cursor: pointer;
+    }
     .name {
       flex: 2;
       font-size: 14px;
@@ -39,6 +42,9 @@
         margin-top: 1px;
         color: #8a8d91;
       }
+    }
+    #phone {
+      margin-right: 10px;
     }
     #textSearch {
       margin-right: 0;
