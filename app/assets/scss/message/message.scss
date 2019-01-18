@@ -2,7 +2,6 @@
   margin: 1px 20px;
   color: black;
   display: flex;
-  width: 600px;
 
   .details {
     margin-left: 10px;
@@ -13,6 +12,7 @@
       color: #8a8d91;
     }
     .text {
+      max-width: 600px;
       font-size: 14px;
       background: #2d7cc1;
       color: #fff;
@@ -59,7 +59,6 @@
   color: black;
   display: flex;
   flex-direction: row-reverse;
-  width: 600px;
 
   .details {
     .info {
@@ -70,6 +69,7 @@
       text-align: right;
     }
     .text {
+      max-width: 600px;
       background: #f1f1f4;
       color: #2b2c33;
       font-size: 14px;

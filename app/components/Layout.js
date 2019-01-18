@@ -11,7 +11,6 @@ import Tab from '@material-ui/core/Tab';
 import Groups from './Group/Groups';
 import Messages from './Message/Messages';
 import getAuthorizationData from '../actions/user';
-import Me from './User/Me';
 import Heading from './Group/Heading';
 
 const styles = theme => ({
@@ -72,10 +71,6 @@ class Layout extends React.Component {
             ) : ('')}
 
             <aside id="sideNav">
-              <Me />
-              <div id="groupSearch">
-                <Heading />
-              </div>
               <Tabs
                 value={selectedTab}
                 onChange={this.handleChange}
@@ -100,6 +95,9 @@ class Layout extends React.Component {
                   classes={{ root: classes.tabRoot }}
                 />
               </Tabs>
+              <div id="groupSearch">
+                <Heading />
+              </div>
               <Route component={Groups} />
             </aside>
             <Route component={Messages} />

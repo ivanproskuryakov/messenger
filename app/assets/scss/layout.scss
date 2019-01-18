@@ -1,23 +1,6 @@
 #layout {
-  #myProfile {
-    cursor: pointer;
-    padding: 10px;
-    display: flex;
-    margin-bottom: 5px;
-
-    .name {
-      padding-left: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #43444f;
-      margin-top: 10px;
-    }
-    .info {
-      margin-left: auto;
-    }
-  }
   #groupSearch {
-    padding: 0 10px;
+    padding: 10px;
 
     .search {
       width: 100%;
@@ -29,5 +12,6 @@
     width: 350px;
     height: 100vh;
     position: relative;
+    padding-top: 1px;
   }
 }
