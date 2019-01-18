@@ -11,20 +11,27 @@ export const userMeAction = user => ({
   payload: user,
 });
 
-const subscribePusher = (id) => {
+const subscribePusher = (user) => {
   Pusher.logToConsole = true;
+
+  Pusher.Runtime.createXHR = () => {
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    return xhr;
+  };
 
   const pusher = new Pusher(config.PUSHER_KEY, {
     cluster: config.PUSHER_CLUSTER,
     authEndpoint: config.URL_PUSHER_AUTH,
     auth: {
       headers: {
+        'Content-Type': 'application/json',
         'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
       },
     },
   });
 
-  const channel = pusher.subscribe(`presence-user-${id}`);
+  const channel = pusher.subscribe(`presence-user-${user.id}`);
 
   channel.bind('message', (data) => {
     alert(JSON.stringify(data));
