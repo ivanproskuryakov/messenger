@@ -36,6 +36,8 @@ const subscribePusher = (user) => {
   const channel = pusher.subscribe(channelName);
 
   channel.bind('message', (data) => {
+    console.log(data);
+
     const state = store.getState();
 
     state.message.collection.push(data);

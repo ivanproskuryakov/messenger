@@ -22,8 +22,6 @@ class Messages extends React.Component {
   render() {
     const { selected, collection, me } = this.props;
 
-    console.log(selected.id);
-
     if (selected.id) {
       return (
         <section id="talk">

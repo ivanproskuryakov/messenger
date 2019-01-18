@@ -4,9 +4,9 @@ import config from '../config';
 import httpOptions from '../service/http';
 import { buildInstantMessage, formatMessages } from '../service/message';
 
-export const messageSendAction = text => ({
+export const messageSendAction = messages => ({
   type: 'MESSAGE_SEND',
-  payload: text,
+  payload: messages,
 });
 export const messageEditAction = (groupId, text) => ({
   type: 'MESSAGE_EDIT',
