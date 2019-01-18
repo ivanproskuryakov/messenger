@@ -67,7 +67,7 @@ class Heading extends React.Component {
     const { selected } = this.props;
 
     window.open(
-      `${config.URL_PROFILE}/${selected.id}`,
+      `${config.URL_PROFILE}/${selected.users[0].id}`,
       '_blank',
     );
   };

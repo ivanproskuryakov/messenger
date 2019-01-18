@@ -7,6 +7,9 @@ const apiHost = window
 console.log('API HOST ----->', apiHost);
 
 const config = {
+  PUSHER_KEY: '8694afcdaba2044a05c8',
+  PUSHER_CLUSTER: 'eu',
+
   URL_INDEX: `${apiHost}`,
   URL_LOGOUT: `${apiHost}/logout`,
   URL_SETTINGS: `${apiHost}/profile/settings/edit/`,
@@ -14,6 +17,7 @@ const config = {
   URL_PROFILE: `${apiHost}/profile`,
 
   URL_USER_ME: `${apiHost}/api/user/me`,
+  URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/auth`,
   URL_GROUP: `${apiHost}/api/messenger/group/`,
   URL_MESSAGE: `${apiHost}/api/messenger/message/`,
 };
