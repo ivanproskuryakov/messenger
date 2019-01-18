@@ -12,6 +12,8 @@ export const userMeAction = user => ({
 });
 
 const subscribePusher = (user) => {
+  const channelName = `presence-user-${user.id}`;
+
   Pusher.logToConsole = true;
 
   Pusher.Runtime.createXHR = () => {
@@ -30,8 +32,9 @@ const subscribePusher = (user) => {
       },
     },
   });
+  const channel = pusher.subscribe(channelName);
 
-  const channel = pusher.subscribe(`presence-user-${user.id}`);
+  console.log(channelName);
 
   channel.bind('message', (data) => {
     alert(JSON.stringify(data));

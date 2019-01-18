@@ -1,14 +1,6 @@
 import moment from 'moment';
 import store from '../store';
 
-export const buildMessage = (text, group) => {
-  return {
-    text,
-    group: {
-      id: group.id,
-    },
-  };
-};
 export const buildInstantMessage = (text, user) => {
   return {
     id: Math.random(),

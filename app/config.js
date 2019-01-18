@@ -19,7 +19,7 @@ const config = {
   URL_USER_ME: `${apiHost}/api/user/me`,
   URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/auth`,
   URL_GROUP: `${apiHost}/api/messenger/group/`,
-  URL_MESSAGE: `${apiHost}/api/messenger/message/`,
+  URL_MESSAGE_USER: `${apiHost}/api/messenger/message/user`,
 };
 
 export default config;

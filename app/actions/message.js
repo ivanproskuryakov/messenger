@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 import config from '../config';
 import httpOptions from '../service/http';
-import { buildInstantMessage, buildMessage, formatMessages } from '../service/message';
+import { buildInstantMessage, formatMessages } from '../service/message';
 
 export const messageSendAction = text => ({
   type: 'MESSAGE_SEND',
@@ -36,21 +36,24 @@ export const editText = (value) => {
 export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
+  const userId = state.group.selected.users[0].id;
+  const instantData = buildInstantMessage(text, state.user.me);
 
   if (text.trim().length === 0) {
     return;
   }
 
-  const data = buildMessage(text, state.group.selected);
-  const instantData = buildInstantMessage(text, state.user.me);
-
   axios
     .post(
-      config.URL_MESSAGE,
-      data,
+      `${config.URL_MESSAGE_USER}/${userId}`,
+      {
+        text,
+      },
       httpOptions,
     )
-    .then(() => {
+    .then((response) => {
+      console.log(response.data);
+
       state.message.collection.push(instantData);
       const formatted = formatMessages(state.message.collection);
 
