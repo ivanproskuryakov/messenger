@@ -71,7 +71,7 @@ class Groups extends React.Component {
 Groups.propTypes = {
   classes: PropTypes.object.isRequired,
   collection: PropTypes.array.isRequired,
-  selected: PropTypes.object.isRequired,
+  selected: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string,
@@ -80,6 +80,9 @@ Groups.propTypes = {
 };
 Groups.defaultProps = {
   match: {},
+  selected: {
+    id: null,
+  },
 };
 
 function mapStateToProps(state) {

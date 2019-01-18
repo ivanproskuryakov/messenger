@@ -32,6 +32,10 @@ export const loadGroups = () => {
       httpOptions,
     )
     .then((response) => {
+      if (response.data.length === 0) {
+        return;
+      }
+
       const groups = buildGroups(response.data);
 
       store.dispatch(groupSelectAction(groups[0]));
@@ -39,7 +43,6 @@ export const loadGroups = () => {
         groups,
         groups[0],
       ));
-
       loadMessages(groups[0].id); // Load messages for the last selected group
     });
 };

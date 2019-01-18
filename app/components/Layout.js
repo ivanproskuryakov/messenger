@@ -49,7 +49,7 @@ class Layout extends React.Component {
 
   render() {
     const { selectedTab } = this.state;
-    const { classes, me } = this.props;
+    const { classes, groups, me } = this.props;
     const isLoading = me.id === undefined;
 
     return (
@@ -71,33 +71,39 @@ class Layout extends React.Component {
             ) : ('')}
 
             <aside id="sideNav">
-              <Tabs
-                value={selectedTab}
-                onChange={this.handleChange}
-                classes={{
-                  root: classes.tabsRoot,
-                  indicator: classes.tabsIndicator,
-                }}
-              >
-                <Tab
-                  label="Profiles"
-                  disableRipple
-                  classes={{ root: classes.tabRoot }}
-                />
-                <Tab
-                  label="Properties"
-                  disabled
-                  classes={{ root: classes.tabRoot }}
-                />
-                <Tab
-                  label="Stories"
-                  disabled
-                  classes={{ root: classes.tabRoot }}
-                />
-              </Tabs>
-              <div id="groupSearch">
-                <Heading />
-              </div>
+
+              {groups.length ? (
+                <div>
+                  <Tabs
+                    value={selectedTab}
+                    onChange={this.handleChange}
+                    classes={{
+                      root: classes.tabsRoot,
+                      indicator: classes.tabsIndicator,
+                    }}
+                  >
+                    <Tab
+                      label="Profiles"
+                      disableRipple
+                      classes={{ root: classes.tabRoot }}
+                    />
+                    <Tab
+                      label="Properties"
+                      disabled
+                      classes={{ root: classes.tabRoot }}
+                    />
+                    <Tab
+                      label="Stories"
+                      disabled
+                      classes={{ root: classes.tabRoot }}
+                    />
+                  </Tabs>
+                  <div id="groupSearch">
+                    <Heading />
+                  </div>
+                </div>
+              ) : ('')}
+
               <Route component={Groups} />
             </aside>
             <Route component={Messages} />
@@ -111,10 +117,12 @@ class Layout extends React.Component {
 Layout.propTypes = {
   me: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  groups: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
+    groups: state.group.collection,
     me: state.user.me,
   };
 }

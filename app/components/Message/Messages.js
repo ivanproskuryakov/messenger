@@ -22,7 +22,9 @@ class Messages extends React.Component {
   render() {
     const { selected, collection, me } = this.props;
 
-    if (selected) {
+    console.log(selected.id);
+
+    if (selected.id) {
       return (
         <section id="talk">
           <Heading />
@@ -51,7 +53,7 @@ class Messages extends React.Component {
 
 Messages.propTypes = {
   collection: PropTypes.array.isRequired,
-  selected: PropTypes.object.isRequired,
+  selected: PropTypes.object,
   me: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -61,6 +63,9 @@ Messages.propTypes = {
 };
 Messages.defaultProps = {
   match: {},
+  selected: {
+    id: null,
+  },
 };
 
 function mapStateToProps(state) {

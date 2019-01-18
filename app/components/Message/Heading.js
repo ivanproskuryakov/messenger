@@ -172,7 +172,12 @@ class Heading extends React.Component {
 
 Heading.propTypes = {
   classes: PropTypes.object.isRequired,
-  selected: PropTypes.object.isRequired,
+  selected: PropTypes.object,
+};
+Heading.defaultProps = {
+  selected: {
+    id: null,
+  },
 };
 
 function mapStateToProps(state) {
