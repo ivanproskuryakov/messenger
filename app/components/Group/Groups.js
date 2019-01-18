@@ -5,9 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
+
 import Group from './Group';
-import { selectGroup, loadGroups } from '../../actions/group';
-import { loadMessages } from '../../actions/message';
+import { selectGroup, loadGroups } from '../../service/group';
+import { loadMessages } from '../../service/message';
 
 const styles = ({
   List: {

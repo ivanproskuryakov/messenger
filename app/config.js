@@ -16,7 +16,7 @@ const config = {
   URL_HELP: `${apiHost}/help/z78`,
   URL_PROFILE: `${apiHost}/profile`,
 
-  URL_USER_ME: `${apiHost}/api/user/me`,
+  URL_USER_AUTHORIZE_SUCCESS: `${apiHost}/api/user/me`,
   URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/auth`,
   URL_GROUP: `${apiHost}/api/messenger/group/`,
   URL_MESSAGE_USER: `${apiHost}/api/messenger/message/user`,

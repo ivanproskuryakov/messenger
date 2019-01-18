@@ -1,6 +1,6 @@
-const userMeAction = user => ({
-  type: 'USER_ME',
+const authorizeSuccessAction = user => ({
+  type: 'USER_AUTHORIZE_SUCCESS',
   payload: user,
 });
 
-export default userMeAction;
+export default authorizeSuccessAction;

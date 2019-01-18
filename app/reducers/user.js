@@ -3,7 +3,7 @@ const initialState = {
 };
 
 const user = (state = initialState, action) => {
-  if (action.type === 'USER_ME') {
+  if (action.type === 'USER_AUTHORIZE_SUCCESS') {
     return {
       ...state,
       me: action.payload,

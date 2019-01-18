@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import config from '../config';
 import httpOptions from './http';
 import store from '../store';
-import userMeAction from '../actions/user';
+import authorizeSuccessAction from '../actions/user';
 
 const subscribePusher = (user) => {
   Pusher.logToConsole = true;
@@ -37,7 +37,7 @@ const subscribePusher = (user) => {
 const authorizeUser = () => {
   axios
     .get(
-      config.URL_USER_ME,
+      config.URL_USER_AUTHORIZE_SUCCESS,
       httpOptions,
     )
     .then((response) => {
@@ -47,7 +47,7 @@ const authorizeUser = () => {
         subscribePusher(response.data);
 
         // Dispatch event
-        store.dispatch(userMeAction(response.data));
+        store.dispatch(authorizeSuccessAction(response.data));
       }
     });
 };
