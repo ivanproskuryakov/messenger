@@ -11,7 +11,7 @@ const queryCollection = (query) => {
       .match(query));
 };
 
-const group = (state = initialState, action) => {
+const room = (state = initialState, action) => {
   if (action.type === 'GROUP_SELECT') {
     return {
       ...state,
@@ -38,4 +38,4 @@ const group = (state = initialState, action) => {
   return state;
 };
 
-export default group;
+export default room;

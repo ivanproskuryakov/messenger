@@ -69,7 +69,7 @@ Messages.defaultProps = {
 function mapStateToProps(state) {
   return {
     collection: state.message.collection,
-    selected: state.group.selected,
+    selected: state.room.selected,
     me: state.user.me,
     text: state.message.text,
   };

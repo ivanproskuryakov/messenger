@@ -6,8 +6,8 @@ import List from '@material-ui/core/List';
 import { connect } from 'react-redux';
 import PeopleOutline from '@material-ui/icons/PeopleOutline';
 
-import Group from './Group';
-import { selectGroup, loadGroups } from '../../service/group';
+import Room from './Room';
+import { selectRoom, loadRooms } from '../../service/room';
 import { loadMessages } from '../../service/message';
 
 const styles = ({
@@ -21,14 +21,14 @@ const styles = ({
   },
 });
 
-class Groups extends React.Component {
+class Rooms extends React.Component {
   componentDidMount() {
-    loadGroups();
+    loadRooms();
   }
 
-  onGroupClick = (event, group) => {
-    selectGroup(group);
-    loadMessages(group.id);
+  onRoomClick = (event, room) => {
+    selectRoom(room);
+    loadMessages(room.id);
   };
 
   render() {
@@ -40,25 +40,25 @@ class Groups extends React.Component {
 
     if (collection.length === 0) {
       return (
-        <aside id="groups">
+        <aside id="rooms">
           <PeopleOutline className="noResults" />
         </aside>
       );
     }
 
     return (
-      <aside id="groups">
+      <aside id="rooms">
         <div className="items">
           <List component="nav" className={classes.List}>
-            {collection.map(group => (
+            {collection.map(room => (
               <ListItem
-                key={group.name}
+                key={room.name}
                 button
-                onClick={event => this.onGroupClick(event, group)}
-                className={`userItem ${selected.id === group.id ? '__active' : ''} ${classes.ListItem}`}
+                onClick={event => this.onRoomClick(event, room)}
+                className={`userItem ${selected.id === room.id ? '__active' : ''} ${classes.ListItem}`}
               >
-                <Group
-                  group={group}
+                <Room
+                  room={room}
                 />
               </ListItem>
             ))}
@@ -69,7 +69,7 @@ class Groups extends React.Component {
   }
 }
 
-Groups.propTypes = {
+Rooms.propTypes = {
   classes: PropTypes.object.isRequired,
   collection: PropTypes.array.isRequired,
   selected: PropTypes.object,
@@ -79,7 +79,7 @@ Groups.propTypes = {
     }),
   }),
 };
-Groups.defaultProps = {
+Rooms.defaultProps = {
   match: {},
   selected: {
     id: null,
@@ -88,9 +88,9 @@ Groups.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.group.collection,
-    selected: state.group.selected,
+    collection: state.room.collection,
+    selected: state.room.selected,
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Groups));
+export default withStyles(styles)(connect(mapStateToProps)(Rooms));

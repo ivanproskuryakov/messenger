@@ -65,7 +65,7 @@ const formatMessages = (messages) => {
 export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
-  const userId = state.group.selected.users[0].id;
+  const userId = state.room.selected.users[0].id;
   const url = `${config.URL_MESSAGE_USER}/${userId}`;
 
   if (text.trim().length === 0) {
@@ -91,8 +91,8 @@ export const sendMessage = () => {
     });
 };
 
-export const loadMessages = (groupId) => {
-  const url = `${config.URL_GROUP}${groupId}`;
+export const loadMessages = (roomId) => {
+  const url = `${config.URL_GROUP}${roomId}`;
 
   axios
     .get(
@@ -103,14 +103,14 @@ export const loadMessages = (groupId) => {
       const formatted = formatMessages(response.data.messages);
 
       // Dispatch event
-      store.dispatch(messageCollectionLoadSuccessAction(groupId, formatted));
+      store.dispatch(messageCollectionLoadSuccessAction(roomId, formatted));
     });
 };
 
 export const editText = (value) => {
-  const state = store.getState().group;
-  const selectedGroup = state.selected;
+  const state = store.getState().room;
+  const selectedRoom = state.selected;
 
   // Dispatch event
-  store.dispatch(messageEditAction(selectedGroup.id, value));
+  store.dispatch(messageEditAction(selectedRoom.id, value));
 };

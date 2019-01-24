@@ -6,9 +6,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-import Groups from './Group/Groups';
+import Rooms from './Room/Rooms';
 import authorizeUser from '../service/user';
-import Heading from './Group/Heading';
+import Heading from './Room/Heading';
 
 const styles = theme => ({
   tabsRoot: {
@@ -74,10 +74,10 @@ class Sidenav extends React.Component {
             classes={{ root: classes.tabRoot }}
           />
         </Tabs>
-        <div id="groupSearch">
+        <div id="roomSearch">
           <Heading />
         </div>
-        <Groups />
+        <Rooms />
       </aside>
     );
   }
@@ -89,7 +89,7 @@ Sidenav.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    groups: state.group.collection,
+    rooms: state.room.collection,
     me: state.user.me,
   };
 }

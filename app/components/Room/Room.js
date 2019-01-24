@@ -15,24 +15,24 @@ const styles = ({
   },
 });
 
-const Group = ({ group, classes }) => {
+const Room = ({ room, classes }) => {
   return (
-    <ListItem button className="user" component={Link} to={`/group/${group.id}`}>
+    <ListItem button className="user" component={Link} to={`/room/${room.id}`}>
       <Avatar
-        src={group.photo}
+        src={room.photo}
         className={`avatar ${classes.avatar}`}
       />
-      <Moment calendar={calendarStringsUsers} date={group.lastMessage.timestamp} />
+      <Moment calendar={calendarStringsUsers} date={room.lastMessage.timestamp} />
       <div className="details">
-        <p className="name">{group.name}</p>
-        <p className="lastMessage">{group.lastMessage.text}</p>
+        <p className="name">{room.name}</p>
+        <p className="lastMessage">{room.lastMessage.text}</p>
       </div>
     </ListItem>
   );
 };
 
-Group.propTypes = {
-  group: PropTypes.shape({
+Room.propTypes = {
+  room: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,
@@ -41,5 +41,5 @@ Group.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Group);
+export default withStyles(styles)(Room);
 

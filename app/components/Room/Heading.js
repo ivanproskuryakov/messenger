@@ -3,16 +3,16 @@ import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
-import { groupSearchAction } from '../../actions/group';
+import { roomSearchAction } from '../../actions/room';
 import store from '../../store';
 
 class Heading extends React.Component {
   onChangeSearch = (event) => {
-    store.dispatch(groupSearchAction(event.target.value));
+    store.dispatch(roomSearchAction(event.target.value));
   };
 
   clearSearch = () => {
-    store.dispatch(groupSearchAction(''));
+    store.dispatch(roomSearchAction(''));
   };
 
   onKeyUp = (event) => {
@@ -52,7 +52,7 @@ Heading.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    search: state.group.search,
+    search: state.room.search,
   };
 }
 

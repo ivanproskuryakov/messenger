@@ -206,8 +206,8 @@ Heading.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    collection: state.group.collection,
-    selected: state.group.selected,
+    collection: state.room.collection,
+    selected: state.room.selected,
     me: state.user.me,
   };
 }

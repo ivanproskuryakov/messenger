@@ -32,9 +32,9 @@ const subscribePusher = (user) => {
 
   channel.bind('message', (data) => {
     console.log(data);
-    console.log(data.group.id);
+    console.log(data.room.id);
 
-    loadMessages(data.group.id); // Load messages for the last selected group
+    loadMessages(data.room.id); // Load messages for the last selected room
   });
 };
 
