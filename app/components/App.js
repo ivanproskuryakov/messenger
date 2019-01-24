@@ -30,7 +30,7 @@ class App extends React.Component {
                   sizeUnit="px"
                   size={50}
                   height={3}
-                  color="#43444f"
+                  color="#2d7cc1"
                   loading={isLoading}
                 />
               </div>

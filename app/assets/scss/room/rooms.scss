@@ -19,16 +19,24 @@
 
         .avatar {
         }
-        time {
+        .status {
           position: absolute;
           color: #8a8d91;
           right: 10px;
           top: 10px;
           font-size: 11px;
+
+          .checkMark {
+            float: left;
+            margin-right: 5px;
+            margin-top: -1px;
+          }
         }
+
         .details {
           padding-left: 10px;
           overflow: hidden;
+          margin-top: 5px;
 
           .name {
             font-size: 14px;

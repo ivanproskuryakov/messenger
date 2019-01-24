@@ -22,20 +22,18 @@ class MessageMy extends React.Component {
         <div className="details">
           <div className="status">
 
-            {message.isReadByAll ? (
-              <div className="checkMark">
+            <div className="checkMark">
+              {message.isReadByAll ? (
                 <DoneAll className={classes.icon} />
-              </div>
-            ) : (
-              <div className="checkMark">
+              ) : (
                 <Done className={classes.icon} />
-              </div>
-            )}
+              )}
+            </div>
 
             <Moment calendar={calendarStringsMessage} date={message.timestamp} />
           </div>
           <div className="text">
-            {message.text} | {message.timestamp}
+            {message.text}
           </div>
         </div>
       </div>
