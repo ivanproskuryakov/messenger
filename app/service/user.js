@@ -6,7 +6,7 @@ import config from '../config';
 import httpOptions from '../helper/http';
 import store from '../store';
 import authorizeSuccessAction from '../actions/user';
-import { loadMessages } from './message';
+import { loadMessages } from './message/loader';
 
 const subscribePusher = (user) => {
   Pusher.logToConsole = true;

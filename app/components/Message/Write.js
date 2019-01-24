@@ -11,7 +11,7 @@ import { Picker } from 'emoji-mart';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 
-import { sendMessage, editText } from '../../service/message';
+import { sendMessage, editText } from '../../service/message/editor';
 
 const styles = theme => ({
   button: {

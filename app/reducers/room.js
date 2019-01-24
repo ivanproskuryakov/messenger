@@ -12,20 +12,20 @@ const queryCollection = (query) => {
 };
 
 const room = (state = initialState, action) => {
-  if (action.type === 'GROUP_SELECT') {
+  if (action.type === 'ROOM_SELECT') {
     return {
       ...state,
       selected: action.payload,
     };
   }
-  if (action.type === 'GROUP_SEARCH') {
+  if (action.type === 'ROOM_SEARCH') {
     return {
       ...state,
       collection: queryCollection(action.payload.toLowerCase()),
       search: action.payload,
     };
   }
-  if (action.type === 'GROUP_COLLECTION_LOAD_SUCCESS') {
+  if (action.type === 'ROOM_COLLECTION_LOAD_SUCCESS') {
     initialState.collection = action.payload.collection;
 
     return {

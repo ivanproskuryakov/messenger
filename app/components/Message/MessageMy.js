@@ -24,6 +24,7 @@ const MessageMy = ({ message }) => {
         <div className="text">
           {message.text}
         </div>
+        <Moment calendar={calendarStringsMessage} date={message.readers[0].timestamp} />
       </div>
     </div>
   );

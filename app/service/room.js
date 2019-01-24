@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import store from '../store';
 import { messageTextFlushAction } from '../actions/message';
-import { loadMessages } from './message';
+import { loadMessages } from './message/loader';
 import config from '../config';
 import httpOptions from '../helper/http';
 import { roomCollectionLoadSuccessAction, roomSelectAction } from '../actions/room';
@@ -30,7 +30,7 @@ export const selectRoom = (room) => {
 export const loadRooms = () => {
   axios
     .get(
-      config.URL_GROUP,
+      config.URL_ROOM,
       httpOptions,
     )
     .then((response) => {

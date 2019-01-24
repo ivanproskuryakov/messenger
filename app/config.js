@@ -18,7 +18,7 @@ const config = {
 
   URL_USER_AUTHORIZE_SUCCESS: `${apiHost}/api/user/me`,
   URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/auth`,
-  URL_GROUP: `${apiHost}/api/messenger/room/`,
+  URL_ROOM: `${apiHost}/api/messenger/room`,
   URL_MESSAGE_USER: `${apiHost}/api/messenger/message/user`,
 };
 

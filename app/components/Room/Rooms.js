@@ -8,7 +8,7 @@ import PeopleOutline from '@material-ui/icons/PeopleOutline';
 
 import Room from './Room';
 import { selectRoom, loadRooms } from '../../service/room';
-import { loadMessages } from '../../service/message';
+import { loadMessages } from '../../service/message/loader';
 
 const styles = ({
   List: {
