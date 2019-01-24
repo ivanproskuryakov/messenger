@@ -1,20 +1,18 @@
-import moment from 'moment';
 import axios from 'axios';
 
 import store from '../../store';
 import config from '../../config';
 import httpOptions from '../../helper/http';
+import { formatMessages } from './loader';
 import {
   messageEditAction,
   messageSendAction,
 } from '../../actions/message';
-import { formatMessages } from './loader';
 
 const buildInstantMessage = (text, user) => {
   return {
     id: Math.random(),
-    timestamp: moment()
-      .unix(),
+    timestamp: Date.now(),
     text,
     user: {
       id: user.id,

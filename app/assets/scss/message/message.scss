@@ -5,11 +5,19 @@
 
   .details {
     margin-left: 10px;
+    float: left;
+    display: flex;
 
-    .info {
-      display: inline-block;
-      font-size: 12px;
+    .status {
+      font-size: 11px;
       color: #8a8d91;
+      padding: 5px;
+      display: flex;
+      margin-left: 5px;
+
+      .checkMark {
+        margin-left: 5px;
+      }
     }
     .text {
       max-width: 600px;
@@ -74,10 +82,11 @@
       border-bottom-right-radius: 2px;
     }
     .status {
-      font-size: 12px;
+      font-size: 11px;
       color: #8a8d91;
-      padding: 7px;
+      padding: 5px;
       display: flex;
+      margin-right: 5px;
 
       .checkMark {
         margin-right: 5px;

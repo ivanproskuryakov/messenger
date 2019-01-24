@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import DoneAll from '@material-ui/icons/DoneAll';
+import Done from '@material-ui/icons/Done';
 import { withStyles } from '@material-ui/core';
 import { calendarStringsMessage } from '../../helper/time';
-import readMessage from '../../service/message/message';
 
 const styles = ({
   icon: {
@@ -14,12 +14,6 @@ const styles = ({
 });
 
 class MessageMy extends React.Component {
-  componentDidMount() {
-    const { message } = this.props;
-
-    readMessage(message);
-  }
-
   render() {
     const { message, classes } = this.props;
 
@@ -28,16 +22,20 @@ class MessageMy extends React.Component {
         <div className="details">
           <div className="status">
 
-            {true ? (
+            {message.isReadByAll ? (
               <div className="checkMark">
                 <DoneAll className={classes.icon} />
               </div>
-            ) : null}
+            ) : (
+              <div className="checkMark">
+                <Done className={classes.icon} />
+              </div>
+            )}
 
             <Moment calendar={calendarStringsMessage} date={message.timestamp} />
           </div>
           <div className="text">
-            {message.text}
+            {message.text} | {message.timestamp}
           </div>
         </div>
       </div>
