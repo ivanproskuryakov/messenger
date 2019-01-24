@@ -1,15 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import DoneAll from '@material-ui/icons/DoneAll';
+import { withStyles } from '@material-ui/core';
 import { calendarStringsMessage } from '../../helper/time';
+import { getReadTimeStamp, readMessage } from '../../service/message/message';
 
-const MessageMy = ({ message }) => {
-  if (message.isFirst) {
+const styles = ({
+  icon: {
+    fontSize: 14,
+    margin: 0,
+  },
+});
+
+class MessageMy extends React.Component {
+  componentDidMount() {
+    const { message } = this.props;
+
+    readMessage(message);
+  }
+
+  render() {
+    const { message, classes } = this.props;
+
     return (
       <div className={`messageMy ${message.classes}`}>
         <div className="details">
-          <div className="info">
-            <Moment calendar={calendarStringsMessage} date={message.timestamp} />
+          <div className="status">
+
+            {message.isReadByAll ? (
+              <div className="checkMark">
+                <DoneAll className={classes.icon} />
+              </div>
+            ) : null}
+
+            <Moment calendar={calendarStringsMessage} date={getReadTimeStamp(message)} />
           </div>
           <div className="text">
             {message.text}
@@ -18,20 +43,11 @@ const MessageMy = ({ message }) => {
       </div>
     );
   }
-  return (
-    <div className={`messageMy ${message.classes}`}>
-      <div className="details">
-        <div className="text">
-          {message.text}
-        </div>
-        <Moment calendar={calendarStringsMessage} date={message.readers[0].timestamp} />
-      </div>
-    </div>
-  );
-};
+}
 
 MessageMy.propTypes = {
+  classes: PropTypes.object.isRequired,
   message: PropTypes.object.isRequired,
 };
 
-export default MessageMy;
+export default withStyles(styles)(MessageMy);

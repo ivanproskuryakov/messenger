@@ -61,13 +61,8 @@
   flex-direction: row-reverse;
 
   .details {
-    .info {
-      display: inline-block;
-      font-size: 12px;
-      color: #8a8d91;
-      width: 100%;
-      text-align: right;
-    }
+    float: right;
+    display: flex;
     .text {
       max-width: 600px;
       background: #f1f1f4;
@@ -77,7 +72,16 @@
       border-radius: 15px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
-      float: right;
+    }
+    .status {
+      font-size: 12px;
+      color: #8a8d91;
+      padding: 7px;
+      display: flex;
+
+      .checkMark {
+        margin-right: 5px;
+      }
     }
   }
 
