@@ -9,11 +9,19 @@
     position: absolute;
     right: 3px;
     border: 2px solid #fff;
-    bottom: 0;
+    bottom: 2px;
   }
 }
 
-#rooms .items .userItem:hover,
+#rooms .items .userItem:hover {
+  .profilePhoto {
+    .online {
+      border: 2px solid #d4d4d4;
+    }
+  }
+}
+
+#rooms .items .userItem.__active:hover,
 #rooms .items .userItem.__active {
   .profilePhoto {
     .online {
