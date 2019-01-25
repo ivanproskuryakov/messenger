@@ -13,3 +13,7 @@ export const roomCollectionLoadSuccessAction = (collection, selected) => ({
     selected,
   },
 });
+export const roomOnlineUpdateAction = collection => ({
+  type: 'ROOM_ONLINE_UPDATE',
+  payload: collection,
+});

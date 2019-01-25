@@ -5,7 +5,11 @@ import { messageTextFlushAction } from '../actions/message';
 import { loadMessages } from './message/loader';
 import config from '../config';
 import httpOptions from '../helper/http';
-import { roomCollectionLoadSuccessAction, roomSelectAction } from '../actions/room';
+import {
+  roomCollectionLoadSuccessAction,
+  roomSelectAction,
+  roomOnlineUpdateAction,
+} from '../actions/room';
 
 const buildRooms = (collection) => {
   const items = [];
@@ -51,7 +55,6 @@ export const loadRooms = () => {
 
 export const updateOnlineStatuses = (members) => {
   const rooms = store.getState().room.collection;
-  const selectedRoom = store.getState().room.selected;
 
   rooms.map((room) => {
     if (members.members[room.users[0].id]) {
@@ -61,9 +64,7 @@ export const updateOnlineStatuses = (members) => {
     return room;
   });
 
-  console.log(rooms);
-
-  store.dispatch(roomCollectionLoadSuccessAction(rooms, selectedRoom));
+  store.dispatch(roomOnlineUpdateAction(rooms));
 };
 
 export const updateOnlineStatusesMemberAdded = (users) => {
