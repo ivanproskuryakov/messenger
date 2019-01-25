@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
-import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
 
 import { calendarStringsUsers } from '../../helper/time';
 import MessageStatus from '../Message/Status';
+import Photo from '../User/Photo';
 
 const styles = ({
   icon: {
@@ -23,16 +23,13 @@ const styles = ({
 
 class Room extends React.Component {
   render() {
-    const { room, classes } = this.props;
+    const { room } = this.props;
 
     return (
       <ListItem button className="user" component={Link} to={`/room/${room.id}`}>
-        <Avatar
-          src={room.photo}
-          className={`avatar ${classes.avatar}`}
-        />
+        <Photo user={room.users[0]} />
         <div className="status">
-          | {room.users[0].online} | <MessageStatus message={room.lastMessage} />
+          <MessageStatus message={room.lastMessage} />
           <Moment calendar={calendarStringsUsers} date={room.lastMessage.timestamp} />
         </div>
         <div className="details">
@@ -51,7 +48,6 @@ Room.propTypes = {
     photo: PropTypes.string,
     lastMessage: PropTypes.object,
   }).isRequired,
-  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Room);

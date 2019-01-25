@@ -1,0 +1,23 @@
+.profilePhoto {
+  position: relative;
+
+  .online {
+    background: #00d235;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    position: absolute;
+    right: 3px;
+    border: 2px solid #fff;
+    bottom: 0;
+  }
+}
+
+#rooms .items .userItem:hover,
+#rooms .items .userItem.__active {
+  .profilePhoto {
+    .online {
+      border: 2px solid #e6e6e6;
+    }
+  }
+}
