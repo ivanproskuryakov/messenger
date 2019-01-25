@@ -28,6 +28,8 @@ const room = (state = initialState, action) => {
   if (action.type === 'ROOM_COLLECTION_LOAD_SUCCESS') {
     initialState.collection = action.payload.collection;
 
+    console.log('ROOM_COLLECTION_LOAD_SUCCESS', action.payload);
+
     return {
       ...state,
       collection: action.payload.collection,

@@ -32,8 +32,7 @@ class Room extends React.Component {
           className={`avatar ${classes.avatar}`}
         />
         <div className="status">
-          <MessageStatus message={room.lastMessage} />
-
+          | {room.users[0].online} | <MessageStatus message={room.lastMessage} />
           <Moment calendar={calendarStringsUsers} date={room.lastMessage.timestamp} />
         </div>
         <div className="details">

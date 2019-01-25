@@ -49,10 +49,21 @@ export const loadRooms = () => {
     });
 };
 
-export const updateOnlineStatuses = (users) => {
+export const updateOnlineStatuses = (members) => {
   const rooms = store.getState().room.collection;
+  const selectedRoom = store.getState().room.selected;
 
-  console.log('updateOnlineStatuses', rooms, users);
+  rooms.map((room) => {
+    if (members.members[room.users[0].id]) {
+      room.users[0].online = 1;
+    }
+
+    return room;
+  });
+
+  console.log(rooms);
+
+  store.dispatch(roomCollectionLoadSuccessAction(rooms, selectedRoom));
 };
 
 export const updateOnlineStatusesMemberAdded = (users) => {
