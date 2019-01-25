@@ -17,7 +17,8 @@ const config = {
   URL_PROFILE: `${apiHost}/profile`,
 
   URL_USER_AUTHORIZE_SUCCESS: `${apiHost}/api/user/me`,
-  URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/auth`,
+  URL_PUSHER_AUTH: `${apiHost}/api/messenger/pusher/authPresence`,
+  URL_PUSHER_ONLINE: `${apiHost}/api/messenger/pusher/authOnline`,
   URL_ROOM: `${apiHost}/api/messenger/room`,
   URL_MESSAGE_SEND_USER: `${apiHost}/api/messenger/message/user`,
   URL_MESSAGE_READ: `${apiHost}/api/messenger/message`,
