@@ -5,10 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
-import DoneAll from '@material-ui/icons/DoneAll';
-import Done from '@material-ui/icons/Done';
 
 import { calendarStringsUsers } from '../../helper/time';
+import MessageStatus from '../Message/Status';
 
 const styles = ({
   icon: {
@@ -33,13 +32,7 @@ class Room extends React.Component {
           className={`avatar ${classes.avatar}`}
         />
         <div className="status">
-          <div className="checkMark">
-            {room.lastMessage.isReadByAll === 1 ? (
-              <DoneAll className={classes.icon} />
-            ) : (
-              <Done className={classes.icon} />
-            )}
-          </div>
+          <MessageStatus message={room.lastMessage} />
 
           <Moment calendar={calendarStringsUsers} date={room.lastMessage.timestamp} />
         </div>

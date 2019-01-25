@@ -9,8 +9,9 @@ import {
   messageSendAction,
 } from '../../actions/message';
 
-const buildInstantMessage = (text, user) => {
+const mockMessage = (text, user) => {
   return {
+    mocked: true,
     id: Math.random(),
     timestamp: Date.now(),
     text,
@@ -27,6 +28,18 @@ const buildInstantMessage = (text, user) => {
   };
 };
 
+export const updateCollectionWithMessage = (message) => {
+  const state = store.getState();
+  const messages = state.message.collection;
+
+  messages.push(message);
+
+  const formatted = formatMessages(messages);
+
+  // Dispatch event
+  store.dispatch(messageSendAction(formatted));
+};
+
 export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
@@ -37,22 +50,13 @@ export const sendMessage = () => {
     return;
   }
 
+  const message = mockMessage(text, state.user.me);
+
+  updateCollectionWithMessage(message);
+
   axios
-    .post(
-      url,
-      {
-        text,
-      },
-      httpOptions,
-    )
+    .post(url, { text }, httpOptions)
     .then(() => {
-      const m = buildInstantMessage(text, state.user.me);
-      state.message.collection.push(m);
-
-      const formatted = formatMessages(state.message.collection);
-
-      // Dispatch event
-      store.dispatch(messageSendAction(formatted));
     });
 };
 

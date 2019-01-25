@@ -4,10 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import DoneAll from '@material-ui/icons/DoneAll';
 
 import { calendarStringsMessage } from '../../helper/time';
 import readMessage from '../../service/message/message';
+import MessageStatus from './Status';
 
 const styles = ({
   icon: {
@@ -46,11 +46,7 @@ class Message extends React.Component {
             <div className="status">
               <Moment calendar={calendarStringsMessage} date={message.timestamp} />
 
-              {message.isReadByAll ? (
-                <div className="checkMark">
-                  <DoneAll className={classes.icon} />
-                </div>
-              ) : null}
+              <MessageStatus message={message} />
             </div>
           </div>
         </div>
@@ -66,11 +62,7 @@ class Message extends React.Component {
           <div className="status">
             <Moment calendar={calendarStringsMessage} date={message.timestamp} />
 
-            {message.isReadByAll ? (
-              <div className="checkMark">
-                <DoneAll className={classes.icon} />
-              </div>
-            ) : null}
+            <MessageStatus message={message} />
           </div>
         </div>
       </div>

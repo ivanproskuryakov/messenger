@@ -1,34 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import DoneAll from '@material-ui/icons/DoneAll';
-import Done from '@material-ui/icons/Done';
-import { withStyles } from '@material-ui/core';
-import { calendarStringsMessage } from '../../helper/time';
 
-const styles = ({
-  icon: {
-    fontSize: 14,
-    margin: 0,
-  },
-});
+import { calendarStringsMessage } from '../../helper/time';
+import MessageStatus from './Status';
 
 class MessageMy extends React.Component {
   render() {
-    const { message, classes } = this.props;
+    const { message } = this.props;
 
     return (
       <div className={`messageMy ${message.classes}`}>
         <div className="details">
           <div className="status">
-
-            <div className="checkMark">
-              {message.isReadByAll ? (
-                <DoneAll className={classes.icon} />
-              ) : (
-                <Done className={classes.icon} />
-              )}
-            </div>
+            <MessageStatus message={message} />
 
             <Moment calendar={calendarStringsMessage} date={message.timestamp} />
           </div>
@@ -42,8 +27,7 @@ class MessageMy extends React.Component {
 }
 
 MessageMy.propTypes = {
-  classes: PropTypes.object.isRequired,
   message: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MessageMy);
+export default MessageMy;
