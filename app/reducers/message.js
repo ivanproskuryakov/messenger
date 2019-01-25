@@ -7,13 +7,11 @@ const initialState = {
 const message = (state = initialState, action) => {
   // Messages
   if (action.type === 'MESSAGE_SEND') {
-    if (state.text) {
-      return {
-        ...state,
-        collection: action.payload,
-        text: '',
-      };
-    }
+    return {
+      ...state,
+      collection: action.payload,
+      text: '',
+    };
   }
   if (action.type === 'MESSAGE_TEXT_FLUSH') {
     return {

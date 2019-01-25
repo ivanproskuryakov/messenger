@@ -3,11 +3,8 @@ import axios from 'axios';
 import store from '../../store';
 import config from '../../config';
 import httpOptions from '../../helper/http';
-import { formatMessages } from './loader';
-import {
-  messageEditAction,
-  messageSendAction,
-} from '../../actions/message';
+import { insertMockToMessages, updateMockedMessage } from './loader';
+import { messageEditAction } from '../../actions/message';
 
 const mockMessage = (text, user) => {
   return {
@@ -28,18 +25,6 @@ const mockMessage = (text, user) => {
   };
 };
 
-export const updateCollectionWithMessage = (message) => {
-  const state = store.getState();
-  const messages = state.message.collection;
-
-  messages.push(message);
-
-  const formatted = formatMessages(messages);
-
-  // Dispatch event
-  store.dispatch(messageSendAction(formatted));
-};
-
 export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
@@ -50,13 +35,14 @@ export const sendMessage = () => {
     return;
   }
 
-  const message = mockMessage(text, state.user.me);
+  const mock = mockMessage(text, state.user.me);
 
-  updateCollectionWithMessage(message);
+  insertMockToMessages(mock);
 
   axios
     .post(url, { text }, httpOptions)
     .then(() => {
+      updateMockedMessage(mock);
     });
 };
 

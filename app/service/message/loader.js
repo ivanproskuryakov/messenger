@@ -3,11 +3,12 @@ import axios from 'axios';
 import store from '../../store';
 import config from '../../config';
 import httpOptions from '../../helper/http';
-import { messageCollectionLoadSuccessAction } from '../../actions/message';
+import { messageCollectionLoadSuccessAction, messageSendAction } from '../../actions/message';
 
-export const formatMessages = (messages) => {
-  const state = store.getState().user;
-  const myUserId = state.me.id;
+const formatMessages = (messages) => {
+  const myUserId = store
+    .getState()
+    .user.me.id;
   const formatted = [];
 
   for (let i = 0; i < messages.length; i += 1) {
@@ -43,6 +44,38 @@ export const formatMessages = (messages) => {
   }
 
   return formatted;
+};
+
+export const updateMockedMessage = (mock) => {
+  let messages = store
+    .getState()
+    .message
+    .collection;
+
+  messages = messages.map((message) => {
+    if (message.id === mock.id) {
+      message.mocked = false;
+    }
+
+    return message;
+  });
+
+  // Dispatch event
+  store.dispatch(messageSendAction(messages));
+};
+
+export const insertMockToMessages = (message) => {
+  const messages = store
+    .getState()
+    .message
+    .collection;
+
+  messages.push(message);
+
+  const formatted = formatMessages(messages);
+
+  // Dispatch event
+  store.dispatch(messageSendAction(formatted));
 };
 
 export const loadMessages = (roomId) => {
