@@ -7,7 +7,7 @@ import config from '../config';
 import httpOptions from '../helper/http';
 import { roomCollectionLoadSuccessAction, roomSelectAction } from '../actions/room';
 
-export const buildRooms = (collection) => {
+const buildRooms = (collection) => {
   const items = [];
 
   collection.forEach((room) => {
@@ -47,4 +47,22 @@ export const loadRooms = () => {
       ));
       loadMessages(rooms[0].id); // Load messages for the last selected room
     });
+};
+
+export const updateOnlineStatuses = (users) => {
+  const rooms = store.getState().room.collection;
+
+  console.log('updateOnlineStatuses', rooms, users);
+};
+
+export const updateOnlineStatusesMemberAdded = (users) => {
+  const rooms = store.getState().room.collection;
+
+  console.log('updateOnlineStatusesMemberAdded', rooms, users);
+};
+
+export const updateOnlineStatusesMemberRemoved = (users) => {
+  const rooms = store.getState().room.collection;
+
+  console.log('updateOnlineStatusesMemberRemoved', rooms, users);
 };

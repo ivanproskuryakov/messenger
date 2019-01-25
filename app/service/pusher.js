@@ -3,6 +3,11 @@ import Cookies from 'js-cookie';
 
 import config from '../config';
 import { loadMessages } from './message/loader';
+import {
+  updateOnlineStatuses,
+  updateOnlineStatusesMemberAdded,
+  updateOnlineStatusesMemberRemoved,
+} from './room';
 
 const getPusher = (url) => {
   Pusher.logToConsole = true;
@@ -34,13 +39,13 @@ export const subscribePusherOnlineChannel = () => {
   const channel = pusher.subscribe(channelName);
 
   channel.bind('pusher:subscription_succeeded', (data) => {
-    console.log(data);
+    updateOnlineStatuses(data);
   });
   channel.bind('pusher:member_added', (data) => {
-    console.log(data);
+    updateOnlineStatusesMemberAdded(data);
   });
   channel.bind('pusher:member_removed', (data) => {
-    console.log(data);
+    updateOnlineStatusesMemberRemoved(data);
   });
 };
 
@@ -50,8 +55,8 @@ export const subscribePusherUserChannel = (user) => {
 
   const channel = pusher.subscribe(channelName);
 
-  channel.bind('pusher:subscription_succeeded', (data) => {
-    console.log(data);
+  channel.bind('pusher:subscription_succeeded', () => {
+    // empty
   });
   channel.bind('message', (data) => {
     console.log(data);
