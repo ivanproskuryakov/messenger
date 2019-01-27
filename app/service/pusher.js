@@ -10,6 +10,9 @@ import {
   updateOnlineStatusesMemberRemoved,
 } from './room';
 
+const EVENT_NEW_MESSAGE = 'message';
+const EVENT_READ_MESSAGE = 'read';
+
 const getPusher = (url) => {
   Pusher.logToConsole = true;
   Pusher.Runtime.createXHR = () => {
@@ -59,7 +62,13 @@ export const subscribePusherUserChannel = (user) => {
   channel.bind('pusher:subscription_succeeded', () => {
     // empty
   });
-  channel.bind('message', (data) => {
+  channel.bind(EVENT_NEW_MESSAGE, (data) => {
+    console.log(data);
+    console.log(data.room.id);
+
+    loadMessages(data.room.id); // Load messages for the last selected room
+  });
+  channel.bind(EVENT_READ_MESSAGE, (data) => {
     console.log(data);
     console.log(data.room.id);
 
