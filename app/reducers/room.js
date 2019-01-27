@@ -26,6 +26,7 @@ const room = (state = initialState, action) => {
     };
   }
   if (action.type === 'ROOM_ONLINE_UPDATE') {
+    console.log('ROOM_ONLINE_UPDATE', action.payload);
     return {
       ...state,
       collection: action.payload,

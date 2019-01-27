@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ChatBubbleOutline from '@material-ui/icons/ChatBubbleOutline';
 
 import Message from './Message';
 import MessageMy from './MessageMy';
@@ -41,11 +40,7 @@ class Messages extends React.Component {
       );
     }
 
-    return (
-      <section id="talk">
-        <ChatBubbleOutline className="noUserSelected" />
-      </section>
-    );
+    return '';
   }
 }
 
