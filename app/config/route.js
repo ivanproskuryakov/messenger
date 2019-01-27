@@ -1,9 +1,6 @@
-import params from './params';
+import params from './params/index';
 
 const host = params.API_HOST;
-
-console.log('API HOST ----->', host);
-
 const route = {
   URL_INDEX: `${host}`,
   URL_LOGOUT: `${host}/logout`,

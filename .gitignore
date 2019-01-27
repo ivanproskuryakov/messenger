@@ -1,3 +1,11 @@
+## Env specific parameters
+app/config/params/development.json
+app/config/params/production.json
+app/config/params/test.json
+
+# IntelliJ
+/out/
+
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio

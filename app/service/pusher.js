@@ -1,7 +1,7 @@
 import Pusher from 'pusher-js';
 import Cookies from 'js-cookie';
 
-import params from '../config/params';
+import params from '../config/params/index';
 import route from '../config/route';
 import { loadMessages } from './message/loader';
 import {
