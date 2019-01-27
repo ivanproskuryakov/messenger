@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import { Link } from 'react-router-dom';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import { calendarStringsUsers } from '../../helper/time';
 import MessageStatus from '../Message/Status';
@@ -36,6 +37,19 @@ class Room extends React.Component {
           <p className="name">{room.name}</p>
           <p className="lastMessage">{room.lastMessage.text}</p>
         </div>
+
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          autoHideDuration={1000}
+          open={false}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">{room.users[0].name} online</span>}
+        />
       </ListItem>
     );
   }
