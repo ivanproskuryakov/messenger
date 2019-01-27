@@ -105,11 +105,17 @@ class Heading extends React.Component {
     }
     return (
       <div className="heading">
-        <Avatar
-          src={selected.photo}
-          onClick={this.viewProfile}
-          className={`user ${classes.avatar}`}
-        />
+        <div className="profilePhoto __small">
+          <Avatar
+            src={selected.photo}
+            onClick={this.viewProfile}
+            className={`user ${classes.avatar}`}
+          />
+          {selected.users[0].online ? (
+            <div className="online" />
+          ) : null}
+        </div>
+
         <div className="name">
           {selected.name}
           <p className="activeAt">

@@ -10,4 +10,11 @@
     right: 5px;
     bottom: 3px;
   }
+
+  &.__small {
+    .online {
+      right: 0;
+      bottom: 1px;
+    }
+  }
 }

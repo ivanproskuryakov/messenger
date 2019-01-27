@@ -11,6 +11,7 @@ import {
   roomOnlineUpdateAction,
 } from '../actions/room';
 
+
 const buildRooms = (collection) => {
   const items = [];
 
@@ -81,7 +82,6 @@ export const updateOnlineStatusesMemberAdded = (member) => {
     updated.push(room);
   });
 
-  // Dispatch event
   store.dispatch(roomOnlineUpdateAction(updated));
 };
 
@@ -98,6 +98,5 @@ export const updateOnlineStatusesMemberRemoved = (member) => {
     updated.push(room);
   });
 
-  // Dispatch event
   store.dispatch(roomOnlineUpdateAction(updated));
 };
