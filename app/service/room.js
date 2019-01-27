@@ -55,48 +55,49 @@ export const loadRooms = () => {
 
 export const updateOnlineStatuses = (members) => {
   const rooms = store.getState().room.collection;
+  const updated = [];
 
-  rooms.map((room) => {
+  rooms.forEach((room) => {
     if (members.members[room.users[0].id]) {
       room.users[0].online = true;
     }
 
-    return room;
+    updated.push(room);
   });
-  console.log('updateOnlineStatuses', rooms);
 
-  // Dispatch event
-  store.dispatch(roomOnlineUpdateAction(rooms));
+  store.dispatch(roomOnlineUpdateAction(updated));
 };
 
 export const updateOnlineStatusesMemberAdded = (member) => {
   const rooms = store.getState().room.collection;
+  const updated = [];
 
-  rooms.map((room) => {
+  rooms.forEach((room) => {
     if (room.users[0].id === Number(member.id)) {
       room.users[0].online = true;
       console.log(`----> ${room.users[0].name} is Online`);
     }
 
-    return room;
+    updated.push(room);
   });
 
   // Dispatch event
-  store.dispatch(roomOnlineUpdateAction(rooms));
+  store.dispatch(roomOnlineUpdateAction(updated));
 };
 
 export const updateOnlineStatusesMemberRemoved = (member) => {
   const rooms = store.getState().room.collection;
+  const updated = [];
 
-  rooms.map((room) => {
+  rooms.forEach((room) => {
     if (room.users[0].id === Number(member.id)) {
       room.users[0].online = false;
       console.log(`----> ${room.users[0].name} is Offline`);
     }
 
-    return room;
+    updated.push(room);
   });
 
   // Dispatch event
-  store.dispatch(roomOnlineUpdateAction(rooms));
+  store.dispatch(roomOnlineUpdateAction(updated));
 };

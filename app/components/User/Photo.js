@@ -19,24 +19,15 @@ class Photo extends React.Component {
   render() {
     const { user, classes } = this.props;
 
-    if (user.online) {
-      return (
-        <div className="profilePhoto">
-          <Avatar
-            src={user.photo}
-            className={`avatar ${classes.avatar}`}
-          />
-          <div className="online" />
-        </div>
-      );
-    }
-
     return (
       <div className="profilePhoto">
         <Avatar
           src={user.photo}
           className={`avatar ${classes.avatar}`}
         />
+        {user.online ? (
+          <div className="online" />
+        ) : null}
       </div>
     );
   }
