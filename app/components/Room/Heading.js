@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import { roomSearchAction } from '../../actions/room';
 import store from '../../store';
 

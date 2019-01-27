@@ -1,7 +1,8 @@
 import Pusher from 'pusher-js';
 import Cookies from 'js-cookie';
 
-import config from '../config';
+import params from '../config/params';
+import route from '../config/route';
 import { loadMessages } from './message/loader';
 import {
   updateOnlineStatuses,
@@ -18,8 +19,8 @@ const getPusher = (url) => {
     return xhr;
   };
 
-  const pusher = new Pusher(config.PUSHER_KEY, {
-    cluster: config.PUSHER_CLUSTER,
+  const pusher = new Pusher(params.PUSHER_KEY, {
+    cluster: params.PUSHER_CLUSTER,
     authEndpoint: url,
     auth: {
       headers: {
@@ -33,7 +34,7 @@ const getPusher = (url) => {
 };
 
 export const subscribePusherOnlineChannel = () => {
-  const pusher = getPusher(config.URL_PUSHER_ONLINE);
+  const pusher = getPusher(route.URL_PUSHER_ONLINE);
   const channelName = 'presence-online';
 
   const channel = pusher.subscribe(channelName);
@@ -50,7 +51,7 @@ export const subscribePusherOnlineChannel = () => {
 };
 
 export const subscribePusherUserChannel = (user) => {
-  const pusher = getPusher(config.URL_PUSHER_AUTH);
+  const pusher = getPusher(route.URL_PUSHER_AUTH);
   const channelName = `presence-user-${user.id}`;
 
   const channel = pusher.subscribe(channelName);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '../../store';
 import httpOptions from '../../helper/http';
-import config from '../../config';
+import route from '../../config/route';
 
 /**
  * @param message
@@ -26,7 +26,7 @@ const readMessage = (message) => {
     return;
   }
 
-  const url = `${config.URL_MESSAGE_READ}/${message.id}/read`;
+  const url = `${route.URL_MESSAGE_READ}/${message.id}/read`;
 
   axios
     .post(url, {}, httpOptions)

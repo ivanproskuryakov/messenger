@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import store from '../../store';
-import config from '../../config';
+import route from '../../config/route';
 import httpOptions from '../../helper/http';
 import { insertMockToMessages, updateMockedMessage } from './loader';
 import { messageEditAction } from '../../actions/message';
@@ -29,7 +29,7 @@ export const sendMessage = () => {
   const state = store.getState();
   const { text } = state.message;
   const userId = state.room.selected.users[0].id;
-  const url = `${config.URL_MESSAGE_SEND_USER}/${userId}`;
+  const url = `${route.URL_MESSAGE_SEND_USER}/${userId}`;
 
   if (text.trim().length === 0) {
     return;

@@ -3,14 +3,13 @@ import axios from 'axios';
 import store from '../store';
 import { messageTextFlushAction } from '../actions/message';
 import { loadMessages } from './message/loader';
-import config from '../config';
+import route from '../config/route';
 import httpOptions from '../helper/http';
 import {
   roomCollectionLoadSuccessAction,
   roomSelectAction,
   roomOnlineUpdateAction,
 } from '../actions/room';
-
 
 const buildRooms = (collection) => {
   const items = [];
@@ -35,7 +34,7 @@ export const selectRoom = (room) => {
 export const loadRooms = () => {
   axios
     .get(
-      config.URL_ROOM,
+      route.URL_ROOM,
       httpOptions,
     )
     .then((response) => {

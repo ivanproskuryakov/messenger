@@ -21,7 +21,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 
 import { calendarStringsHeader } from '../../helper/time';
-import config from '../../config';
+import route from '../../config/route';
 
 const styles = ({
   icon: {
@@ -53,31 +53,31 @@ class Heading extends React.Component {
   };
 
   editSettings = () => {
-    location.href = config.URL_SETTINGS;
+    location.href = route.URL_SETTINGS;
   };
 
   logout = () => {
-    location.href = config.URL_LOGOUT;
+    location.href = route.URL_LOGOUT;
   };
 
   viewMyProfile = () => {
     const { me } = this.props;
 
     window.open(
-      `${config.URL_PROFILE}/${me.id}`,
+      `${route.URL_PROFILE}/${me.id}`,
       '_blank',
     );
   };
 
   viewHelp = () => {
-    location.href = config.URL_HELP;
+    location.href = route.URL_HELP;
   };
 
   viewProfile = () => {
     const { selected } = this.props;
 
     window.open(
-      `${config.URL_PROFILE}/${selected.users[0].id}`,
+      `${route.URL_PROFILE}/${selected.users[0].id}`,
       '_blank',
     );
   };

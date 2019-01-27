@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import config from '../config';
+import route from '../config/route';
 import httpOptions from '../helper/http';
 import store from '../store';
 import authorizeSuccessAction from '../actions/user';
@@ -9,12 +9,12 @@ import { subscribePusherUserChannel, subscribePusherOnlineChannel } from './push
 const authorizeUser = () => {
   axios
     .get(
-      config.URL_USER_AUTHORIZE_SUCCESS,
+      route.URL_USER_AUTHORIZE_SUCCESS,
       httpOptions,
     )
     .then((response) => {
       if (response.data == null) {
-        location.href = config.URL_INDEX;
+        location.href = route.URL_INDEX;
       } else {
         const user = response.data;
 

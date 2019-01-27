@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import store from '../../store';
-import config from '../../config';
+import route from '../../config/route';
 import httpOptions from '../../helper/http';
 import { messageCollectionLoadSuccessAction, messageSendAction } from '../../actions/message';
 
@@ -79,7 +79,7 @@ export const insertMockToMessages = (message) => {
 };
 
 export const loadMessages = (roomId) => {
-  const url = `${config.URL_ROOM}/${roomId}/messages`;
+  const url = `${route.URL_ROOM}/${roomId}/messages`;
 
   axios
     .get(
