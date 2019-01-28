@@ -1,6 +1,6 @@
 # Messenger app using React
 
-[![Travis](https://img.shields.io/travis/ivanproskuryakov/messenger/master.svg?style=flat-square)](https://github.com/ivanproskuryakov/messenger) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Build Status](https://travis-ci.com/ivanproskuryakov/messenger.svg?branch=master)](https://travis-ci.com/ivanproskuryakov/messenger) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Simple and optimized React Messenger. It includes: 
 
