@@ -4,7 +4,6 @@
       "isReadByAll": 1,
       "timestamp": 1522802050123,
       "text": "it is only that my head is different from yours.",
-      "readers": [],
       "id": 106
     },
     "timestamp": 1548288044000,
@@ -23,7 +22,6 @@
       "isReadByAll": 1,
       "timestamp": 1511800050723,
       "text": "It only that my head is different from yours.",
-      "readers": [],
       "id": 106
     },
     "timestamp": 1548288044000,
@@ -36,5 +34,149 @@
       }
     ],
     "id": 2
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1524102050723,
+      "text": "is only that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 3,
+        "name": "Plato",
+        "photo": "/api/photo/3.jpg",
+        "url": "https://www.google.com/search?q=Plato"
+      }
+    ],
+    "id": 3
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1544202050723,
+      "text": " that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 4,
+        "name": "Confucius",
+        "photo": "/api/photo/4.jpg",
+        "url": "https://www.google.com/search?q=Confucius"
+      }
+    ],
+    "id": 4
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1544202050723,
+      "text": "different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 5,
+        "name": "David Hume",
+        "photo": "/api/photo/5.jpg",
+        "url": "https://www.google.com/search?q=David Hume"
+      }
+    ],
+    "id": 5
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1544202050723,
+      "text": "is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 6,
+        "name": "Rene Descartes",
+        "photo": "/api/photo/6.jpg",
+        "url": "https://www.google.com/search?q=Rene Descartes"
+      }
+    ],
+    "id": 6
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1544202050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 7,
+        "name": "Socrates",
+        "photo": "/api/photo/7.jpg",
+        "url": "https://www.google.com/search?q=Socrates"
+      }
+    ],
+    "id": 7
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1114802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 8,
+        "name": "Niccolo Machiavelli",
+        "photo": "/api/photo/8.jpg",
+        "url": "https://www.google.com/search?q=Niccolo Machiavelli"
+      }
+    ],
+    "id": 8
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1114802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 8,
+        "name": "John Locke",
+        "photo": "/api/photo/9.jpg",
+        "url": "https://www.google.com/search?q=John Locke"
+      }
+    ],
+    "id": 9
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1114802050723,
+      "text": "It is not that I am mad, it is only that my head is different from yours.",
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 10,
+        "name": "Diogenes of Sinope",
+        "photo": "/api/photo/10.jpg",
+        "url": "https://www.google.com/search?q=Diogenes of Sinope"
+      }
+    ],
+    "id": 10
   }
 ]
