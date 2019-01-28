@@ -11,6 +11,13 @@ import authorizeUser from '../service/user';
 import Heading from './Room/Heading';
 
 const styles = theme => ({
+  sideNav: {
+    borderRight: '1px solid rgba(0, 0, 0, 0.1)',
+    width: '350px',
+    height: '100vh',
+    position: 'relative',
+    paddingTop: '1px',
+  },
   tabsRoot: {
     marginLeft: 0,
     borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
@@ -49,7 +56,7 @@ class Sidenav extends React.Component {
     const { classes } = this.props;
 
     return (
-      <aside id="sideNav">
+      <aside className={classes.sideNav}>
         <Tabs
           value={selectedTab}
           onChange={this.handleChange}
