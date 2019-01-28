@@ -1,74 +1,28 @@
 [
   {
-    "id": 1,
-    "timestamp": 1544802050823,
-    "text": "It is not that I am mad, it is only that my head is different from yours.",
+    "isReadByAll": 1,
+    "timestamp": 1548288044000,
+    "text": "test2",
     "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 2,
-    "timestamp": 1544802050723,
-    "text": "Of what use is a philosopher who doesn't hurt anybody's feelings?",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 3,
-    "timestamp": 1544802050623,
-    "text": "Why are you looking attentively at a pile of ...",
-    "user": {
-      "id": 2
-    }
-  },
-  {
-    "id": 4,
-    "timestamp": 1544802050523,
-    "text": "human bones?",
-    "user": {
-      "id": 2
-    }
-  },
-  {
-    "id": 5,
-    "timestamp": 1544802050423,
-    "text": "I am searching for the bones of your father but cannot distinguish them from those of a slave.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 6,
-    "timestamp": 1544802050323,
-    "text": "... ?",
-    "user": {
-      "id": 2
-    }
-  },
-  {
-    "id": 7,
-    "timestamp": 1544802050223,
-    "text": "It is the privilege of the gods to want nothing, and of godlike men to want little.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 8,
-    "timestamp": 1544802050123,
-    "text": "Blushing is the color of virtue.",
-    "user": {
-      "id": 1
-    }
-  },
-  {
-    "id": 9,
-    "timestamp": 1544802050023,
-    "text": "What was the proper time for lunch?",
-    "user": {
-      "id": 2
-    }
+      "id": 45195
+    },
+    "readers": [
+      {
+        "timestamp": 1548340572000,
+        "user": {
+          "id": 8
+        },
+        "id": 30
+      },
+      {
+        "timestamp": 1548288044000,
+        "user": {
+          "id": 45195
+        },
+        "id": 2
+      }
+    ],
+    "notifiedAt": "2019-01-24T18:47:06+0000",
+    "id": 2
   }
 ]
