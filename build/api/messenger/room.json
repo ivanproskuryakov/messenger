@@ -191,7 +191,7 @@
       {
         "id": 11,
         "name": "Laozi",
-        "photo": "/user/11.jpg",
+        "photo": "/api/photo/11.jpg",
         "url": "https://www.google.com/search?q=Laozi"
       }
     ],
@@ -209,7 +209,7 @@
       {
         "id": 12,
         "name": "Baruch Spinoza",
-        "photo": "/user/12.jpg",
+        "photo": "/api/photo/12.jpg",
         "url": "https://www.google.com/search?q=Baruch Spinoza"
       }
     ],

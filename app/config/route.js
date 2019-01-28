@@ -13,6 +13,7 @@ const route = {
 
   URL_USER_AUTHORIZE: `${host}/api/messenger/me.json`,
   URL_ROOM: `${host}/api/messenger/room.json`,
+  URL_ROOM_MESSAGES: `${host}/api/messenger/room/`,
   URL_MESSAGE_SEND_USER: `${host}/api/messenger/message/user`,
   URL_MESSAGE_READ: `${host}/api/messenger/message`,
 };

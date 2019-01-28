@@ -28,6 +28,12 @@ Make sure you have the latest Stable or LTS version of Node.js installed.
 3. Start the dev server using `npm start`
 3. Open [http://0.0.0.0:8080](http://localhost:8080)
 
+## Services
+Notification & signals across users are build on top of pusher, see https://pusher.com/, where:
+ 
+- `presence-online` - share and display online presence of users
+- `presence-user-X` - realtime message delivery across users of a room(chat) 
+
 ## Available Commands
 
 - `npm start` - start the dev server

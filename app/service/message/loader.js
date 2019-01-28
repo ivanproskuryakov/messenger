@@ -79,7 +79,7 @@ export const insertMockToMessages = (message) => {
 };
 
 export const loadMessages = (roomId) => {
-  const url = `${route.URL_ROOM}/${roomId}/messages`;
+  const url = `${route.URL_ROOM_MESSAGES}/${roomId}.json`;
 
   axios
     .get(
