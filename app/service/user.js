@@ -9,7 +9,7 @@ import { subscribePusherUserChannel, subscribePusherOnlineChannel } from './push
 const authorizeUser = () => {
   axios
     .get(
-      route.URL_USER_AUTHORIZE_SUCCESS,
+      route.URL_USER_AUTHORIZE,
       httpOptions,
     )
     .then((response) => {

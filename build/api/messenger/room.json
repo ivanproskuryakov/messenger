@@ -1,0 +1,40 @@
+[
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1522802050123,
+      "text": "it is only that my head is different from yours.",
+      "readers": [],
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 8,
+        "name": "Aristotle",
+        "photo": "/api/photo/1.jpg",
+        "url": "https://www.google.com/search?q=Aristotle"
+      }
+    ],
+    "id": 1
+  },
+  {
+    "lastMessage": {
+      "isReadByAll": 1,
+      "timestamp": 1511800050723,
+      "text": "It only that my head is different from yours.",
+      "readers": [],
+      "id": 106
+    },
+    "timestamp": 1548288044000,
+    "users": [
+      {
+        "id": 2,
+        "name": "Immanuel Kant",
+        "photo": "/api/photo/2.jpg",
+        "url": "https://www.google.com/search?q=Immanuel Kant"
+      }
+    ],
+    "id": 2
+  }
+]

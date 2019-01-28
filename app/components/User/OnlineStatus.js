@@ -27,8 +27,6 @@ class OnlineStatus extends React.Component {
   render() {
     const { user, classes, small } = this.props;
 
-    console.log(small);
-
     if (user.online) {
       if (small) {
         return (
