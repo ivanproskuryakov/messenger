@@ -4,7 +4,6 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar/Avatar';
 import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 
@@ -22,12 +21,9 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 
 import { calendarStringsHeader } from '../../helper/time';
 import route from '../../config/route';
-import OnlineStatus from '../User/OnlineStatus';
+import PhotoSmall from '../User/PhotoSmall';
 
 const styles = ({
-  profilePhoto: {
-    position: 'relative',
-  },
   icon: {
     margin: 0,
   },
@@ -77,15 +73,6 @@ class Heading extends React.Component {
     location.href = route.URL_HELP;
   };
 
-  viewProfile = () => {
-    const { selected } = this.props;
-
-    window.open(
-      `${route.URL_PROFILE}/${selected.users[0].id}`,
-      '_blank',
-    );
-  };
-
   clearSearch = () => {
     this.setState({ search: '' });
   };
@@ -107,16 +94,10 @@ class Heading extends React.Component {
     if (!selected.name) {
       return '';
     }
+
     return (
       <div className="heading">
-        <div className={classes.profilePhoto}>
-          <Avatar
-            src={selected.photo}
-            onClick={this.viewProfile}
-            className={`user ${classes.avatar}`}
-          />
-          <OnlineStatus user={selected.users[0]} />
-        </div>
+        <PhotoSmall user={selected.users[0]} />
 
         <div className="name">
           {selected.name}

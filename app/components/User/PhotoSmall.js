@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 import OnlineStatus from './OnlineStatus';
+import route from '../../config/route';
 
 const styles = ({
   profilePhoto: {
@@ -11,12 +12,21 @@ const styles = ({
   },
   avatar: {
     margin: 0,
-    width: 60,
-    height: 60,
+    width: 35,
+    height: 35,
   },
 });
 
-class Photo extends React.Component {
+class PhotoSmall extends React.Component {
+  viewProfile = () => {
+    const { user } = this.props;
+
+    window.open(
+      `${route.URL_PROFILE}/${user.id}`,
+      '_blank',
+    );
+  };
+
   render() {
     const { user, classes } = this.props;
 
@@ -24,7 +34,8 @@ class Photo extends React.Component {
       <div className={classes.profilePhoto}>
         <Avatar
           src={user.photo}
-          className={`avatar ${classes.avatar}`}
+          onClick={this.viewProfile}
+          className={`user ${classes.avatar}`}
         />
         <OnlineStatus user={user} />
       </div>
@@ -32,10 +43,10 @@ class Photo extends React.Component {
   }
 }
 
-Photo.propTypes = {
+PhotoSmall.propTypes = {
   classes: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Photo);
+export default withStyles(styles)(PhotoSmall);
 
