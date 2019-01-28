@@ -74,9 +74,7 @@ class Sidenav extends React.Component {
             classes={{ root: classes.tabRoot }}
           />
         </Tabs>
-        <div id="roomSearch">
-          <Heading />
-        </div>
+        <Heading />
         <Rooms />
       </aside>
     );

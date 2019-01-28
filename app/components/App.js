@@ -4,10 +4,31 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MoonLoader from 'react-spinners/BarLoader';
+import { withStyles } from '@material-ui/core';
 
 import Messages from './Message/Messages';
 import authorizeUser from '../actions/user';
 import Sidenav from './Sidenav';
+
+const styles = {
+  loading: {
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    height: '100%',
+    width: '100%',
+    zIndex: 123,
+    background: '#fff',
+    textAlign: 'center',
+  },
+  spinner: {
+    top: '50%',
+    left: '50%',
+    position: 'absolute',
+    marginLeft: '-50px',
+    marginTop: '-25px',
+  },
+};
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,7 +36,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { me } = this.props;
+    const { me, classes } = this.props;
     const isLoading = me.id === undefined;
 
     return (
@@ -24,15 +45,16 @@ class App extends React.Component {
         <Router>
           <div id="layout">
             {isLoading ? (
-              <div id="loading">
-                <MoonLoader
-                  class="loading"
-                  sizeUnit="px"
-                  size={50}
-                  height={3}
-                  color="#2d7cc1"
-                  loading={isLoading}
-                />
+              <div id="loading" className={classes.loading}>
+                <div className={classes.spinner}>
+                  <MoonLoader
+                    sizeUnit="px"
+                    size={50}
+                    height={3}
+                    color="#2d7cc1"
+                    loading={isLoading}
+                  />
+                </div>
               </div>
             ) : ('')}
 
@@ -48,6 +70,7 @@ class App extends React.Component {
 
 App.propTypes = {
   me: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -56,5 +79,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default withStyles(styles)(connect(mapStateToProps)(App));
 
