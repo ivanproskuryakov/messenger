@@ -10,7 +10,9 @@ import store from '../../store';
 
 const styles = {
   header: {
-    padding: 10,
+    padding: 6,
+    borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+    height: 49,
   },
 };
 

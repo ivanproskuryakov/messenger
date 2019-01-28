@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 import Rooms from './Room/Rooms';
 import authorizeUser from '../service/user';
@@ -39,48 +37,15 @@ const styles = theme => ({
 });
 
 class Sidenav extends React.Component {
-  state = {
-    selectedTab: 0,
-  };
-
   componentDidMount() {
     authorizeUser();
   }
 
-  handleChange = (event, selectedTab) => {
-    this.setState({ selectedTab });
-  };
-
   render() {
-    const { selectedTab } = this.state;
     const { classes } = this.props;
 
     return (
       <aside className={classes.sideNav}>
-        <Tabs
-          value={selectedTab}
-          onChange={this.handleChange}
-          classes={{
-            root: classes.tabsRoot,
-            indicator: classes.tabsIndicator,
-          }}
-        >
-          <Tab
-            label="Profiles"
-            disableRipple
-            classes={{ root: classes.tabRoot }}
-          />
-          <Tab
-            label="Properties"
-            disabled
-            classes={{ root: classes.tabRoot }}
-          />
-          <Tab
-            label="Stories"
-            disabled
-            classes={{ root: classes.tabRoot }}
-          />
-        </Tabs>
         <Heading />
         <Rooms />
       </aside>
