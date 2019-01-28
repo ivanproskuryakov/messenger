@@ -22,8 +22,12 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 
 import { calendarStringsHeader } from '../../helper/time';
 import route from '../../config/route';
+import OnlineStatus from '../User/OnlineStatus';
 
 const styles = ({
+  profilePhoto: {
+    position: 'relative',
+  },
   icon: {
     margin: 0,
   },
@@ -105,15 +109,13 @@ class Heading extends React.Component {
     }
     return (
       <div className="heading">
-        <div className="profilePhoto __small">
+        <div className={classes.profilePhoto}>
           <Avatar
             src={selected.photo}
             onClick={this.viewProfile}
             className={`user ${classes.avatar}`}
           />
-          {selected.users[0].online ? (
-            <div className="online" />
-          ) : null}
+          <OnlineStatus user={selected.users[0]} />
         </div>
 
         <div className="name">

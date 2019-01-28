@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
+import OnlineStatus from './OnlineStatus';
+
 const styles = ({
+  profilePhoto: {
+    position: 'relative',
+  },
   icon: {
     fontSize: 14,
     margin: 0,
@@ -20,14 +25,12 @@ class Photo extends React.Component {
     const { user, classes } = this.props;
 
     return (
-      <div className="profilePhoto">
+      <div className={classes.profilePhoto}>
         <Avatar
           src={user.photo}
           className={`avatar ${classes.avatar}`}
         />
-        {user.online ? (
-          <div className="online" />
-        ) : null}
+        <OnlineStatus user={user} />
       </div>
     );
   }
