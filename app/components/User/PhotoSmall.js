@@ -37,7 +37,7 @@ class PhotoSmall extends React.Component {
           onClick={this.viewProfile}
           className={`user ${classes.avatar}`}
         />
-        <OnlineStatus user={user} />
+        <OnlineStatus user={user} small />
       </div>
     );
   }
