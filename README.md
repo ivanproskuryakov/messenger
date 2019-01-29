@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.com/ivanproskuryakov/messenger.svg?branch=master)](https://travis-ci.com/ivanproskuryakov/messenger) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+<img width="800" alt="React Messenger Screenshot" src="https://raw.githubusercontent.com/ivanproskuryakov/messenger/master/.demo/index.png"/>
 
-[Demo]: https://github.com/ivanproskuryakov/messenger/tree/master/.demo/index.png "React Messenger Screenshot"
 
 Simple and optimized React Messenger. It includes: 
 
-- [x] React 16.5.2
+- [x] React 16.5.8
 - [x] ECMAScript 6+ and JSX support
 - [x] React Router v4
 - [x] Component testing using [Enzyme](https://github.com/airbnb/enzyme) and [Jest](https://facebook.github.io/jest)
