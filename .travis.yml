@@ -14,7 +14,7 @@ node_js:
   - "lts/*"
 before_install:
   - npm i -g npm
-  - sudo cp -f .dist/params/development.json app/config/params/development.json
+  - sudo cp -f .dist/params/test.json app/config/params/test.json
 before_script:
   - npm prune
 script:
