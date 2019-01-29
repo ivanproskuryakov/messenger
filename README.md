@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/ivanproskuryakov/messenger.svg?branch=master)](https://travis-ci.com/ivanproskuryakov/messenger) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+
+[Demo]: https://github.com/ivanproskuryakov/messenger/tree/master/.demo/index.png "React Messenger Screenshot"
+
 Simple and optimized React Messenger. It includes: 
 
 - [x] React 16.5.2
