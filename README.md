@@ -29,6 +29,7 @@ Make sure you have the latest Stable or LTS version of Node.js installed.
 1. `git clone https://github.com/ivanproskuryakov/messenger`
 2. Run `npm install` or `yarn install`
 3. Start the dev server using `npm start`
+3. Copy files from `.dist/params/` `to app/config/params/` and adjust
 3. Open [http://0.0.0.0:8080](http://localhost:8080)
 
 ## Services
