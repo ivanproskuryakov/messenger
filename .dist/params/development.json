@@ -1,5 +1,5 @@
 {
-  "API_HOST": "",
+  "API_HOST": "http://0.0.0.0:8080",
   "PUSHER_KEY": "",
   "PUSHER_CLUSTER": ""
 }
