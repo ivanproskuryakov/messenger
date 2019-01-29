@@ -5,7 +5,7 @@
 <img width="800" alt="React Messenger Screenshot" src="https://raw.githubusercontent.com/ivanproskuryakov/messenger/master/.demo/index.png"/>
 
 
-Simple and optimized React Messenger. It includes: 
+Simple and optimized React Messenger[(See Demo)](http://messenger.magazento.com/). It includes: 
 
 - [x] React 16.5.8
 - [x] ECMAScript 6+ and JSX support
