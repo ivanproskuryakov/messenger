@@ -11,7 +11,6 @@ Object.assign(config, {
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
     './app.js',
-    './styles/scss/main.scss',
   ],
   output: {
     filename: 'bundle.js',

@@ -1,10 +1,14 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb"
+  ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "impliedStrict": true,
+      "experimentalObjectRestSpread": true
     }
   },
   "env": {
@@ -13,15 +17,35 @@
     "mocha": true,
     "es6": true
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
   "rules": {
+    "react/no-unused-class-component-methods": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-props-no-multi-spaces": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/accessible-emoji": "off",
     "no-restricted-globals": "off",
+    "prefer-destructuring": "off",
+    "no-shadow": "off",
     "no-plusplus": "off",
     "no-console": "off",
     "no-param-reassign": "off",
     "space-before-function-paren": "off",
+    "react/prefer-stateless-function": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-unresolved": "off",
+    "import/no-import-module-exports": "off",
     "react/forbid-prop-types": "off",
-    "react/prefer-stateless-function": "warn",
     "react/jsx-one-expression-per-line": "off",
+    "object-curly-newline": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -31,6 +55,22 @@
         ]
       }
     ],
+    "react/sort-comp": [1, {
+      "groups": {
+        "lifecyle": [
+          "constructor",
+          "propTypes",
+          "contextTypes",
+          "statics",
+          "defaultProps",
+          "componentWillMount",
+          "componentDidMount",
+          "componentWillUpdate",
+          "componentDidUpdate",
+          "componentWillUnmount"
+        ]
+      }
+    }],
     "linebreak-style": "off",
     "global-require": "off",
     "semi": "warn",

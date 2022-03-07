@@ -15,7 +15,7 @@ const modulePaths = {
   service: './src/service',
   event: './src/event',
   listener: './src/listener',
-  styles: './src/styles',
+  assets: './src/assets',
 };
 
 const config = {

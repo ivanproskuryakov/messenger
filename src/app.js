@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
-import store from './store/index';
+import App from 'components/App';
+import store from 'store/index';
+
+import 'assets/scss/main.scss';
 
 const render = (Component) => {
   ReactDOM.render(

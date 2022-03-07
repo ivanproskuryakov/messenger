@@ -1,0 +1,54 @@
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+ij_javascript_spaces_within_object_literal_braces = true
+ij_javascript_spaces_within_imports = true
+
+[{.babelrc, .prettierrc, .stylelintrc, .eslintrc, jest.config, *.json, *.jsb3, *.jsb2, *.bowerrc}]
+indent_style = space
+indent_size = 2
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[{*.ats, *.ts}]
+indent_style = space
+indent_size = 2
+
+[*.tsx]
+indent_style = space
+indent_size = 2
+
+[{*.es6, *.mjs}]
+indent_style = space
+indent_size = 2
+
+[*.js.flow]
+indent_style = space
+indent_size = 2
+
+[*.jsx]
+indent_style = space
+indent_size = 2
+
+[{tsconfig.spec.json, tsconfig.app.json, tsconfig.json, tsconfig.e2e.json}]
+indent_style = space
+indent_size = 2
+
+[*.js.map]
+indent_style = space
+indent_size = 2
+
+[*.scss]
+indent_style = space
+indent_size = 2
+
+[{.analysis_options, *.yaml, *.yml}]
+indent_style = space
+indent_size = 2
+
