@@ -1,162 +1,72 @@
-const { resolve } = require('path');
+const _ = require('lodash');
+const { join, resolve } = require('path');
 
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const modulePaths = {
+  api: './src/api',
+  components: './src/components',
+  containers: './src/containers',
+  routes: './src/routes',
+  config: './src/config',
+  helper: './src/helper',
+  action: '/src/redux/action',
+  reducer: './src/redux/reducer',
+  store: './src/redux/store',
+  type: './src/redux/type',
+  service: './src/service',
+  event: './src/event',
+  listener: './src/listener',
+  styles: './src/styles',
+};
 
 const config = {
-  stats: {
-    maxModules: 0,
-  },
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
-
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
-    './main.js',
-    './assets/scss/main.scss',
-  ],
-
-  output: {
-    filename: 'bundle.js',
-    path: resolve(__dirname, 'dist'),
-    publicPath: '',
-  },
-
-  context: resolve(__dirname, 'app'),
-
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, 'build'),
-    historyApiFallback: true,
-    publicPath: '/',
-    disableHostCheck: true,
-  },
-
+  context: resolve(__dirname, 'src'),
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      ..._.mapValues(modulePaths, str => join(process.cwd(), ...str.split('/'))),
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
-
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-      {
-        test: /\.jsx?$/,
-        loaders: [
-          'babel-loader',
-        ],
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              query: {
-                sourceMap: false,
-              },
-            },
-          ],
-          publicPath: '../',
-        })),
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [
           {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              mimetype: 'image/png',
-              name: 'images/[name].[ext]',
-            },
+            loader: 'file-loader',
           },
         ],
       },
       {
-        test: /\.eot(\?v=\d+.\d+.\d+)?$/,
+        test: /\.(ttf|eot|woff|woff2|otf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'fonts/[name].[ext]',
+              name: '[hash].[ext]',
+              outputPath: 'fonts/',
             },
           },
         ],
       },
       {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              mimetype: 'application/font-woff',
-              name: 'fonts/[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              mimetype: 'application/octet-stream',
-              name: 'fonts/[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              mimetype: 'image/svg+xml',
-              name: 'images/[name].[ext]',
-            },
-          },
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
         ],
       },
     ],
   },
-
-  plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-      options: {
-        eslint: {
-          configFile: resolve(__dirname, '.eslintrc'),
-          cache: false,
-        },
-      },
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({
-      filename: './styles/style.css',
-      disable: false,
-      allChunks: true,
-    }),
-    new OpenBrowserPlugin({ url: 'http://0.0.0.0:8080' }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
 };
 
 module.exports = config;

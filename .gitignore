@@ -1,7 +1,7 @@
 ## Env specific parameters
-app/config/params/development.json
-app/config/params/production.json
-app/config/params/test.json
+src/config/params/development.json
+src/config/params/production.json
+src/config/params/test.json
 
 # IntelliJ
 /out/
