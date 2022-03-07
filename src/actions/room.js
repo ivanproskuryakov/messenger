@@ -1,8 +1,8 @@
-export const roomSearchAction = name => ({
+export const roomSearchAction = (name) => ({
   type: 'ROOM_SEARCH',
   payload: name,
 });
-export const roomSelectAction = room => ({
+export const roomSelectAction = (room) => ({
   type: 'ROOM_SELECT',
   payload: room,
 });
@@ -13,7 +13,7 @@ export const roomCollectionLoadSuccessAction = (collection, selected) => ({
     selected,
   },
 });
-export const roomOnlineUpdateAction = collection => ({
+export const roomOnlineUpdateAction = (collection) => ({
   type: 'ROOM_ONLINE_UPDATE',
   payload: collection,
 });

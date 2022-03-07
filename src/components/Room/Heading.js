@@ -1,9 +1,9 @@
 import React from 'react';
-import Search from '@material-ui/icons/Search';
-import Close from '@material-ui/icons/Close';
+import Search from '@mui/icons-material/Search';
+import Close from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@mui/material';
 
 import { roomSearchAction } from '../../actions/room';
 import store from '../../store';

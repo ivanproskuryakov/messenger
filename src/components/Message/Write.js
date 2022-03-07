@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from '@material-ui/core/IconButton';
-import AttachFile from '@material-ui/icons/AttachFile';
-import Send from '@material-ui/icons/Send';
-import { withStyles } from '@material-ui/core/styles';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Paper from '@material-ui/core/Paper';
-import Face from '@material-ui/icons/Face';
+import IconButton from '@mui/material/IconButton';
+import AttachFile from '@mui/icons-material/AttachFile';
+import Send from '@mui/icons-material/Send';
+import { withStyles } from '@mui/material/styles';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Paper from '@mui/material/Paper';
+import Face from '@mui/icons-material/Face';
 import { Picker } from 'emoji-mart';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 
 import { sendMessage, editText } from '../../service/message/editor';
 
-const styles = theme => ({
+const styles = (theme) => ({
   button: {
     margin: theme.spacing.unit,
   },
@@ -30,7 +30,7 @@ class Write extends React.Component {
   }
 
   showEmoji = () => {
-    this.setState(state => ({
+    this.setState((state) => ({
       emojiOpened: !state.emojiOpened,
     }));
   };
@@ -74,7 +74,7 @@ class Write extends React.Component {
                 id="buttonEmoji"
                 color="default"
                 className={classes.button}
-                onClick={event => this.showEmoji(event, emojiOpened)}
+                onClick={(event) => this.showEmoji(event, emojiOpened)}
                 component="span"
               >
                 <Face />

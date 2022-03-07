@@ -7,7 +7,7 @@ const initialState = {
 const queryCollection = (query) => {
   return initialState
     .collection
-    .filter(item => item.name.toLowerCase()
+    .filter((item) => item.name.toLowerCase()
       .match(query));
 };
 

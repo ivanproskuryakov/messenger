@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
-import DoneAll from '@material-ui/icons/DoneAll';
-import Done from '@material-ui/icons/Done';
+import { withStyles } from '@mui/material';
+import DoneAll from '@mui/icons-material/DoneAll';
+import Done from '@mui/icons-material/Done';
 
 const styles = ({
   icon: {

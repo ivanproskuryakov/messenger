@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
+import { withStyles } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
 import { connect } from 'react-redux';
-import PeopleOutline from '@material-ui/icons/PeopleOutline';
+import PeopleOutline from '@mui/icons-material/PeopleOutline';
 
 import Room from './Room';
 import { selectRoom, loadRooms } from '../../service/room';
@@ -50,11 +50,11 @@ class Rooms extends React.Component {
       <aside id="rooms">
         <div className="items">
           <List component="nav" className={classes.List}>
-            {collection.map(room => (
+            {collection.map((room) => (
               <ListItem
                 key={room.name}
                 button
-                onClick={event => this.onRoomClick(event, room)}
+                onClick={(event) => this.onRoomClick(event, room)}
                 className={`userItem ${selected.id === room.id ? '__active' : ''} ${classes.ListItem}`}
               >
                 <Room

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem/ListItem';
+import { withStyles } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem/ListItem';
 import { Link } from 'react-router-dom';
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
 
 import { calendarStringsUsers } from '../../helper/time';
 import MessageStatus from '../Message/Status';

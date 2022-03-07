@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import MoonLoader from 'react-spinners/BarLoader';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@mui/material';
 
 import Messages from './Message/Messages';
 import authorizeUser from '../actions/user';
@@ -40,7 +40,7 @@ class App extends React.Component {
     const isLoading = me.id === undefined;
 
     return (
-      <React.Fragment>
+      <>
         <CssBaseline />
         <Router>
           <div id="layout">
@@ -63,7 +63,7 @@ class App extends React.Component {
 
           </div>
         </Router>
-      </React.Fragment>
+      </>
     );
   }
 }

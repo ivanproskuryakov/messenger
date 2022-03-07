@@ -1,4 +1,4 @@
-export const messageSendAction = messages => ({
+export const messageSendAction = (messages) => ({
   type: 'MESSAGE_SEND',
   payload: messages,
 });

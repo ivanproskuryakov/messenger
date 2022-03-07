@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar/Avatar';
+import { withStyles } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar/Avatar';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 

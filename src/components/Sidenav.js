@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/material/styles';
 
 import Rooms from './Room/Rooms';
 import authorizeUser from '../service/user';
 import Heading from './Room/Heading';
 
-const styles = theme => ({
+const styles = (theme) => ({
   sideNav: {
     borderRight: '1px solid rgba(0, 0, 0, 0.1)',
     width: '350px',
