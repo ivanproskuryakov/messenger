@@ -39,10 +39,14 @@ const styles = ({
 });
 
 class Heading extends React.Component {
-  state = {
-    search: '',
-    anchorEl: null,
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      search: '',
+      anchorEl: null,
+    };
+  }
 
   closeMenu = () => {
     this.setState({ anchorEl: null });

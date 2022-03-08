@@ -20,13 +20,12 @@ const styles = (theme) => ({
 });
 
 class Write extends React.Component {
-  state = {
-    emojiOpened: false,
-  };
-
   constructor(props) {
     super(props);
     this.props = props;
+    this.state = {
+      emojiOpened: false,
+    };
   }
 
   showEmoji = () => {

@@ -9,12 +9,7 @@ const modulePaths = {
   config: './src/config',
   helper: './src/helper',
   action: '/src/redux/action',
-  reducer: './src/redux/reducer',
-  store: './src/redux/store',
-  type: './src/redux/type',
   service: './src/service',
-  event: './src/event',
-  listener: './src/listener',
   assets: './src/assets',
 };
 

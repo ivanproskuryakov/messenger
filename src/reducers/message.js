@@ -4,7 +4,7 @@ const initialState = {
   search: '',
 };
 
-const message = (state = initialState, action) => {
+const message = (state = initialState, action = {}) => {
   // Messages
   if (action.type === 'MESSAGE_SEND') {
     return {

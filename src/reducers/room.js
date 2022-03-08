@@ -11,7 +11,7 @@ const queryCollection = (query) => {
       .match(query));
 };
 
-const room = (state = initialState, action) => {
+const room = (state = initialState, action = {}) => {
   if (action.type === 'ROOM_SELECT') {
     return {
       ...state,

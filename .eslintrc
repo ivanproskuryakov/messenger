@@ -34,6 +34,7 @@
     "jsx-a11y/accessible-emoji": "off",
     "no-restricted-globals": "off",
     "prefer-destructuring": "off",
+    "class-methods-use-this": "off",
     "no-shadow": "off",
     "no-plusplus": "off",
     "no-console": "off",

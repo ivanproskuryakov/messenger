@@ -54,13 +54,15 @@ class Room extends React.Component {
     );
   }
 }
-
 Room.propTypes = {
   room: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     photo: PropTypes.string,
     lastMessage: PropTypes.object,
+    users: PropTypes.shape({
+      name: PropTypes.string,
+    }),
   }).isRequired,
 };
 

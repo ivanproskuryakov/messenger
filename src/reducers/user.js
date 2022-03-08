@@ -2,7 +2,7 @@ const initialState = {
   me: {},
 };
 
-const user = (state = initialState, action) => {
+const user = (state = initialState, action = {}) => {
   if (action.type === 'USER_AUTHORIZE_SUCCESS') {
     return {
       ...state,

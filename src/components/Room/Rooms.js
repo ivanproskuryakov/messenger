@@ -6,9 +6,9 @@ import List from '@mui/material/List';
 import { connect } from 'react-redux';
 import PeopleOutline from '@mui/icons-material/PeopleOutline';
 
-import Room from './Room';
-import { selectRoom, loadRooms } from '../../service/room';
-import { loadMessages } from '../../service/message/loader';
+import Room from 'components/Room/Room';
+import { selectRoom, loadRooms } from 'service/room';
+import { loadMessages } from 'service/message/loader';
 
 const styles = ({
   List: {
