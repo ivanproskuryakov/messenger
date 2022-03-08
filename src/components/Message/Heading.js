@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import Search from '@mui/icons-material/Search';
 import Close from '@mui/icons-material/Close';
 
@@ -205,5 +205,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Heading));
+export default makeStyles(styles)(connect(mapStateToProps)(Heading));
 

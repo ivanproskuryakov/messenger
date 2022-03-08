@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 
 import Rooms from './Room/Rooms';
 import authorizeUser from '../service/user';
@@ -64,5 +64,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Sidenav));
+export default makeStyles(styles)(connect(mapStateToProps)(Sidenav));
 

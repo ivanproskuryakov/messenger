@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import Avatar from '@mui/material/Avatar';
 
 import OnlineStatus from './OnlineStatus';
@@ -48,5 +48,5 @@ PhotoSmall.propTypes = {
   user: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PhotoSmall);
+export default makeStyles(styles)(PhotoSmall);
 

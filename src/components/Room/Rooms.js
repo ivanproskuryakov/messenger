@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import { connect } from 'react-redux';
@@ -93,4 +93,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Rooms));
+export default makeStyles(styles)(connect(mapStateToProps)(Rooms));

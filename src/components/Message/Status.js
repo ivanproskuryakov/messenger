@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import DoneAll from '@mui/icons-material/DoneAll';
 import Done from '@mui/icons-material/Done';
 
@@ -40,4 +40,4 @@ MessageStatus.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MessageStatus);
+export default makeStyles(styles)(MessageStatus);

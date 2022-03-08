@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CssBaseline from '@mui/material/CssBaseline';
 import MoonLoader from 'react-spinners/BarLoader';
-import { withStyles } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 import Messages from './Message/Messages';
 import authorizeUser from '../actions/user';
@@ -79,5 +79,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(App));
+export default makeStyles(styles)(connect(mapStateToProps)(App));
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 
 const styles = ({
   default: {
@@ -51,5 +51,5 @@ OnlineStatus.defaultProps = {
   small: false,
 };
 
-export default withStyles(styles)(OnlineStatus);
+export default makeStyles(styles)(OnlineStatus);
 

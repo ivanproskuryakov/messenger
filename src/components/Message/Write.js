@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
 import AttachFile from '@mui/icons-material/AttachFile';
 import Send from '@mui/icons-material/Send';
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Paper from '@mui/material/Paper';
 import Face from '@mui/icons-material/Face';
@@ -122,5 +122,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Write));
+export default makeStyles(styles)(connect(mapStateToProps)(Write));
 

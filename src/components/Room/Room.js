@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import { withStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import ListItem from '@mui/material/ListItem/ListItem';
 import { Link } from 'react-router-dom';
 import Snackbar from '@mui/material/Snackbar';
@@ -66,5 +66,5 @@ Room.propTypes = {
   }).isRequired,
 };
 
-export default withStyles(styles)(Room);
+export default makeStyles(styles)(Room);
 

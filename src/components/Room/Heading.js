@@ -3,7 +3,7 @@ import Search from '@mui/icons-material/Search';
 import Close from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 import { roomSearchAction } from '../../actions/room';
 import store from '../../store';
@@ -69,4 +69,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(Heading));
+export default makeStyles(styles)(connect(mapStateToProps)(Heading));
